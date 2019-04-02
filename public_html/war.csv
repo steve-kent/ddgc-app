@@ -1,0 +1,20 @@
+WATER CASUAL,,,,,,,,,,,
+Hole,Course,Tee,Pad,Pin,OB,,Hole,Course,Tee,Pad,Pin
+1,Alpha,1,Long,Red [c],,,1,Alpha,1,Long,Red [c]
+2,Alpha ,1,Long,Yellow [d],,,2,Alpha ,2,Short ,Red [a]
+3,Alpha,2,Long,Red [a],,,3,Alpha,2,Short ,Alpha 3 Yellow [b]
+4,Alpha ,2,Short,Red [a],,,4,Alpha ,4,Long,Red [b]
+5,Alpha ,6,Long,Red [a],,,5,Alpha,5,Long,Yellow [d]
+6,Alpha ,6,Short,Yellow [b],,,6,Alpha,6,Long,Red [a]
+7,Alpha ,7,Long,Red [a],,,7,Alpha ,7,Short ,Yellow [c]
+8,Alpha ,8,Long,Yellow [c],,,8,Alpha ,8,Long,Yellow [c]
+9,Alpha,9,Long ,Yellow [d],,,9,Alpha ,9,Long,Alpha 13 Red [fence] 
+10,Alpha ,11,Long ,Red [a],,,10,Alpha ,14,Long,Red [f]
+11,Alpha,11,Short,Red [a],,,11,Alpha,14,Long,Yellow [i]
+12,Barwick,1,Short ,B,,,12,Alpha ,15,Long,Yellow [c]
+13,Barwick,1,Long,B,,,13,Alpha ,17,Long,Yellow [c]
+14,Barwick ,18,Concrete,C,,,14,Barwick ,1,Short ,Alpha 16 Yellow [c]
+15,Barwick ,10,Long ,B,,,15,Barwick ,16,Short ,B
+16,Alpha,17,Long,Red [left],,,16,Barwick ,15,Long,B
+17,Alpha ,18,Long,Yellow [d],,,17,Barwick ,2,concrete,B
+18,Alpha,18,Short ,Yellow [d],,,18,Barwick ,2,concrete ,Barwick 18 [c]

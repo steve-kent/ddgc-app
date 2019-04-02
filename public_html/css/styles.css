@@ -1,0 +1,289 @@
+a {	text-decoration:none; }
+a:hover { text-decoration:none; }	
+
+body { background-color:#FFFFFF; color: #000000; font: 18px/1.3 verdana; font-family: 'Comfortaa', cursive; }
+
+caption { font: 30px/1.3 'Comfortaa', cursive;  }
+
+h1 { text-shadow: #9a9a9a 0.1em 0.1em 0.2em; margin: 35px 0 35px -150px;  display: inline-block;  font: 3em/1.2 'Righteous', cursive;}
+h2 { margin: 20px; }
+h3 { margin: 20px 0 0; text-align: center}
+footer {background-color: #EBF1DE; width: 90%; border: 1px solid #79a747; border-radius: 25px; margin: 20px auto; font: 0.6em/1.3 verdana; text-align:center; min-height:50px;}
+footer img {float:right; margin: 1%; }
+footer .nowrap { white-space: nowrap ; }
+footer p { margin:10px auto; text-align:center; }
+header {background-color: #EBF1DE; width: 90%; border: 1px solid #79a747; border-radius: 25px; margin: 20px auto; height: 150px; text-align:center; position:relative;}
+header img {float:left; display: inline-block;}
+header img:hover,	
+header img:focus {  
+  background: red; /* For browsers that do not support gradients */
+  background: -webkit-radial-gradient(circle,#ffffff 10%, #EBF1DE 90%); /* Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(circle,#ffffff 10%, #EBF1DE 90%); /* For Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(circle,#ffffff 10%, #EBF1DE 90%); /* For Firefox 3.6 to 15 */
+  background: radial-gradient(circle,#ffffff 10%, #EBF1DE 90%); /* Standard syntax */
+  border-radius: 40px;}
+
+  p {	font-family: 'Comfortaa', cursive; margin: 10%; max-width: 500px;}
+
+.nav { /*float: right; */ margin: 50px 20px 0px; display: inline-block;  position:absolute;
+    bottom:0;
+    right:0;}
+.nav ul { list-style:none; padding:0; list-style-position: inside; display: inline-block; float: right;}
+.nav li {background-color: #adadad; color: #000000; display:inline; padding: 5px 10px; border: 2px solid #626262; border-radius: 25px; text-align: center; box-shadow: 12px 9px 13px #888;}
+.nav a {color: #000000; text-decoration:none; }
+.nav li:hover,	
+.nav li:focus {  
+  background: red; /* For browsers that do not support gradients */
+  background: -webkit-radial-gradient(#ffffff, #adadad); /* Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(ffffff, #adadad); /* For Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(ffffff, #adadad); /* For Firefox 3.6 to 15 */
+  background: radial-gradient(ffffff, #adadad); /* Standard syntax */}
+.nav li:visited {background-color: #ffffff; color: #000000; }
+.nav li:active {background-color: #ffffff; color: #000000; }
+.nav li.current  {background-color: #ececec; }
+.address { margin: 30px 0 20px; display: block; width: 95%;}
+
+.button, input[type=submit] {
+	margin: 20px 0 20px 20px;
+    display: block;
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px 20px;
+    border: 2px solid #527130;
+    border-radius: 25px;
+    background: #85b74e;
+    background: -webkit-gradient(linear, left top, left bottom, from(#85b74e), to(#527130));
+    background: -moz-linear-gradient(top, #85b74e, #527130);
+    background: linear-gradient(to bottom, #85b74e, #527130);
+    -webkit-box-shadow: #7f7f7f 4px 4px 19px 0px;
+    -moz-box-shadow: #7f7f7f 4px 4px 19px 0px;
+    box-shadow: #7f7f7f 4px 4px 19px 0px;
+    text-shadow: #33471e 4px 4px 2px;
+    font: normal normal bold 20px arial;
+    color: #ffffff;
+    text-decoration: none;
+}
+.button a {color:#ffffff; display: block;}
+.button:hover,
+.button:focus {
+    border: 2px solid #79a747;
+    background: #a0dc5e;
+    background: -webkit-gradient(linear, left top, left bottom, from(#a0dc5e), to(#62883a));
+    background: -moz-linear-gradient(top, #a0dc5e, #62883a);
+    background: linear-gradient(to bottom, #a0dc5e, #62883a);
+    color: #ffffff;
+    text-decoration: none;
+	cursor: pointer;
+}
+.button:active {
+    background: #527130;
+    background: -webkit-gradient(linear, left top, left bottom, from(#527130), to(#527130));
+    background: -moz-linear-gradient(top, #527130, #527130);
+    background: linear-gradient(to bottom, #527130, #527130);
+}
+
+
+.nowrap { white-space: nowrap ; }
+.pictures { background: #79a747; border: 1px solid black; border-radius: 25px; margin: 3% ; text-align:center; float: right; box-shadow: 12px 9px 13px #666; width: 30% }
+.pictures img {width:90%; margin: 15px 0px; box-shadow: 12px 9px 13px #333 ; border-radius: 15px; }
+.playing { background: #79a747; border: 1px solid black; border-radius: 25px; margin: 3% ; text-align:center; float: right; box-shadow: 12px 9px 13px #666; width: 30% }
+.playing img {width:90%; margin: 15px 0px; box-shadow: 12px 9px 13px #333; border-radius: 15px; }
+.links_pic { background: #79a747; border: 1px solid black; border-radius: 25px; margin: 3% ; text-align:center; float: right; box-shadow: 12px 9px 13px #666; width: 30% }
+.links_pic img {width:90%; margin: 15px 0px; box-shadow: 12px 9px 13px #333; border-radius: 15px; }
+.form_pic { background: #79a747; border: 1px solid black; border-radius: 25px; margin: 3% ; text-align:center; float: right; box-shadow: 12px 9px 13px #666; width: 30% }
+.form_pic img {width:90%; margin: 15px 0px; box-shadow: 12px 9px 13px #333; border-radius: 15px; }
+.courses_pic { background: #79a747; border: 1px solid black; border-radius: 25px; margin: 3% ; text-align:center; display: block; box-shadow: 12px 9px 13px #666; width: 90% }
+.courses_pic img {width:90%; margin: 15px 0px; box-shadow: 12px 9px 13px #333; border-radius: 15px; }
+.red { color: red;}
+.smallcap {font: 0.4em/125% 'Comfortaa', cursive; display: block;}
+		   
+#container {background-color: #EBF1DE; width: 90%; border: 1px solid #79a747; border-radius: 25px; margin: 20px auto; min-height: 400px; display: block;}
+
+#calendar_desktop { background: #79a747; border: 1px solid black; border-radius: 25px; margin: 3% ; text-align:center; display: inline-block; box-shadow: 12px 9px 13px #666; padding: 25px; width: 55%;}
+#calendar_desktop iframe {border: 3px solid black; box-shadow: 12px 9px 13px #333; width: 100%; height: 500px;}
+
+#calendar_mobile { background: #79a747; border: 1px solid black; border-radius: 25px; margin: 20px; display: none; box-shadow: 12px 9px 13px #666; padding: 25px; float: right; }
+#calendar_mobile iframe { border: 3px solid black; box-shadow: 12px 9px 13px #333; width: 100%; height: 500px; display: none; }
+
+#cc_button { max-width: 30%;}
+#courses_left {  display: inline-block; width: 43%; margin: 3%;}
+#courses_right {  display: inline-block; width: 43%; margin: 3%; vertical-align: top;  text-align: center;}
+#courses_right .button {width: 50%; margin: 20px auto 40px; display: inline-block; max-width: 200px;}
+#courses_table { border: 1px solid black; border-collapse: collapse; table-layout:fixed; }
+#courses_table td { border: 1px solid black; padding: 2px;}
+#courses_table th {}
+
+.disc_pic { background: #79a747; border: 1px solid black; border-radius: 25px; margin: 60px 20px; text-align:left; box-shadow: 12px 9px 13px #666; width: 30%; max-width: 360px; display: inline-block; vertical-align: top;}
+.disc_pic img {width:90%; margin: 5% auto; box-shadow: 12px 9px 13px #333; border-radius: 15px; display:block;}
+
+.directory {margin: 20px}
+.form_page { font: 18px/2 'Comfortaa', cursive; display: inline-block; margin: 20px 20px 0; width: 55%; }
+
+#gallery { width: 100%; margin: 0 3% 3% 0;}
+.galpics { width: 29%; margin: 3% 0 0 3%; display: inline-block;}
+.galpics img {width: 100%; border: 1px solid black;}
+.galcaption { text-align: center;}
+
+.invalid { background: #ffdfdf; border-color: #f93636;}
+#links_table { margin: 40px 20px 0; display:inline-block; width: 55%; border: 1px solid black;
+			-moz-box-shadow: 0 0 5px 5px #888;
+			-webkit-box-shadow: 0 0 5px 5px#888;
+			box-shadow: 0 0 5px 5px #888;
+}
+#links_table tr {border: 1px solid black; width: 60%;}
+#links_table th {background: black; } 
+#links_table td { border: 1px solid black; padding: 1%;}
+
+#longcaps {text-align: center; display: inline-block; width: 35%; margin: 20px 2% 20px 5%;}
+#longcaps th {border: 1px solid black; cursor: pointer;}
+#longcaps td {border: 1px solid black; }
+#longcaps table td {border: 1px solid black; }
+#longcaps tr:nth-child(odd) {background: #a3ca7a}
+
+#shortcaps {text-align: center; display: inline-block; width: 35%; margin: 20px 2% 20px 5%;}
+#shortcaps th {border: 1px solid black; cursor: pointer;}
+#shortcaps td {border: 1px solid black; }
+#shortcaps table td {border: 1px solid black; }
+#shortcaps tr:nth-child(odd) {background: #a3ca7a}
+
+#memberstable {text-align: center; display: inline-block; width: 35%; margin: 20px 2% 20px 10%;}
+#memberstable th {border: 1px solid black; cursor: pointer;}
+#memberstable td {border: 1px solid black; }
+#memberstable table td {border: 1px solid black; }
+#memberstable tr:nth-child(odd) {background: #a3ca7a}
+
+
+
+#members_nav {display:inline-block; text-align:center; vertical-align: top; width:160px;}
+#mission p { margin: 10%; max-width: 500px;}
+
+#mobile_header_breaks { display: none;}
+
+.tablemaker { text-align: center; display: table;  margin: 20px auto; }
+.tablemaker th {border: 1px solid black; cursor: pointer;}
+.tablemaker td {border: 1px solid black; }
+.tablemaker table td {border: 1px solid black; }
+.tablemaker tr:nth-child(odd) {background: #a3ca7a}
+
+
+#the_table { display: inline-block; margin: 20px;}
+#the_table .xl29, #the_table .xl30 { color: red; }
+#the_table table {border: 1px solid black; }
+#the_table td { border: 1px solid black; padding: 1%;}
+
+#the_video { width: 80%; height: 500px; margin: 10px auto; border: 5px inset ;  box-shadow: 0 35px 20px #777;}
+#under_form {margin: 0 10% 20px;}
+
+#weather{ max-width: 300px;  margin: 75px auto 40px; display:block; box-shadow: 12px 9px 13px #333;}
+#weather iframe {display: block;  width: 100%; border: none;}
+#home_stuff { display: flex;}
+#home_stuff h2 { text-align: center; }
+
+.warContainer { background-color: #EBF1DE;
+    width: 90%;
+    border: 1px solid #79a747;
+    border-radius: 25px;
+    margin: 20px auto;
+    min-height: 400px;
+    display: block;
+    text-align: center; }
+
+.warHeading {margin: 0;}
+
+
+@media (max-width:1290px){
+   h1 {margin: 20px 30px 0 -120px; }
+   .nav { float: right; margin: 10px 20px 0px;}
+   .rounds { display: none}
+   
+
+}
+@media (max-width:1180px){
+	h1 {margin: 20px 30px 0 -70px; }
+   #calendar_mobile { display: inline-block;}
+   #calendar_mobile iframe {border: 3px solid black; box-shadow: 12px 9px 13px; width: 100%; height: 500px; display: block;}
+   #calendar_desktop { display: none;}
+   #calendar_desktop iframe {display: none;}
+      #links_table {font: 0.8em/1 'Comfortaa', cursive;}
+   .button {display:inline-block; font: normal normal bold 14px arial; width: 30%}
+   #members_nav {display:inline-block; text-align:center; vertical-align: top; margin: 20px; width:50%;}
+	#memberstable, #shortcaps, #longcaps {width: 95%; display: block; margin: 10% auto;}
+	#memberstable table, #shortcaps table, #longcaps table {display: table; margin: 0 auto; text-align: center; width:auto;}
+   .rounds { display: table-cell;}
+}
+
+
+@media (max-width:855px){
+	h1 { font: 2.5em/1 'Righteous', cursive;}
+	/* Bad syntax so probably wasn't working. Hiding for now.*** .button {display: margin: 1%; padding: 4%;} ***/
+	#members_nav {display:inline-block; text-align:center; vertical-align: top; margin: 20px 1%; }
+    #memberstable, #shortcaps, #longcaps {width: 95%; display: block; margin: 3% auto;}
+    #the_video { height: 400px; }
+}
+
+@media (max-width:753px){
+	h1 { font: 2em/1 'Righteous', cursive; font-weight: bold; margin: 20px 0 0;}
+	.nav {font: 0.8em/1 'Comfortaa', cursive;}
+	header { height: 110px; }
+	header img { height: 105px; }
+	.disc_pic { display: block; margin: 20px auto; text-align: center; width: 50%;}
+	#calendar_mobile { display: block; margin: 20px auto; text-align: center; width: 70%; float: none;}	
+	#courses_table { font-size: 75%;}
+	.galpics { width: 44%; }
+	#the_video { height: 300px; }
+			
+}
+@media (max-width:660px){
+	.rounds { display: none}
+}
+
+@media (max-width:600px){
+	.pictures {float:none; width: 95%;}
+	body {font: 14px/1 'Comfortaa', cursive; }
+	.links_pic, .form_pic {float: none; width: 80% ; maring: 20px auto; margin: 20px 10%;}
+	#links_table { margin: 20px 10%; display:block; width: 80%}
+	#links_table tr {border: 1px solid black; }
+	.form_page { font: 0.6em/2 'Comfortaa', cursive; width: 80%; margin: 20px 10%;}
+	input[type=text] { margin: 1%;}
+	#courses_left { width: 94%; }
+	#courses_right { width: 94%; }
+	#courses_table {width: 90%; margin: 0 2%;}
+	.playing {display: none;}
+	#memberstable, #shortcaps, #longcaps {width: 95%; display: block; margin: 3% auto;}
+	#memberstable table, #shortcaps table, #longcaps table {display: table; margin: 3% auto; text-align: center; width:auto;}
+	.rounds { display: none}
+	#members_nav {display:block; text-align:center; vertical-align: top; margin: 20px auto; width:auto;}
+	caption { font: 20px/1.3 'Comfortaa', cursive;  }
+	#weather{ max-width: 300px;  margin: 20px auto;}
+	
+}
+
+@media (max-width:502px){
+	body {font: 14px/1 'Comfortaa', cursive; }
+	.nav { float: none;
+			display: block;
+			margin: 20px auto 0;}
+	.nav ul { float: none; }
+	h1 { font: 1.7em/1 'Righteous', cursive; font-weight: bold; display: inline; padding: 0; margin: 0; text-align: left;}
+	header { height: 130px; display: block;}
+	header img { display: inline;}
+	a {	text-decoration:none; display: inline;}
+	#mobile_header_breaks { display: inline;}
+	.button { font: normal normal bold 12px arial;}
+    #calendar_mobile { width: 80% }
+    #the_video { height: 250px; }
+	
+}
+
+@media (max-width:400px){
+	h1 { font: 1.2em/1 'Righteous', cursive; font-weight: bold; display: inline; padding: 0; margin: 0; text-align: left;}
+}
+
+@media (max-width:345px){
+	.nav { height: 100px; display:block; float:none; margin: 0 11%;}
+	.nav ul { }
+	.nav li { margin-bottom: 15px; display: inline-block;}
+	header { height: 200px; display: block;}
+	#memberstable, #shortcaps, #longcaps {font: 0.6em/1 'Comfortaa', cursive;}
+}
+
