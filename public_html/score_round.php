@@ -59,7 +59,7 @@ $content = <<< EOT
         </select>
     Date: <input type="date" id="roundDate" name="roundDate"
 EOT;
-
+// Set default date on the date picker to today
 $content .= 'value="';
 $content .= date("Y-m-d");;
 $content .='"><br>';
@@ -67,8 +67,8 @@ $content .='"><br>';
 $content .= <<< EOT
 <table id="scoreHandis" align=center autocomplete="off">
     <tr id="row1">
-        <td>Name: <input type="text" name="name[]" class='autoName' id="name1" autocomplete="off" size='15'></td> 
-        <td>Raw Score: <input type="text" name="score[]" autocomplete="off" size='3'></td> 
+        <td>Name: <input type="text" name="name[]" class='autoName' size='15'></td> 
+        <td>Raw Score: <input type="number" name="score[]" min="1" max="200" value="54" scoreField></td> 
     <br>   
     </table>
     </form>
@@ -76,10 +76,12 @@ $content .= <<< EOT
     <input type="submit" name="submit_row" value="Score Round">
     </div>
 EOT;
+
+// 
 $content .= "<script>AddNames(";
 $content .= json_encode($nameList);
 $content .= ")</script><br>";
-$content .= "<script>AddAutoFill('#name1')</script>";
+$content .= "<script>AddAutoFill()</script>";
 
 $page->content = $content;
 
