@@ -1,6 +1,6 @@
 <?php
 require("page.php");
-require("../db/DbTalker.php");
+require("../upload/db/DbTalker.php");
 
 // Create new page
 $page = new Page();

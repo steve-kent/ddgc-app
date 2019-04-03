@@ -8,7 +8,7 @@ class DbTalker
     private function Connect()
     {
         /***********************UDATE THIS FOR PRODUCTION *******************************/
-        require('../priv/dev.php');
+        require('../upload/priv/dev.php');
         $conn = new mysqli($dbServer, $dbUsername, $dbPassword, $dbName);
         if (mysqli_connect_errno())
         {
