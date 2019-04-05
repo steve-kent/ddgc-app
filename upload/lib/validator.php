@@ -7,30 +7,30 @@ class Validator
     ////////////// Should update to make sure that the year is <= current year + 1 //////// 
     public static function V_Date($date)
     {
-        $mmddyy = explode('/, $date');
-        if(count($mmddyy) != 3)
+        $ymd = explode('-', $date);
+        if(count($ymd) != 3)
         {
             return 0;
         }
         // make year 4 digits if it's not
-        if ((int)$mmddyy[2] < 100)
+        if ((int)$ymd[0] < 100)
         {
-            if ((int)$mmddyy[2] > 50 )
+            if ((int)$ymd[0] > 50 )
             {
-                $mmddyy[2] = (int)$mmddyy[2] + 1900;
+                $ymd[0] = (int)$ymd[0] + 1900;
             }
-            else if ($mmddyy[2] >= 0)
+            else if ($ymd[0] >= 0)
             {
-                $mmddyy[2] = (int)$mmddyy[2] + 2000;
+                $ymd[0] = (int)$ymd[0] + 2000;
             }
         }
 
-        if (!checkdate($mmddyy[0], $mmddyy[1], $mmddyy[2]))
+        if (!checkdate($ymd[2], $ymd[1], $ymd[0]))
         {
             return 0;
         }
 
-        return $mmddyy;
+        return 1;
     }
 
     // Used for radio and dropdowns. Makes sure the selection is a valid option.

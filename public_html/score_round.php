@@ -8,6 +8,7 @@ $page = new Page();
 //Get All Names List for Autofill
 $dbTalker = new DbTalker();
 $nameList =  $dbTalker->GetNamesAndNicks();
+$courseList = $dbTalker->GetCourseNames();
 
 // Set description and title
 $page->desc = "Add Scores for a Handicap Round information for DeBary Disc Golf Club.";
@@ -51,17 +52,23 @@ $page->headAdditions = $headAdditions;
 // Create Form for inputting scores
 $content = <<< EOT
 <div id="container">
-    <form name="scoreRound" method="post" action="doSomethingGGGG" onsubmit="return validateForm(this)">
+    <form name="scoreRound" method="post" action="rounds.php">
     Score a Handicap Round:<br>
     Course: <select name="course" id="course" tabindex="1" accesskey="c"> 
-        <option value="Long Pads">Long Pads</option>
-        <option value="Short Pads">Short Pads</option> 
+EOT;
+
+foreach ($courseList as $course)
+{
+    $content .= "<option value=\"$course\">Long Pads</option>";
+}
+
+$content .= <<< EOT
         </select>
     Date: <input type="date" id="roundDate" name="roundDate"
 EOT;
 // Set default date on the date picker to today
 $content .= 'value="';
-$content .= date("Y-m-d");;
+$content .= date("Y-m-d");
 $content .='"><br>';
 
 $content .= <<< EOT
@@ -71,13 +78,13 @@ $content .= <<< EOT
         <td>Raw Score: <input type="number" name="score[]" min="1" max="200" value="54" scoreField></td> 
     <br>   
     </table>
-    </form>
     <input type="button" class="button" value="Add Player" onclick="add_row()">
-    <input type="submit" name="submit_row" value="Score Round">
+    <input type="submit" name="submitRound" value="Score Round">
+    </form>
     </div>
 EOT;
 
-// 
+// Setup Autofill for name input box
 $content .= "<script>AddNames(";
 $content .= json_encode($nameList);
 $content .= ")</script><br>";

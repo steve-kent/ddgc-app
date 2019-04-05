@@ -44,6 +44,29 @@ class DbTalker
         return $nameList;
     }
 
+    //Returns array of course names
+    public function GetCourseNames()
+    {
+        $conn =  $this->Connect();
+        $courseList = [];
+        $query = "SELECT CourseName
+                    FROM courses";
+        $stmt = $conn->prepare($query);
+        $stmt->execute();
+        $stmt->store_result();
+        $stmt->bind_result($courseName);
+
+        while($stmt->fetch())
+        {
+            array_push($courseList, $courseName);
+        }
+
+        $stmt->free_result();
+        $conn->close();
+
+        return $courseList;
+    }
+
     //Returns course by course name
     public function GetCourseByName($courseName)
     {
@@ -55,11 +78,10 @@ class DbTalker
         if ($stmt = $conn->prepare($query))
         {
             $stmt->bind_param('s', $courseName);
-            if ($result = $stmt->execute())
+            if ($stmt->execute())
             {
-                $stmt->bind_result($coursePar);
-                $stmt->fetch();
-                $course = $coursePar;
+                $result = $stmt->get_result();
+                $course = $result->fetch_assoc();
             }
         }       
         $stmt->free_result();
@@ -67,70 +89,44 @@ class DbTalker
         return $course;
     }
 
-    //Returns par for the course by course name
-    public function GetCourseIdByCourseName($courseName)
+    //Returns player by player first and last name
+    public function GetPlayerByFullName($firstName, $lastName)
     {
-        $id = 0;
+        $player = [];
         $conn =  $this->Connect();
-        $query = "SELECT CoursePar 
-                    FROM courses
-                    WHERE CourseName = ?";
-        if ($stmt = $conn->prepare($query))
-        {
-            $stmt->bind_param('s', $courseName);
-            if ($result = $stmt->execute())
-            {
-                $stmt->bind_result($CourseId);
-                $stmt->fetch();
-                $id = $CourseId;
-            }
-        }
-        $stmt->free_result();
-        $conn->close();
-        return $id;
-    }
-
-
-
-    //Returns playerId by player first and last name
-    public function GetPlayerIdByFullName($firstName, $lastName)
-    {
-        $id = 0;
-        $conn =  $this->Connect();
-        $query = "SELECT PlayerId 
+        $query = "SELECT * 
                     FROM players
                     WHERE FirstName = ? 
                     AND LastName = ?";
         if ($stmt = $conn->prepare($query))
         {
             $stmt->bind_param('ss', $firstName, $lastName);
-            if ($result = $stmt->execute())
+            if ($stmt->execute())
             {
-                $stmt->bind_result($playerID);
-                $id = $playerID;
+                $result = $stmt->get_result();
+                $player = $result->fetch_assoc();                
             }
         }
         $stmt->free_result();
         $conn->close();
-        return $id;     
+        return $player;     
     }
 
-    //Returns playerId by player nickname
+    //Returns player by player nickname
     public function GetPlayerByNickname($nickName)
     {
-        $player = 0;
+        $player = [];
         $conn =  $this->Connect();
-        $query = "SELECT PlayerId 
+        $query = "SELECT * 
                     FROM players
                     WHERE NickName = ?";
         if ($stmt = $conn->prepare($query))
         {
             $stmt->bind_param('s', $nickName);
-            if ($result = $stmt->execute())
+            if ($stmt->execute())
             {
-                $stmt->bind_result($playerID);
-                $stmt->fetch();
-                $player = $playerID;
+                $result = $stmt->get_result();
+                $player = $result->fetch_assoc();                
             }
         }
         $stmt->free_result();
@@ -143,13 +139,13 @@ class DbTalker
     {
         $scores = [];
         $conn =  $this->Connect();
-        $query = "SELECT RawScore 
-                    FROM scores AS s, rounds AS r
-                    WHERE s.PlayerId = ?
-                    AND s.CourseId = ?
-                    AND s.RoundID = r.RoundId
-                    ORDER BY rounds.RoundDate
-                    LIMIT 5";
+        $query = "SELECT s.RawScore 
+                FROM scores AS s, rounds AS r
+                WHERE s.PlayerID = ?
+                AND r.CourseID = ?
+                AND s.RoundID = r.RoundId
+                ORDER BY r.RoundDate, s.RoundID DESC
+        LIMIT 5";
         if ($stmt = $conn->prepare($query))
         {
             $stmt->bind_param('ii', $playerId, $CourseId);
@@ -161,22 +157,23 @@ class DbTalker
                     array_push($scores, $score);
                 }
             }
+            $stmt->free_result();
         }
-        $stmt->free_result();
         $conn->close();
         return $scores;   
     }
 
     // Create a new round and return it's ID
-    public function CreateRound($courseId, $RoundDate)
+    public function AddRound($courseId, $roundDate)
     {
         $roundId = 0;
+        $curTime = date("Y-m-d");
         $conn =  $this->Connect();
         $query = "INSERT INTO rounds (CourseID, RoundDate, RoundDateEntered)
                   VALUES (?,?,?)";
         if ($stmt = $conn->prepare($query))
         {
-            $stmt->bind_param('sss', $courseId, $RoundDate, CURRENT_TIMESTAMP);
+            $stmt->bind_param('sss', $courseId, $roundDate, $curTime);
             if($stmt->execute())
             {
                 $roundId = $stmt->affected_rows > 0 ? $conn->insert_id : 0;
@@ -186,6 +183,27 @@ class DbTalker
         $conn->close();
         return $roundId;
     }
+
+    // Add a new entry in the score table
+    public function AddScore($roundId, $playerId, $rawScore, $handicap, $netScore)
+    {
+        $scoreId = 0;
+        $conn =  $this->Connect();
+        $query = "INSERT INTO scores (RoundID, PlayerID, RawScore, Handicap, NetScore)
+                  VALUES (?,?,?,?,?)";
+        if ($stmt = $conn->prepare($query))
+        {
+            $stmt->bind_param('iiiii', $roundId, $playerId, $rawScore, $handicap, $netScore);
+            if($stmt->execute())
+            {
+                $roundId = $stmt->affected_rows > 0 ? $conn->insert_id : 0;
+            }
+        }
+        $stmt->free_result();
+        $conn->close();
+        return $roundId;
+    }
+    
 
 
 }

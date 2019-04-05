@@ -1,6 +1,6 @@
 <?php
 require('page.php');
-require('tablemaker.php');
+require('../upload/lib/csv_tablemaker.php');
 
 // Create new page
 $page = new Page();
@@ -11,7 +11,7 @@ $page->title = "DeBary Disc Golf Club | War Qualifier Layout";
 
 
 //Generate 1st table content
-$courseA = new TableMaker();
+$courseA = new CSVTableMaker();
 $courseA->startRow = 1;
 $courseA->startCol = 0;
 $courseA->endCol = 5;
@@ -19,7 +19,7 @@ $courseA->caption = "Course A<br><div class='smallcap'>*notes: on/across road OB
 $courseA->fileName = "war.csv";
 
 //Generate 2nd table content
-$courseB = new TableMaker();
+$courseB = new CSVTableMaker();
 $courseB->startRow = 1;
 $courseB->startCol = 7;
 $courseB->endCol = 12;

@@ -2,7 +2,7 @@
 
 require('csv-exception.php');
 
-class TableMaker
+class CSVTableMaker
 {
     private $startRow = 0;
     private $startCol = 0;
@@ -20,7 +20,7 @@ class TableMaker
     // Create the start of the HTML table
     private function StartTable()
     {
-        $this->returnContent = "<table class='tablemaker'>";
+        $this->returnContent = "<table class='csv_tablemaker'>";
         $this->returnContent .= "<caption>$this->caption</caption>";
     }
 
