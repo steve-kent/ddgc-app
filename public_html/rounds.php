@@ -8,18 +8,6 @@ $roundData = [];
 $content = "";
 $hh = new HandicapHelper();
 
-//If a new round was just scored, submit it and get the roundID
-if(isset($_POST['submitRound']))
-{
-    $courseName = $_POST['course'];
-    $roundDate = $_POST['roundDate'];
-    $players = $_POST['name'];
-    $scores = $_POST['score'];
-
-
-    $roundId = $hh->ScoreRound($courseName, $roundDate, $players, $scores);
-}
-
 //set roundID if this is a get request for it
 if(isset($_GET['roundID']))
 {

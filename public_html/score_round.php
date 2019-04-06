@@ -52,14 +52,14 @@ $page->headAdditions = $headAdditions;
 // Create Form for inputting scores
 $content = <<< EOT
 <div id="container">
-    <form name="scoreRound" method="post" action="rounds.php">
+    <form name="scoreRound" method="post" action="doScoring.php">
     Score a Handicap Round:<br>
     Course: <select name="course" id="course" tabindex="1" accesskey="c"> 
 EOT;
 
 foreach ($courseList as $course)
 {
-    $content .= "<option value=\"$course\">Long Pads</option>";
+    $content .= "<option value=\"$course\">$course</option>";
 }
 
 $content .= <<< EOT

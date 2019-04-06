@@ -165,6 +165,12 @@ header img:focus {
 .csv_tablemaker table td {border: 1px solid black; }
 .csv_tablemaker tr:nth-child(odd) {background: #a3ca7a}
 
+.tablemaker { text-align: center; display: table;  margin: 20px auto; }
+.tablemaker th {border: 1px solid black; cursor: pointer;}
+.tablemaker td {border: 1px solid black; }
+.tablemaker table td {border: 1px solid black; }
+.tablemaker tr:nth-child(odd) {background: #a3ca7a}
+
 
 #the_table { display: inline-block; margin: 20px;}
 #the_table .xl29, #the_table .xl30 { color: red; }

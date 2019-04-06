@@ -17,7 +17,7 @@ class TableMaker
     // Create the start of the HTML table
     private function StartTable()
     {
-        $this->returnContent = "<table class='tablemaker csv_tablermaker'>";
+        $this->returnContent = "<table class='tablemaker'>";
         $this->returnContent .= "<caption>$this->caption</caption>";
     }
 
