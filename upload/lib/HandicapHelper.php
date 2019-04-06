@@ -1,6 +1,6 @@
 <?php
 require_once("../upload/db/DbTalker.php");
-require("../upload/lib/validator.php");
+require_once("../upload/lib/validator.php");
 
 Class HandicapHelper
 {
@@ -68,7 +68,6 @@ Class HandicapHelper
             else
             {
                 $netScore = $rawScore + $handicap;
-                echo "netscore $netScore -- handi $handicap";
             }       
             $dbTalker = new DbTalker();
             return $dbTalker->AddScore($roundId, $playerId, $rawScore, $handicap, $netScore);
@@ -89,7 +88,6 @@ Class HandicapHelper
             }
             else
             {
-                echo "establish";
                 return "Establishing";
             }
         }
@@ -112,7 +110,41 @@ Class HandicapHelper
             }
         }
 
-        
+        // Get handicap round data to display
+        public function GetHandicapRound($roundId)
+        {
+            if($roundId > 0 && is_numeric($roundId))
+            {
+                $dbTalker = new DbTalker();
+                $roundData = $dbTalker->GetHandicapRound($roundId);
+                $roundData = $this->UpdateEstablishing($roundData);
+                return $roundData;
+            }
+        }
+
+        // returns array with round date and course name
+        public function GetRoundCourseAndDate($roundId)
+        {
+            if($roundId > 0 && is_numeric($roundId))
+            {
+                $dbTalker = new DbTalker();
+                return $dbTalker->GetRoundCourseAndDate($roundId);
+            }
+        }
+
+        // Updates null handicap and net score in handicap data to say "Establishing"
+        private function UpdateEstablishing($handicapArray)
+        {
+            foreach($handicapArray as &$score) // make score s reference variable
+            {
+                if(is_null($score[2]))
+                {
+                    $score[2] = "Est";
+                    $score[3] = "Est";
+                } 
+            }
+            return $handicapArray;
+        }
 }
 
 ?>

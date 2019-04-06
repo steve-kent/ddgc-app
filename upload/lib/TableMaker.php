@@ -1,5 +1,5 @@
 <?php
-require('validator.php');
+require_once('validator.php');
 
 class TableMaker
 {
@@ -31,9 +31,9 @@ class TableMaker
     private function CreateTable()
     {
         $this->WriteTableHeader();
-        for($row = 0; $row < count($data); $row++)
+        for($row = 0; $row < count($this->data); $row++)
         {
-            $this->WriteRow(explode(",",$data[$row]));
+            $this->WriteRow($this->data[$row]);
         }
     }
 
@@ -41,7 +41,7 @@ class TableMaker
     private function WriteRow($row)
     {
         $this->returnContent .= "<tr>";
-        foreach($data as $colData)
+        foreach($row as $colData)
         {
             $colData = Validator::FormatOutput($colData);
             $this->returnContent .= "<td>$colData</td>";
@@ -53,7 +53,7 @@ class TableMaker
         private function WriteTableHeader()
         {
             $this->returnContent .= "<thead><tr>";
-            foreach($headers as $colData)
+            foreach($this->headers as $colData)
             {
                 $colData = Validator::FormatOutput($colData);
                 $this->returnContent .= "<th>$colData</th>";
@@ -65,7 +65,7 @@ class TableMaker
     public function GetTable()
     {
         $this->StartTable();
-        $this->MakeTable();
+        $this->CreateTable();
         $this->CloseTable();
         return $this->returnContent;
     }

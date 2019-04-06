@@ -44,6 +44,36 @@ class DbTalker
         return $nameList;
     }
 
+    //Returns handicap round info to be displayed
+    public function GetHandicapRound($roundId)
+    {
+        $roundInfo = [];
+        $conn =  $this->Connect();
+        $query = "SELECT p.FirstName, p.LastName, s.RawScore, s.Handicap, s.NetScore
+                    FROM scores as s, players as p
+                    WHERE s.roundId = ?
+                    AND s.PlayerID = p.PlayerID
+                    Order By -s.NetScore DESC";
+        if ($stmt = $conn->prepare($query))
+        {
+            $stmt->bind_param('s', $roundId);
+            if ($stmt->execute())
+            {
+                $stmt->store_result();
+                $stmt->bind_result($first, $last, $raw, $handi, $net);
+                while ($stmt->fetch())
+                {
+                    $score = [$first ." ". $last, $raw, $handi, $net];
+                    array_push($roundInfo, $score);
+                }
+            }
+        }       
+        $stmt->free_result();
+        $conn->close();
+        //echo var_dump($roundInfo);
+        return $roundInfo;
+    }
+
     //Returns array of course names
     public function GetCourseNames()
     {
@@ -204,6 +234,31 @@ class DbTalker
         return $roundId;
     }
     
+    // returns array with round date and course name
+    public function GetRoundCourseAndDate($roundId)
+    {
+        $courseAndDate = [];
+        $conn =  $this->Connect();
+        $query = "SELECT r.RoundDate, c.CourseName 
+                FROM rounds AS r, Courses AS c
+                WHERE r.RoundID = ?
+                AND r.CourseID = c.CourseID";
+        if ($stmt = $conn->prepare($query))
+        {
+            $stmt->bind_param('i', $roundId);
+            if ($result = $stmt->execute())
+            {
+                $stmt->bind_result($roundDate, $courseName);
+                while($stmt->fetch())
+                {
+                    $courseAndDate = [$roundDate, $courseName];
+                }
+            }
+            $stmt->free_result();
+        }
+        $conn->close();
+        return $courseAndDate; 
+    }
 
 
 }
