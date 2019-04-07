@@ -145,6 +145,18 @@ Class HandicapHelper
             }
             return $handicapArray;
         }
+
+        //Get 50 rounds
+    public function Get50Rounds($offset)
+    {
+        if(!is_numeric($offset) || $offset < 0)
+        {
+            $offset = 0;
+        }
+        $dbTalker = new DbTalker();
+        return $dbTalker->Get50Rounds($offset);
+
+    }
 }
 
 ?>

@@ -3,9 +3,9 @@ require_once('validator.php');
 
 class TableMaker
 {
-    private $headers;
-    private $data;
-    private $caption;
+    protected $headers;
+    protected $data;
+    protected $caption;
     public $returnContent = "";
 
     // Setter for private variables
@@ -15,20 +15,20 @@ class TableMaker
     }
 
     // Create the start of the HTML table
-    private function StartTable()
+    protected function StartTable()
     {
         $this->returnContent = "<table class='tablemaker'>";
         $this->returnContent .= "<caption>$this->caption</caption>";
     }
 
     // close the html table
-    private function CloseTable()
+    protected function CloseTable()
     {
         $this->returnContent .= "</table>";
     }
 
     // Create the html table
-    private function CreateTable()
+    protected function CreateTable()
     {
         $this->WriteTableHeader();
         for($row = 0; $row < count($this->data); $row++)
@@ -38,7 +38,7 @@ class TableMaker
     }
 
     // Write the row of the table that is passed in
-    private function WriteRow($row)
+    protected function WriteRow($row)
     {
         $this->returnContent .= "<tr>";
         foreach($row as $colData)
@@ -49,17 +49,17 @@ class TableMaker
         $this->returnContent .= "</tr>";
     }
 
-        // Write the row of the table that is passed in as the table header
-        private function WriteTableHeader()
+    // Write the row of the table that is passed in as the table header
+    protected function WriteTableHeader()
+    {
+        $this->returnContent .= "<thead><tr>";
+        foreach($this->headers as $colData)
         {
-            $this->returnContent .= "<thead><tr>";
-            foreach($this->headers as $colData)
-            {
-                $colData = Validator::FormatOutput($colData);
-                $this->returnContent .= "<th>$colData</th>";
-            }
-            $this->returnContent .= "</tr></thead>";
+            $colData = Validator::FormatOutput($colData);
+            $this->returnContent .= "<th>$colData</th>";
         }
+        $this->returnContent .= "</tr></thead>";
+    }
 
     // Create the table and return the html to the caller
     public function GetTable()

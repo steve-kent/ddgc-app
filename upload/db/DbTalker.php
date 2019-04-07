@@ -175,7 +175,7 @@ class DbTalker
                 AND r.CourseID = ?
                 AND s.RoundID = r.RoundId
                 ORDER BY r.RoundDate, s.RoundID DESC
-        LIMIT 5";
+                LIMIT 5";
         if ($stmt = $conn->prepare($query))
         {
             $stmt->bind_param('ii', $playerId, $CourseId);
@@ -258,6 +258,34 @@ class DbTalker
         }
         $conn->close();
         return $courseAndDate; 
+    }
+
+    //Get 50 rounds
+    public function Get50Rounds($offset)
+    {
+        $rounds = [];
+        $conn =  $this->Connect();
+        $query = "SELECT r.RoundID, r.RoundDate, c.CourseName 
+                FROM rounds AS r, Courses AS c
+                WHERE r.CourseID = c.CourseID
+                ORDER BY r.RoundDate DESC, r.RoundID DESC
+                LIMIT ?, 50";
+        if ($stmt = $conn->prepare($query))
+        {
+            $stmt->bind_param('i', $offset);
+            if ($result = $stmt->execute())
+            {
+                $stmt->bind_result($roundId, $roundDate, $courseName);
+                while($stmt->fetch())
+                {
+                    $round = [$roundId, $roundDate, $courseName];
+                    array_push($rounds, $round);
+                }
+            }
+            $stmt->free_result();
+        }
+        $conn->close();
+        return $rounds; 
     }
 
 

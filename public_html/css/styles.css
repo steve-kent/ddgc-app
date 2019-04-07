@@ -96,7 +96,8 @@ header img:focus {
 .courses_pic img {width:90%; margin: 15px 0px; box-shadow: 12px 9px 13px #333; border-radius: 15px; }
 .red { color: red;}
 .smallcap {font: 0.4em/125% 'Comfortaa', cursive; display: block;}
-		   
+    
+.centerContent {text-align: center;}
 #container {background-color: #EBF1DE; width: 90%; border: 1px solid #79a747; border-radius: 25px; margin: 20px auto; min-height: 400px; display: block;}
 
 #calendar_desktop { background: #79a747; border: 1px solid black; border-radius: 25px; margin: 3% ; text-align:center; display: inline-block; box-shadow: 12px 9px 13px #666; padding: 25px; width: 55%;}
@@ -117,6 +118,8 @@ header img:focus {
 .disc_pic img {width:90%; margin: 5% auto; box-shadow: 12px 9px 13px #333; border-radius: 15px; display:block;}
 
 .directory {margin: 20px}
+
+#displayRound {display: inline-block; vertical-align: top; text-align: center; margin: auto;}
 .form_page { font: 18px/2 'Comfortaa', cursive; display: inline-block; margin: 20px 20px 0; width: 55%; }
 
 #gallery { width: 100%; margin: 0 3% 3% 0;}
@@ -124,7 +127,8 @@ header img:focus {
 .galpics img {width: 100%; border: 1px solid black;}
 .galcaption { text-align: center;}
 
-.invalid { background: #ffdfdf; border-color: #f93636;}
+.invalid { box-shadow: 0 0 5px 1px red;}
+.invalid:focus {box-shadow: none;}
 #links_table { margin: 40px 20px 0; display:inline-block; width: 55%; border: 1px solid black;
 			-moz-box-shadow: 0 0 5px 5px #888;
 			-webkit-box-shadow: 0 0 5px 5px#888;
@@ -159,17 +163,32 @@ header img:focus {
 
 #mobile_header_breaks { display: none;}
 
+#playerForm {margin: 10px;}
+#playerForm input {margin: 5px;}
+
+.pointer { cursor: pointer;}
+.pointer:hover {background: white !important;}
+
+#roundList {     background: #79a747;
+    border: 1px solid black;
+    border-radius: 25px;
+    margin: 3%;
+    text-align: center;
+    display: inline-block;
+    box-shadow: 12px 9px 13px #666; }
+
 .csv_tablemaker { text-align: center; display: table;  margin: 20px auto; }
-.csv_tablemaker th {border: 1px solid black; cursor: pointer;}
+.csv_tablemaker th {border: 1px solid black;}
 .csv_tablemaker td {border: 1px solid black; }
 .csv_tablemaker table td {border: 1px solid black; }
 .csv_tablemaker tr:nth-child(odd) {background: #a3ca7a}
 
 .tablemaker { text-align: center; display: table;  margin: 20px auto; }
-.tablemaker th {border: 1px solid black; cursor: pointer;}
+.tablemaker th {border: 1px solid black;}
 .tablemaker td {border: 1px solid black; }
 .tablemaker table td {border: 1px solid black; }
 .tablemaker tr:nth-child(odd) {background: #a3ca7a}
+
 
 
 #the_table { display: inline-block; margin: 20px;}
@@ -179,6 +198,9 @@ header img:focus {
 
 #the_video { width: 80%; height: 500px; margin: 10px auto; border: 5px inset ;  box-shadow: 0 35px 20px #777;}
 #under_form {margin: 0 10% 20px;}
+
+#validNameOrNick { display: none; color: red; font: 12px/1 'Comfortaa', cursive; margin: 10px 5px;}
+#validMemberOrNot { display: none; color: red; font: 12px/1 'Comfortaa', cursive;  margin: 10px 5px;}
 
 #weather{ max-width: 300px;  margin: 75px auto 40px; display:block; box-shadow: 12px 9px 13px #333;}
 #weather iframe {display: block;  width: 100%; border: none;}

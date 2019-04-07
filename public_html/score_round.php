@@ -22,30 +22,6 @@ $headAdditions = <<< EOT
 EOT;
 
 
-/*
-// Script to Do autofill with JQuery UI
-$headAdditions .= <<< EOT
-<script>
-
-$(function() {
-var availableTags =
-EOT;
-
-$headAdditions .= json_encode($nameList);
-
-$headAdditions .= <<< EOT
-;
-console.log(availableTags + " is tags");
-    $( "#name1" ).autocomplete({
-    source: availableTags
-    });
-});
-
-</script>
-EOT;
-*/
-
-
 $page->headAdditions = $headAdditions;
 
 // Add content
@@ -74,7 +50,7 @@ $content .='"><br>';
 $content .= <<< EOT
 <table id="scoreHandis" align=center autocomplete="off">
     <tr id="row1">
-        <td>Name: <input type="text" name="name[]" class='autoName' size='15'></td> 
+        <td>Name: <input type="text" name="name[]" class='autoName' size='15' autofocus></td> 
         <td>Raw Score: <input type="number" name="score[]" min="1" max="200" value="54" scoreField></td> 
     <br>   
     </table>

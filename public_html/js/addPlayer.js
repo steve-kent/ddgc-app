@@ -1,0 +1,53 @@
+$(document).ready(function() 
+{
+    // Toggle the member fields as enabled or disabled depending on the radio selection
+    $("input[name='memberRadio']").change(function(){
+            $('.memberFields').prop('disabled', $("input[name='memberRadio']:checked").val() == "isMember"? false : true);
+
+    })
+});
+
+function validateForm(theForm)
+{
+    $(theForm.firstName).removeClass("invalid");
+    $(theForm.lastName).removeClass("invalid");
+    $(theForm.nickName).removeClass("invalid");
+    $("label[for='memberRadio']").removeClass("invalid");
+    $('#validMemberOrNot').hide();
+    $('#validNameOrNick').hide();
+
+    if ((theForm.firstName.value == "" || theForm.lastName.value == "") && theForm.nickName.value == "")
+    {
+        $(theForm.firstName).addClass("invalid");
+        $(theForm.lastName).addClass("invalid");
+        $(theForm.nickName).addClass("invalid");
+        $('#validNameOrNick').show();
+        console.log("should return false");
+        return false;
+    }
+
+    if(!anyRadiosChecked(theForm))
+    {
+        $("label[for='memberRadio']").addClass("invalid");
+        $('#validMemberOrNot').show();
+        return false;
+    }
+    else
+    {
+        console.log($('input[name=memberRadio]:checked', theForm).val())
+        return false; ///////////////////////////////////UPDATE THIS
+    }
+}
+
+function anyRadiosChecked(theForm)
+{
+	var checkboxes = document.querySelectorAll('input[type="radio"]');
+	for(i = 0; i < checkboxes.length; i++)
+	{
+		if (checkboxes[i].checked == true)
+		{
+			return true;
+		}
+	}
+	return false;
+}

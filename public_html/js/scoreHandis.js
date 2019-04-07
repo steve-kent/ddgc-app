@@ -14,7 +14,7 @@ function AddAutoFill() {
     });
 }
 
-// Add another line for a score
+// Add another line for a score and put focus in the name input
 function add_row()
 {
     if (isLastLineValid())
@@ -23,6 +23,7 @@ function add_row()
         rowno=rowno+1;
         $("#scoreHandis tr:last").after("<tr id='row"+rowno+"'><td>Name: <input type='text' name='name[]' class='autoName' size='15'></td><td>Raw Score: <input type='number' name='score[]' min='1' max='200' value='54' class='scoreField'></td><td><input type='button' value='DELETE' onclick=delete_row('row"+rowno+"')></td></tr>");
         AddAutoFill();
+        $('table#scoreHandis tr:last input[name="name[]"]').focus();
     }
 }
 

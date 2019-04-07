@@ -1,7 +1,7 @@
 <?php
 require("page.php");
-require("../upload/db/DbTalker.php");
 require("../upload/lib/HandicapHelper.php");
+require('../upload/lib/LinkedTableMaker.php');
 
 $roundId = 0;
 $roundData = [];
@@ -30,7 +30,24 @@ $page->title = "DeBary Disc Golf Club | Handicap results";
 // Add content
 $content = "<div id=\"container\">";
 
+//Get list of rounds
+$roundsList = $hh->Get50Rounds(0);
+
+// Add List of rounds to a pane on the right side
+$content .= "<div id='roundList'>";
+$ltm =  new LinkedTableMaker();
+$ltm->headers = ["Round Date", "Course"];
+$ltm->caption = "Recent Rounds<br><span class='smallcap'>Click to View Results</span>";
+$ltm->data = $roundsList;
+$ltm->rowLink = "rounds.php?roundID=";
+$content .= $ltm->GetTable();
+$content .= "</div>";
+
+
+
+
 // If there are results from a round display a table with the results
+$content .= "<div id='displayRound'>";
 if(count($roundData))
 {
     $roundInfo = $hh->GetRoundCourseAndDate($roundId);
@@ -42,8 +59,7 @@ if(count($roundData))
     $tm->data = $roundData;
     $content .= $tm->GetTable();
 }
-
-$content .= "</div>";
+$content .= "</div></div>";
 
 $page->content = $content;
 
