@@ -44,6 +44,28 @@ class DbTalker
         return $nameList;
     }
 
+    //Returns all Rows from the players table
+    public function GetAllPlayers()
+    {
+        $players = [];
+        $conn =  $this->Connect();
+        $query = "SELECT *
+                    FROM players";
+        if ($stmt = $conn->prepare($query))
+        {
+            if ($stmt->execute())
+            {
+                while($row = $stmt->fetch())
+                {
+                    array_push($players, $row);
+                }
+            }
+        }       
+        $stmt->free_result();
+        $conn->close();
+        return $course;
+    }
+
     //Returns handicap round info to be displayed
     public function GetHandicapRound($roundId)
     {
