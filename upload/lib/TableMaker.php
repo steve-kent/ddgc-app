@@ -6,6 +6,8 @@ class TableMaker
     protected $headers;
     protected $data;
     protected $caption;
+    protected $tagId = "";
+    protected $classes = "tablemaker";
     public $returnContent = "";
 
     // Setter for private variables
@@ -17,7 +19,7 @@ class TableMaker
     // Create the start of the HTML table
     protected function StartTable()
     {
-        $this->returnContent = "<table class='tablemaker'>";
+        $this->returnContent = "<table id='$this->tagId' class='$this->classes'>";
         $this->returnContent .= "<caption>$this->caption</caption>";
     }
 
@@ -31,9 +33,9 @@ class TableMaker
     protected function CreateTable()
     {
         $this->WriteTableHeader();
-        for($row = 0; $row < count($this->data); $row++)
+        foreach($this->data as $row)
         {
-            $this->WriteRow($this->data[$row]);
+            $this->WriteRow($row);
         }
     }
 

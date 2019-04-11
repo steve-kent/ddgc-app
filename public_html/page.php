@@ -13,6 +13,7 @@ class Page
     );
     private $headAdditions = "";
     private $styleSheet = "css/styles.css";
+    private $shouldIndex = 1;
     // Setter for private variables
     public function __set($name, $val)
     {
@@ -28,7 +29,7 @@ class Page
         <head>
         <meta charset="utf-8">
         <meta name="description" content="<?=$this->desc?>">
-        <meta name="robots" content="index">
+        <meta name="robots" content="<?=$this->shouldIndex ? 'index' : 'noindex' ?>">
         <title><?=$this->title?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="<?=$this->styleSheet?>">

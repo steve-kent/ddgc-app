@@ -63,7 +63,7 @@ class DbTalker
         }       
         $stmt->free_result();
         $conn->close();
-        return $course;
+        return $players;
     }
 
     //Returns handicap round info to be displayed
@@ -92,7 +92,6 @@ class DbTalker
         }       
         $stmt->free_result();
         $conn->close();
-        //echo var_dump($roundInfo);
         return $roundInfo;
     }
 
@@ -162,6 +161,28 @@ class DbTalker
         $stmt->free_result();
         $conn->close();
         return $player;     
+    }
+
+    //Returns player by PlayerID
+    public function GetPlayerById($playerId)
+    {
+        $player = [];
+        $conn =  $this->Connect();
+        $query = "SELECT * 
+                    FROM players
+                    WHERE PlayerID = ?";
+        if ($stmt = $conn->prepare($query))
+        {
+            $stmt->bind_param('i', $playerId);
+            if ($stmt->execute())
+            {
+                $result = $stmt->get_result();
+                $player = $result->fetch_assoc();       
+            }
+        }
+        $stmt->free_result();
+        $conn->close();
+        return $player;      
     }
 
     //Returns player by player nickname
@@ -308,6 +329,72 @@ class DbTalker
         }
         $conn->close();
         return $rounds; 
+    }
+
+    public function AddPlayer($player)
+    {
+        $playerId = 0;
+        $conn =  $this->Connect();
+        $query = "INSERT INTO players (MemberNumber, FirstName, LastName, NickName, Email, Expires, OweShirt, PDGA)
+                  VALUES (?,?,?,?,?,?,?,?)";
+        if ($stmt = $conn->prepare($query))
+        {
+            $stmt->bind_param('isssssii', $player->memberNumber, $player->firstName, $player->lastName, $player->nickName, 
+                                        $player->email, $player->expires, $player->oweShirt, $player->pdga);
+            if($stmt->execute())
+            {
+                $playerId = $stmt->affected_rows > 0 ? $conn->insert_id : 0;
+            }
+        }
+        $stmt->free_result();
+        $conn->close();
+        return $playerId;
+    }
+
+    public function GetNextMemberNumber()
+    {
+        $nextMemNum = 0;
+        $conn =  $this->Connect();
+        $query = "SELECT MAX(MemberNumber) 
+                    FROM players";
+        if ($stmt = $conn->prepare($query))
+        {
+            if ($stmt->execute())
+            {
+                $stmt->bind_result($maxNum);
+                $result->fetch();  
+                $nextMemNum = $maxNum ? $maxNum + 1 : 0;              
+            }
+        }
+        $stmt->free_result();
+        $conn->close();
+        return $nextMemNum;      
+    }
+
+    // Get all players that have a memberNumber
+    public function GetAllMembers()
+    {
+        $zero = 0;
+        $players = [];
+        $conn =  $this->Connect();
+        $query = "SELECT *
+                    FROM players
+                    WHERE MemberNumber > ?";
+        if ($stmt = $conn->prepare($query))
+        {
+            $stmt->bind_param('i',$zero);
+            if ($stmt->execute())
+            {
+                $result = $stmt->get_result();
+                while($row = $result->fetch_assoc())
+                {
+                    array_push($players, $row);
+                }
+            }
+        }       
+        $stmt->free_result();
+        $conn->close();
+        return $players;
     }
 
 
