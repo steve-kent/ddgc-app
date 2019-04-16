@@ -41,6 +41,9 @@ header img:focus {
 .nav li:visited {background-color: #ffffff; color: #000000; }
 .nav li:active {background-color: #ffffff; color: #000000; }
 .nav li.current  {background-color: #ececec; }
+
+#addPlayer { margin: 10px;}
+#addPlayer input[type=text], input[type=number], input[type=radio], input[type=checkbox], input[type=date] { margin: 15px 5px 0 0;}
 .address { margin: 30px 0 20px; display: block; width: 95%;}
 
 .button, input[type=submit] {
@@ -81,6 +84,8 @@ header img:focus {
     background: -moz-linear-gradient(top, #527130, #527130);
     background: linear-gradient(to bottom, #527130, #527130);
 }
+
+.button30 {max-width: 30%; display: inline-block; margin: auto;}
 
 
 .nowrap { white-space: nowrap ; }
@@ -163,6 +168,7 @@ header img:focus {
 
 #mobile_header_breaks { display: none;}
 
+#playersButtons {text-align: center;}
 #playerForm {margin: 10px;}
 #playerForm input {margin: 5px;}
 
@@ -234,6 +240,7 @@ header img:focus {
    #calendar_desktop iframe {display: none;}
       #links_table {font: 0.8em/1 'Comfortaa', cursive;}
    .button {display:inline-block; font: normal normal bold 14px arial; width: 30%}
+   .button30 {max-width: 30% !important;}
    #members_nav {display:inline-block; text-align:center; vertical-align: top; margin: 20px; width:50%;}
 	#memberstable, #shortcaps, #longcaps {width: 95%; display: block; margin: 10% auto;}
 	#memberstable table, #shortcaps table, #longcaps table {display: table; margin: 0 auto; text-align: center; width:auto;}

@@ -1,55 +1,103 @@
 <?php
 require("page.php");
+require("../upload/lib/PlayerHelper.php");
+require('../upload/lib/LinkedTableMaker.php');
+require_once("../upload/lib/validator.php");
+
+$playerId = 0;
+$player = null;
+$content = "";
+$ph = new PlayerHelper();
+
+//set roundID if this is a get request for it
+if(isset($_GET['playerId']))
+{
+    $playerId = $_GET['playerId'];
+}
+
+//Get the round info from the DB and assign it if there is a roundID set
+if($playerId)
+{
+    $player = $ph->GetPlayerById($playerId);
+}
+
 // Create new page
 $page = new Page();
 
 // Set description and title
-$page->desc = "Add a handicap player or club member";
-$page->title = "DeBary Disc Golf Club | Add Player";
+$page->desc = "View Members";
+$page->title = "DeBary Disc Golf Club | View/Edit Player Info";
 
-//Add js to header
+//Add Scripts
 $page->headAdditions = "<script
 src='https://code.jquery.com/jquery-3.3.1.min.js'
 integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8='
-crossorigin='anonymous'></script></script><script src='js/addPlayer.js'></script>";
+crossorigin='anonymous'></script><script src='js/addPlayer.js'></script><script src='js/playerSearch.js'></script>";
 
+//Turn off indexing 
+$page->shouldIndex = 0;
 
-
+$playerList = $ph->GetPlayerListAndId();
 // Add content
-$content = <<< EOT
-<div id="container">
-<form id="playerForm" name="addPlayer" method="post" action="validateNewPlayer.php" onsubmit="return validateForm(this)">
-<p id="validNameOrNick" class="invalidMsg">You must enter a first and last name or nickname.</p>
-First Name: <input type="text" name="firstName" id="firstName" size="20" tabindex="1" accesskey="f" autofocus> <br> 
-Last Name: <input type="text" name="lastName" id="lastName" size="20" tabindex="2" accesskey="l"> <br> 
-Nickname: <input type="text" name="nickName" id="nickName" size="20" tabindex="3" accesskey="n"> <br> 
-Email: <input type="text" name="email" id="email" size="20" tabindex="4" accesskey="e"> <br> 
-<p id="validMemberOrNot" class="invalidMsg">Select whether the player is a club member</p>
-<label for="memberRadio">Club Member?</label>
-<input type="radio" name="memberRadio" id="isMember" value="isMember"> Yes 
-<input type="radio" name="memberRadio" id="notMember" value="notMember"> No <br>
-EOT;
+$content = "<div id=\"container\">";
 
-// Datepicker
-$content .= <<< EOT
-    Date: <input class="memberFields" disabled type="date" id="expireDate" name="expireDate"
-EOT;
+// Add List of players to a pane on the right side
+$content .= "<div id='roundList'>";
+$ltm =  new LinkedTableMaker();
+$ltm ->tagId = "playerList";
+$ltm->headers = ["Player"];
+$ltm->caption = "All Players<br><span class='smallcap'>Click on a player to view/edit</span><br><input type='text' id='playerSearch' onkeyup='playerSearch()' placeholder='Search for names..'>";
+$ltm->data = $playerList;
+$ltm->rowLink = "edit_player.php?playerId=";
+$content .= $ltm->GetTable();
+$content .= "</div>";
 
-// Set default date on the date picker to year from today
-$content .= 'value="';
-$content .= date('Y-m-d', strtotime('+1 year'));
-$content .='"><br>';
+// If there is a player found display their info
+$content .= "<div id='displayRound'><div id='playerInfo'><h3>View/Edit DDGC Player Info</h3><br>";
 
-$content .= <<< EOT
-Owed a shirt?: <input class="memberFields" disabled type="checkbox" name="oweShirt" value="oweShirt"><br>
-PDGA#: <input class="memberFields" disabled <input type="number" name="pdga" id="pdga" accesskey="p"> <br> 
-<input type=submit name="addPlayer" value="Add Player">
+$content .= "<div id='playersButtons'><div class='button button30'><a href='players.php'>Players List</a></div>
+<div id='editPlayerBtn' onClick='editPlayer()' class='button button30'>Edit Player</div></div>";
 
-</form>
-</div>
-EOT;
+
+if($player)
+{
+    //////////////////////////TOOD:   ADD VALIDATOR TO OUTPUT VARIABLES///////////////////////////
+    $content .= "<form id='addPlayer' name='addPlayer' method='post' action='validateEditPlayer.php' onsubmit='return validateForm(this)'>
+    <input type='hidden' id='playerId' name='playerId' value='".$player['PlayerID']."'>
+    <p id='validNameOrNick' class='invalidMsg'>You must enter a first and last name or nickname.</p>
+    First Name: <input type='text' name='firstName' id='firstName' size='20' tabindex='1' accesskey='f' value='".$player['FirstName']."' autofocus readonly> <br> 
+    Last Name: <input type='text' name='lastName' id='lastName' size='20' tabindex='2' accesskey='l'value='".$player['LastName']."' readonly> <br> 
+    Nickname: <input type='text' name='nickName' id='nickName' size='20' tabindex='3' accesskey='n' value='".$player['NickName']."' readonly> <br> 
+    Email: <input type='text' name='email' id='email' size='20' tabindex='4' accesskey='e' value='".$player['Email']."' readonly> <br> 
+    <p id='validMemberOrNot' class='invalidMsg'>Select whether the player is a club member</p>
+    <label for='memberRadio'>Club Member?</label>
+    <input type='radio' name='memberRadio' id='isMember' value='isMember'";
+
+    $content .= $ph->IsMember($player['Expires'])?' checked ':'';
+    
+    $content .= "readonly> Yes
+    <input type='radio' name='memberRadio' id='notMember' value='notMember'";
+     $content .= $ph->IsMember($player['Expires'])?'':' checked ';
+    $content .= "readonly> No <br>
+    Member #: <input readonly type='number' name='memberNumber' id='memberNumber' accesskey='m' value='".$player['MemberNumber']."'><br>
+    Date: <input class='memberFields' readonly type='date' id='expireDate' name='expireDate'
+    value='".$player['Expires']."'><br>
+    
+    
+    Owed a shirt?: <input class='memberFields' readonly type='checkbox' name='oweShirt' value='oweShirt'";
+    
+    $content .= $player['OweShirt']?' checked ':'';
+    $content .= "><br>
+    PDGA#: <input class='memberFields' readonly type='number' name='pdga' id='pdga' accesskey='p' value='".$player['PDGA']."'> <br> 
+    <input type=submit id='saveChanges' name='saveChanges' value='Save Changes' disabled>
+    
+    </form>";
+}
+$content .= "</div></div></div>";
 
 $page->content = $content;
+
 // Display the page
 $page->Display();
+
 ?>

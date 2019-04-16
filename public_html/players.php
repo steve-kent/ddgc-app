@@ -61,6 +61,7 @@ $content .= "</div>";
 $content .= "<div id='playerInfo'><h2>View/Edit DDGC Player Info</h2><br>";
 if($player)
 {
+    //////////////////////////TOOD:   ADD VALIDATOR TO OUTPUT VARIABLES///////////////////////////
     $content .= "<form id='addPlayer' name='addPlayer' method='post' action='validateNewPlayer.php' onsubmit='return validateForm(this)'>
     <p id='validNameOrNick' class='invalidMsg'>You must enter a first and last name or nickname.</p>
     First Name: <input type='text' name='firstName' id='firstName' size='20' tabindex='1' accesskey='f' value='".$player['FirstName']."' autofocus disabled> <br> 
@@ -75,7 +76,7 @@ if($player)
     
     
     Date: <input class='memberFields' disabled type='date' id='expireDate' name='expireDate'
-    value='".$player['Expires']."><br>
+    value='".$player['Expires']."'><br>
     
     
     Owed a shirt?: <input class='memberFields' disabled type='checkbox' name='oweShirt' value='oweShirt'><br>

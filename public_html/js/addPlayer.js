@@ -1,11 +1,19 @@
 $(document).ready(function() 
 {
-    // Toggle the member fields as enabled or disabled depending on the radio selection
+    // Toggle the member fields as enabled or readonly depending on the radio selection
     $("input[name='memberRadio']").change(function(){
-            $('.memberFields').prop('disabled', $("input[name='memberRadio']:checked").val() == "isMember"? false : true);
+            $('.memberFields').prop('readonly', $("input[name='memberRadio']:checked").val() == "isMember"? false : true);
 
     })
 });
+
+function editPlayer()
+{
+    $("#addPlayer :input").prop("readonly", false);
+    $('.memberFields').prop('readonly', $("input[name='memberRadio']:checked").val() == "isMember"? false : true);
+    $("#saveChanges").prop("disabled", false);    
+
+}
 
 function validateForm(theForm)
 {
@@ -32,11 +40,7 @@ function validateForm(theForm)
         $('#validMemberOrNot').show();
         return false;
     }
-    else
-    {
-        console.log($('input[name=memberRadio]:checked', theForm).val())
-        return false; ///////////////////////////////////UPDATE THIS
-    }
+return true;
 }
 
 function anyRadiosChecked(theForm)

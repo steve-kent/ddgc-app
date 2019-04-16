@@ -4,11 +4,12 @@ require('TableMaker.php');
 class LinkedTableMaker extends TableMaker
 {
     protected $rowLink = "";
+    protected $classes = "tablemaker LinkedTableMaker";
 
     // Create the start of the HTML table
     protected function StartTable()
     {
-        $this->returnContent = "<table class='tablemaker LinkedTableMaker'>";
+        $this->returnContent = "<table id='$this->tagId' class='$this->classes'>";
         $this->returnContent .= "<caption>$this->caption</caption>";
     }
 

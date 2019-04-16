@@ -32,7 +32,7 @@ EOT;
 
 // Datepicker
 $content .= <<< EOT
-    Date: <input class="memberFields" disabled type="date" id="expireDate" name="expireDate"
+    Date: <input class="memberFields" readonly type="date" id="expireDate" name="expireDate"
 EOT;
 
 // Set default date on the date picker to year from today
@@ -41,8 +41,8 @@ $content .= date('Y-m-d', strtotime('+1 year'));
 $content .='"><br>';
 
 $content .= <<< EOT
-Owed a shirt?: <input class="memberFields" disabled type="checkbox" name="oweShirt" value="oweShirt"><br>
-PDGA#: <input class="memberFields" disabled <input type="number" name="pdga" id="pdga" accesskey="p"> <br> 
+Owed a shirt?: <input class="memberFields" readonly type="checkbox" name="oweShirt" value="oweShirt"><br>
+PDGA#: <input class="memberFields" readonly <input type="number" name="pdga" id="pdga" accesskey="p"> <br> 
 <input type=submit name="addPlayer" value="Add Player">
 
 </form>

@@ -8,6 +8,7 @@ class DbTalker
     private function Connect()
     {
         /***********************UDATE THIS FOR PRODUCTION *******************************/
+        //require('../upload/priv/env_school.php');
         require('../upload/priv/dev.php');
         $conn = new mysqli($dbServer, $dbUsername, $dbPassword, $dbName);
         if (mysqli_connect_errno())
@@ -283,7 +284,7 @@ class DbTalker
         $courseAndDate = [];
         $conn =  $this->Connect();
         $query = "SELECT r.RoundDate, c.CourseName 
-                FROM rounds AS r, Courses AS c
+                FROM rounds AS r, courses AS c
                 WHERE r.RoundID = ?
                 AND r.CourseID = c.CourseID";
         if ($stmt = $conn->prepare($query))
@@ -309,7 +310,7 @@ class DbTalker
         $rounds = [];
         $conn =  $this->Connect();
         $query = "SELECT r.RoundID, r.RoundDate, c.CourseName 
-                FROM rounds AS r, Courses AS c
+                FROM rounds AS r, courses AS c
                 WHERE r.CourseID = c.CourseID
                 ORDER BY r.RoundDate DESC, r.RoundID DESC
                 LIMIT ?, 50";
@@ -331,6 +332,7 @@ class DbTalker
         return $rounds; 
     }
 
+    // Add a new player to the players table
     public function AddPlayer($player)
     {
         $playerId = 0;
@@ -345,6 +347,29 @@ class DbTalker
             {
                 $playerId = $stmt->affected_rows > 0 ? $conn->insert_id : 0;
             }
+        }
+        $stmt->free_result();
+        $conn->close();
+        return $playerId;
+    }
+
+    // Update a player to the players table
+    public function UpdatePlayer($player)
+    {
+        $playerId = 0;
+        $conn =  $this->Connect();
+        $query = "UPDATE players 
+                  SET MemberNumber = ?, FirstName = ?, LastName = ?, NickName = ?, Email = ?, Expires = ?, OweShirt = ?, PDGA = ?
+                  WHERE PlayerID = ?";
+        if ($stmt = $conn->prepare($query))
+        {
+            $stmt->bind_param('isssssiii', $player->memberNumber, $player->firstName, $player->lastName, $player->nickName, 
+                                        $player->email, $player->expires, $player->oweShirt, $player->pdga, $player->playerId);
+            if($stmt->execute())
+            {
+                $playerId = $player->playerId;
+            }
+
         }
         $stmt->free_result();
         $conn->close();

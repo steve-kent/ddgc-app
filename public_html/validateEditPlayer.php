@@ -5,7 +5,7 @@ require_once("../upload/lib/validator.php");
 
 $playerId = 0;
 // Make sure this is comming from the form
-if(isset($_POST['addPlayer']))
+if(isset($_POST['saveChanges']))
 {
     // Make sure a first and last name or nickname is entered
     if((!"" == trim($_POST['firstName']) && !"" == trim($_POST['lastName'])) ||
@@ -13,37 +13,31 @@ if(isset($_POST['addPlayer']))
     {
         $ph = new PlayerHelper();
         $player = new Player();
-        // SET THIS!! $player->memberNumber = null;
+        $player->playerId = $_POST['playerId'];
         $player->firstName = trim($_POST['firstName']) ?: null;
         $player->lastName = trim($_POST['lastName']) ?: null;
         $player->nickName = trim($_POST['nickName']) ?: null;
         $player->email = trim($_POST['email']) ?: null;
+        $player->memberNumber =  trim($_POST['memberNumber']);
+        $player->oweShirt = isset($_POST['oweShirt']) ? 1 : 0;
+        $player->pdga = $_POST['pdga'] ?: null;
+
         if($_POST['memberRadio'] == 'isMember')
         {
-            $player->memberNumber =  $ph->GetNextMemberNumber();
-            $player->expires = $_POST['expireDate'];
-            $player->oweShirt = $_POST['oweShirt'];
-            $player->pdga = $_POST['pdga'] ?: null;
+            $player->memberNumber =  trim($_POST['memberNumber']) ?: $ph->GetNextMemberNumber();
         }
         else
         {
-            $player->expires = '2010-01-01';
+            $player->expires = $_POST['expireDate'] ?: '2010-01-01';
         }
-        $playerId = $ph->AddPlayer($player);
+        $playerId = $ph->UpdatePlayer($player);
     }
 }
 
-//If the player was added and we get the playerId, navigate to players and show the players info.
-if($playerId)
-{
-    header("Location: edit_player.php?playerId=$playerId");
-    exit();
-}
-// If we don't get a player back just go back to he add player page.
-else
-{
-    header("Location: add_player.php");
-    exit();
-}
+
+
+header("Location: edit_player.php?playerId=$playerId");
+exit();
+
 
 ?>

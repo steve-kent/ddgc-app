@@ -39,7 +39,7 @@ $players = $ph->GetMembersTableData();
 //Create "Members" Table
 $tm = new TableMaker();
 $tm->headers = ["Member#", "Name", "Expires"];
-$tm->caption = 	"Members<span class='smallcap'><br>Click column name to sort</span>";
+$tm->caption = 	"Members<span class='smallcap'></span>";
 $tm->tagId = "mt";
 $tm->additionalClasses = "tablesorter";
 $tm->data = $players;
