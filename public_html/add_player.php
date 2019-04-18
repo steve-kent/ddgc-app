@@ -41,7 +41,7 @@ $content .= date('Y-m-d', strtotime('+1 year'));
 $content .='"><br>';
 
 $content .= <<< EOT
-Owed a shirt?: <input class="memberFields" readonly type="checkbox" name="oweShirt" value="oweShirt"><br>
+Owed a shirt?: <input class="memberFields disableClicks" id='oweShirt' readonly type="checkbox" name="oweShirt" value="oweShirt"><br>
 PDGA#: <input class="memberFields" readonly <input type="number" name="pdga" id="pdga" accesskey="p"> <br> 
 <input type=submit name="addPlayer" value="Add Player">
 

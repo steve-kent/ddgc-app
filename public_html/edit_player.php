@@ -71,7 +71,7 @@ if($player)
     Email: <input type='text' name='email' id='email' size='20' tabindex='4' accesskey='e' value='".$player['Email']."' readonly> <br> 
     <p id='validMemberOrNot' class='invalidMsg'>Select whether the player is a club member</p>
     <label for='memberRadio'>Club Member?</label>
-    <input type='radio' name='memberRadio' id='isMember' value='isMember'";
+    <input type='radio' class='disableClicks' name='memberRadio' id='isMember' value='isMember'";
 
     $content .= $ph->IsMember($player['Expires'])?' checked ':'';
     
@@ -84,7 +84,7 @@ if($player)
     value='".$player['Expires']."'><br>
     
     
-    Owed a shirt?: <input class='memberFields' readonly type='checkbox' name='oweShirt' value='oweShirt'";
+    Owed a shirt?: <input class='memberFields disableClicks' readonly type='checkbox' name='oweShirt' id='oweShirt' value='oweShirt'";
     
     $content .= $player['OweShirt']?' checked ':'';
     $content .= "><br>

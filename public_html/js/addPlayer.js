@@ -3,14 +3,16 @@ $(document).ready(function()
     // Toggle the member fields as enabled or readonly depending on the radio selection
     $("input[name='memberRadio']").change(function(){
             $('.memberFields').prop('readonly', $("input[name='memberRadio']:checked").val() == "isMember"? false : true);
-
+            $('#oweShirt').toggleClass("disableClicks", $("input[name='memberRadio']:checked").val() == "isMember"? false : true);
     })
 });
 
 function editPlayer()
 {
     $("#addPlayer :input").prop("readonly", false);
+    $("#isMember").removeClass("disableClicks");
     $('.memberFields').prop('readonly', $("input[name='memberRadio']:checked").val() == "isMember"? false : true);
+    $('#oweShirt').toggleClass("disableClicks", $("input[name='memberRadio']:checked").val() == "isMember"? false : true);
     $("#saveChanges").prop("disabled", false);    
 
 }

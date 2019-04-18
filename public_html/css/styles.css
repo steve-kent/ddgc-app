@@ -119,6 +119,8 @@ header img:focus {
 #courses_table td { border: 1px solid black; padding: 2px;}
 #courses_table th {}
 
+.centerStuff { text-align: center;}
+.disableClicks { pointer-events: none; }
 .disc_pic { background: #79a747; border: 1px solid black; border-radius: 25px; margin: 60px 20px; text-align:left; box-shadow: 12px 9px 13px #666; width: 30%; max-width: 360px; display: inline-block; vertical-align: top;}
 .disc_pic img {width:90%; margin: 5% auto; box-shadow: 12px 9px 13px #333; border-radius: 15px; display:block;}
 
@@ -148,6 +150,15 @@ header img:focus {
 #longcaps td {border: 1px solid black; }
 #longcaps table td {border: 1px solid black; }
 #longcaps tr:nth-child(odd) {background: #a3ca7a}
+
+#playersList { background: #79a747;
+    border: 1px solid black;
+    border-radius: 25px;
+    display: inline-block;
+    box-shadow: 12px 9px 13px #666; 
+    margin: 2%;
+    padding: 2%;
+}
 
 #shortcaps {text-align: center; display: inline-block; width: 35%; margin: 20px 2% 20px 5%;}
 #shortcaps th {border: 1px solid black; cursor: pointer;}
