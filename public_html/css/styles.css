@@ -218,6 +218,7 @@ header img:focus {
 
 #validNameOrNick { display: none; color: red; font: 12px/1 'Comfortaa', cursive; margin: 10px 5px;}
 #validMemberOrNot { display: none; color: red; font: 12px/1 'Comfortaa', cursive;  margin: 10px 5px;}
+#validNameUser { display: none; color: red; font: 12px/1 'Comfortaa', cursive;  margin: 10px 5px;}
 
 #weather{ max-width: 300px;  margin: 75px auto 40px; display:block; box-shadow: 12px 9px 13px #333;}
 #weather iframe {display: block;  width: 100%; border: none;}
