@@ -25,7 +25,9 @@ $content = <<< EOT
 <form id="login" name="login" method="post" action="validateLogin.php" onsubmit="return validateForm(this)">
 <p id="validNameUser" class="invalidMsg">You must enter a username and password.</p>
 First Name: <input type="text" name="userName" id="userName" size="20" tabindex="1" accesskey="u" autofocus> <br> 
-Last Name: <input type="text" name="lastName" id="lastName" size="20" tabindex="2" accesskey="p"> <br> </form>
+Last Name: <input type="text" name="lastName" id="lastName" size="20" tabindex="2" accesskey="p"> <br> 
+<input type=submit name="login" value="Login">
+</form>
 </div>
 EOT;
 
