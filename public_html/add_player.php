@@ -7,6 +7,9 @@ $page = new Page();
 $page->desc = "Add a handicap player or club member";
 $page->title = "DeBary Disc Golf Club | Add Player";
 
+//Turn off indexing 
+$page->shouldIndex = 0;
+
 //Add js to header
 $page->headAdditions = "<script
 src='https://code.jquery.com/jquery-3.3.1.min.js'

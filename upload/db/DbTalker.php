@@ -304,7 +304,7 @@ class DbTalker
         return $courseAndDate; 
     }
 
-    //Get 50 rounds
+    //Get 50 most recent rounds
     public function Get50Rounds($offset)
     {
         $rounds = [];
@@ -376,6 +376,7 @@ class DbTalker
         return $playerId;
     }
 
+    // Returns the next available member number to be assigned to a new member
     public function GetNextMemberNumber()
     {
         $nextMemNum = 0;
