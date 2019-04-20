@@ -17,9 +17,10 @@ if(isset($_POST['login']))
         exit();
     }
 
+
 }
 $_SESSION['loginError'] = "Failed to login";
-header("Location: " . $_SERVER['REQUEST_URI']);
+header("Location: login.php", true, 303);
 exit();
 
 ?>
