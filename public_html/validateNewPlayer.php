@@ -22,7 +22,7 @@ if(isset($_POST['addPlayer']))
         {
             $player->memberNumber =  $ph->GetNextMemberNumber();
             $player->expires = $_POST['expireDate'];
-            $player->oweShirt = $_POST['oweShirt'];
+            $player->oweShirt = isset($_POST['oweShirt']) ? 1 : 0;
             $player->pdga = $_POST['pdga'] ?: null;
         }
         else
@@ -42,8 +42,8 @@ if($playerId)
 // If we don't get a player back just go back to he add player page.
 else
 {
-    header("Location: add_player.php");
-    exit();
+    //header("Location: add_player.php");
+    //exit();
 }
 
 ?>

@@ -33,7 +33,7 @@ class PlayerHelper
     }
 
     // returns the next available member number for a new club member
-    private function GetNextMemberNumber()
+    public function GetNextMemberNumber()
     {
         $dbTalker = new DbTalker();
         return $dbTalker->GetNextMemberNumber() ?: 0;

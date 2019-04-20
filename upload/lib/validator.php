@@ -7,25 +7,25 @@ class Validator
     ////////////// Should update to make sure that the year is <= current year + 1 //////// 
     public static function V_Date($date)
     {
-        $ymd = explode('-', $date);
-        if(count($ymd) != 3)
+        $dmy = explode('-', $date);
+        if(count($dmy) != 3)
         {
             return 0;
         }
         // make year 4 digits if it's not
-        if ((int)$ymd[0] < 100)
+        if ((int)$dmy[0] < 100)
         {
-            if ((int)$ymd[0] > 50 )
+            if ((int)$dmy[0] > 50 )
             {
-                $ymd[0] = (int)$ymd[0] + 1900;
+                $dmy[0] = (int)$dmy[0] + 1900;
             }
-            else if ($ymd[0] >= 0)
+            else if ($dmy[0] >= 0)
             {
-                $ymd[0] = (int)$ymd[0] + 2000;
+                $dmy[0] = (int)$dmy[0] + 2000;
             }
         }
 
-        if (!checkdate($ymd[2], $ymd[1], $ymd[0]))
+        if (!checkdate($dmy[1], $dmy[2], $dmy[0]))
         {
             return 0;
         }

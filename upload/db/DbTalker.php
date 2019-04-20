@@ -342,10 +342,13 @@ class DbTalker
                   VALUES (?,?,?,?,?,?,?,?)";
         if ($stmt = $conn->prepare($query))
         {
+            echo "STMTTTTTTTTTTTT    ";
+                var_dump($player);
             $stmt->bind_param('isssssii', $player->memberNumber, $player->firstName, $player->lastName, $player->nickName, 
                                         $player->email, $player->expires, $player->oweShirt, $player->pdga);
             if($stmt->execute())
             {
+                
                 $playerId = $stmt->affected_rows > 0 ? $conn->insert_id : 0;
             }
         }
@@ -389,7 +392,7 @@ class DbTalker
             if ($stmt->execute())
             {
                 $stmt->bind_result($maxNum);
-                $result->fetch();  
+                $stmt->fetch();  
                 $nextMemNum = $maxNum ? $maxNum + 1 : 0;              
             }
         }
