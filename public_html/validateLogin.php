@@ -1,7 +1,7 @@
 <?php
 require("../upload/lib/AuthHelper.php");
 require_once("../upload/lib/validator.php");
-
+session_start();
 $user = $_POST['userName'];
 $password = $_POST['password'];
 

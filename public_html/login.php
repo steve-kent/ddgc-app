@@ -2,7 +2,7 @@
 require("page.php");
 // Create new page
 $page = new Page();
-
+session_start();
 // Set description and title
 $page->desc = "Login for DDGC";
 $page->title = "DeBary Disc Golf Club | Login";
@@ -18,7 +18,7 @@ crossorigin='anonymous'></script><script src='js/login.js'></script>";
 
 //Check if there were login errors
 $error = "";
-if ($_SESSION['loginError'])
+if (isset($_SESSION['loginError']))
 {
     $error = $_SESSION['loginError'];
     unset($_SESSION['loginError']);
