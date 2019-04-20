@@ -160,7 +160,8 @@ box-shadow: 12px 9px 13px #666;
 }
 .button a {color:#ffffff; display: block;}
 .button:hover,
-.button:focus {
+.button:focus,
+input[type=submit]:hover {
     border: 2px solid #79a747;
     background: #a0dc5e;
     background: -webkit-gradient(linear, left top, left bottom, from(#a0dc5e), to(#62883a));
