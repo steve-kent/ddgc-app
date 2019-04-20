@@ -88,6 +88,10 @@ header img:focus {
 .button30 {max-width: 30%; display: inline-block; margin: auto;}
 
 
+
+.manageButtons {display: inline-block; margin: 10px auto;}
+
+
 .nowrap { white-space: nowrap ; }
 .pictures { background: #79a747; border: 1px solid black; border-radius: 25px; margin: 3% ; text-align:center; float: right; box-shadow: 12px 9px 13px #666; width: 30% }
 .pictures img {width:90%; margin: 15px 0px; box-shadow: 12px 9px 13px #333 ; border-radius: 15px; }
@@ -151,6 +155,11 @@ header img:focus {
 #longcaps table td {border: 1px solid black; }
 #longcaps tr:nth-child(odd) {background: #a3ca7a}
 
+#playerFormContainer {
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+}
 #playersList { background: #79a747;
     border: 1px solid black;
     border-radius: 25px;
@@ -160,12 +169,23 @@ header img:focus {
     padding: 2%;
 }
 
+#playerListPanel {
+    background: #79a747;
+    border: 1px solid black;
+    border-radius: 25px;
+    margin: 3%;
+    text-align: center;
+    display: inline-block;
+    box-shadow: 12px 9px 13px #666;
+}
+
 #shortcaps {text-align: center; display: inline-block; width: 35%; margin: 20px 2% 20px 5%;}
 #shortcaps th {border: 1px solid black; cursor: pointer;}
 #shortcaps td {border: 1px solid black; }
 #shortcaps table td {border: 1px solid black; }
 #shortcaps tr:nth-child(odd) {background: #a3ca7a}
 
+#manageNav {text-align: center;}
 #memberstable {text-align: center; display: inline-block; width: 35%; margin: 20px 2% 20px 10%;}
 #memberstable th {border: 1px solid black; cursor: pointer;}
 #memberstable td {border: 1px solid black; }
@@ -281,7 +301,8 @@ header img:focus {
 			
 }
 @media (max-width:660px){
-	.rounds { display: none}
+    .rounds { display: none}
+    #playerListPanel { display: none}
 }
 
 @media (max-width:600px){

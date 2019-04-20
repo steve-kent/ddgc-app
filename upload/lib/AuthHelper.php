@@ -5,7 +5,7 @@ class AuthHelper
 {
 
 
-    public function Authinticate($user, $pass)
+    public function Authenticate($user, $pass)
     {
         /***********************UDATE THIS FOR PRODUCTION *******************************/
         //require('../upload/priv/env_school.php');

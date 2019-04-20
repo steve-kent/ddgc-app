@@ -3,6 +3,7 @@ require("page.php");
 require("../upload/lib/PlayerHelper.php");
 require('../upload/lib/LinkedTableMaker.php');
 require_once("../upload/lib/validator.php");
+require('staticStuff.php');
 
 $playerId = 0;
 $player = null;
@@ -39,10 +40,10 @@ $page->shouldIndex = 0;
 
 $playerList = $ph->GetPlayerListAndId();
 // Add content
-$content = "<div id=\"container\">";
+$content = "<div id=\"container\">$manageUserHeader";
 
 // Add List of players to a pane on the right side
-$content .= "<div id='roundList'>";
+$content .= "<div id='playerListPanel'>";
 $ltm =  new LinkedTableMaker();
 $ltm ->tagId = "playerList";
 $ltm->headers = ["Player"];
@@ -53,16 +54,13 @@ $content .= $ltm->GetTable();
 $content .= "</div>";
 
 // If there is a player found display their info
-$content .= "<div id='displayRound'><div id='playerInfo'><h3>View/Edit DDGC Player Info</h3><br>";
-
-$content .= "<div id='playersButtons'><div class='button button30'><a href='players.php'>Players List</a></div>
-<div id='editPlayerBtn' onClick='editPlayer()' class='button button30'>Edit Player</div></div>";
-
+$content .= "<div id='playerFormContainer'><div id='displayRound'><div id='playerInfo'><h3>View/Edit DDGC Player Info</h3><br>";
 
 if($player)
 {
     //////////////////////////TOOD:   ADD VALIDATOR TO OUTPUT VARIABLES///////////////////////////
-    $content .= "<form id='addPlayer' name='addPlayer' method='post' action='validateEditPlayer.php' onsubmit='return validateForm(this)'>
+    $content .= "<div id='playersButtons'><div id='editPlayerBtn' onClick='editPlayer()' class='button button30'>Edit Player</div></div>
+    <form id='addPlayer' name='addPlayer' method='post' action='validateEditPlayer.php' onsubmit='return validateForm(this)'>
     <input type='hidden' id='playerId' name='playerId' value='".$player['PlayerID']."'>
     <p id='validNameOrNick' class='invalidMsg'>You must enter a first and last name or nickname.</p>
     First Name: <input type='text' name='firstName' id='firstName' size='20' tabindex='1' accesskey='f' value='".$player['FirstName']."' autofocus readonly> <br> 
@@ -93,7 +91,7 @@ if($player)
     
     </form>";
 }
-$content .= "</div></div></div>";
+$content .= "</div></div></div></div>";
 
 $page->content = $content;
 

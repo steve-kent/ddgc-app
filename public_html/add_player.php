@@ -14,7 +14,8 @@ $page->shouldIndex = 0;
 $page->headAdditions = "<script
 src='https://code.jquery.com/jquery-3.3.1.min.js'
 integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8='
-crossorigin='anonymous'></script></script><script src='js/addPlayer.js'></script>";
+crossorigin='anonymous'></script>
+<script src='js/addPlayer.js'></script>";
 
 
 

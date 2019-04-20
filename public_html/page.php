@@ -112,7 +112,7 @@ class Page
 	    <a href="https://www.facebook.com/groups/192035720947651/"><img src="images/FB.png" alt="FaceBook Logo"></a> 
 	    <span class="nowrap">Club Information: <a href="mailto:brianroberts2526@yahoo.com" >Brian Roberts</a></span> | 
 	    <span class="nowrap">Webmaster: <a href="mailto:stevekentsphone@gmail.com" >Steve Kent</a></span> <br>
-	    &copy; Copyright 2019 DeBary Disc Golf Club</p>
+        &copy; Copyright 2019 DeBary Disc Golf Club</p>
         
 	    </footer>
         
