@@ -65,11 +65,18 @@ class PlayerHelper
         return $dbTalker->GetAllMembers();
     }
 
+        // Returns array of all players and all information stored about them in the Players table
+        public function GetAllPlayers()
+        {
+            $dbTalker = new DbTalker();
+            return $dbTalker->GetAllPlayers();
+        }
+
     // Returns an array with the playerId and Player's full name or nickname
     public function GetPlayerListAndId()
     {
         $tableData = [];
-        $members = $this->GetAllMembers() ?: [];
+        $members = $this->GetAllPlayers() ?: [];
         foreach($members as $member)
         {
             $thisMem = [$member['PlayerID'], $this->NameOrNick($member)];

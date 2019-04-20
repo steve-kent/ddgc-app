@@ -12,6 +12,7 @@ function editPlayer()
     $("#addPlayer :input").prop("readonly", false);
     $("#memberNumber").prop("readonly", true);    //Never let member number be changed
     $("#isMember").removeClass("disableClicks");
+    $("#notMember").removeClass("disableClicks");
     $('.memberFields').prop('readonly', $("input[name='memberRadio']:checked").val() == "isMember"? false : true);
     $('#oweShirt').toggleClass("disableClicks", $("input[name='memberRadio']:checked").val() == "isMember"? false : true);
     $("#saveChanges").prop("disabled", false);    

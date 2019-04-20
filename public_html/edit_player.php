@@ -42,7 +42,7 @@ $playerList = $ph->GetPlayerListAndId();
 // Add content
 $content = "<div id=\"container\">$manageUserHeader";
 
-// Add List of players to a pane on the right side
+// Add List of players to a pane on the left side
 $content .= "<div id='playerListPanel'>";
 $ltm =  new LinkedTableMaker();
 $ltm ->tagId = "playerList";
@@ -74,9 +74,9 @@ if($player)
     $content .= $ph->IsMember($player['Expires'])?' checked ':'';
     
     $content .= "readonly> Yes
-    <input type='radio' name='memberRadio' id='notMember' value='notMember'";
+    <input type='radio' class='disableClicks' name='memberRadio' id='notMember' value='notMember'";
      $content .= $ph->IsMember($player['Expires'])?'':' checked ';
-    $content .= "readonly> No <br>
+    $content .= "> No <br>
     Member #: <input readonly type='number' name='memberNumber' id='memberNumber' accesskey='m' value='".$player['MemberNumber']."'><br>
     Date: <input class='memberFields' readonly type='date' id='expireDate' name='expireDate'
     value='".$player['Expires']."'><br>

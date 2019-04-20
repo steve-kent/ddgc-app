@@ -21,14 +21,14 @@ if(isset($_POST['saveChanges']))
         $player->memberNumber =  trim($_POST['memberNumber']);
         $player->oweShirt = isset($_POST['oweShirt']) ? 1 : 0;
         $player->pdga = $_POST['pdga'] ?: null;
-
         if($_POST['memberRadio'] == 'isMember')
         {
             $player->memberNumber =  trim($_POST['memberNumber']) ?: $ph->GetNextMemberNumber();
+            $player->expires = $_POST['expireDate'];
         }
         else
         {
-            $player->expires = $_POST['expireDate'] ?: '2010-01-01';
+            $player->expires = $_POST['expireDate'] ?: null;
         }
         $playerId = $ph->UpdatePlayer($player);
     }

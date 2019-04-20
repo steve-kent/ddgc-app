@@ -56,7 +56,8 @@ class DbTalker
         {
             if ($stmt->execute())
             {
-                while($row = $stmt->fetch())
+                $result = $stmt->get_result();
+                while($row = $result->fetch_assoc())
                 {
                     array_push($players, $row);
                 }
