@@ -6,13 +6,13 @@ body { background-color:#FFFFFF; color: #000000; font: 18px/1.3 verdana; font-fa
 
 caption { font: 30px/1.3 'Comfortaa', cursive;  }
 
-h1 { text-shadow: #9a9a9a 0.1em 0.1em 0.2em; margin: 35px 0 35px -150px;  display: inline-block;  font: 3em/1.2 'Righteous', cursive;}
-h2 { margin: 20px; }
-h3 { margin: 20px 0 0; text-align: center}
 footer {background-color: #EBF1DE; width: 90%; border: 1px solid #79a747; border-radius: 25px; margin: 20px auto; font: 0.6em/1.3 verdana; text-align:center; min-height:50px;}
 footer img {float:right; margin: 1%; }
 footer .nowrap { white-space: nowrap ; }
 footer p { margin:10px auto; text-align:center; }
+h1 { text-shadow: #9a9a9a 0.1em 0.1em 0.2em; margin: 35px 0 35px -150px;  display: inline-block;  font: 3em/1.2 'Righteous', cursive;}
+h2 { margin: 20px; }
+h3 { margin: 20px 0 0; text-align: center}
 header {background-color: #EBF1DE; width: 90%; border: 1px solid #79a747; border-radius: 25px; margin: 20px auto; height: 150px; text-align:center; position:relative;}
 header img {float:left; }
 header img:hover,	
@@ -23,6 +23,11 @@ header img:focus {
   background: -moz-radial-gradient(circle,#ffffff 10%, #EBF1DE 90%); /* For Firefox 3.6 to 15 */
   background: radial-gradient(circle,#ffffff 10%, #EBF1DE 90%); /* Standard syntax */
   border-radius: 40px;}
+
+  input[readonly]
+{
+    background-color:lightgray;
+}
 
 p {	font-family: 'Comfortaa', cursive; margin: 10%; max-width: 500px;}
 
@@ -54,7 +59,8 @@ p {	font-family: 'Comfortaa', cursive; margin: 10%; max-width: 500px;}
 #links_table tr {border: 1px solid black; width: 60%;}
 #links_table th {background: black; } 
 #links_table td { border: 1px solid black; padding: 1%;}
-
+#login input { margin: 5px;}
+#loginTitle {margin: 10px 5px;}
 #longcaps {text-align: center; display: inline-block; width: 35%; margin: 20px 2% 20px 5%;}
 #longcaps th {border: 1px solid black; cursor: pointer;}
 #longcaps td {border: 1px solid black; }
@@ -192,12 +198,14 @@ input[type=submit]:hover {
 .disc_pic { background: #79a747; border: 1px solid black; border-radius: 25px; margin: 60px 20px; text-align:left; box-shadow: 12px 9px 13px #666; width: 30%; max-width: 360px; display: inline-block; vertical-align: top;}
 .disc_pic img {width:90%; margin: 5% auto; box-shadow: 12px 9px 13px #333; border-radius: 15px; display:block;}
 .directory {margin: 20px}
+.formContainer {display: inline-block; text-align: left;}
 .form_pic { background: #79a747; border: 1px solid black; border-radius: 25px; margin: 3% ; text-align:center; float: right; box-shadow: 12px 9px 13px #666; width: 30% }
 .form_pic img {width:90%; margin: 15px 0px; box-shadow: 12px 9px 13px #333; border-radius: 15px; }
 .form_page { font: 18px/2 'Comfortaa', cursive; display: inline-block; margin: 20px 20px 0; width: 55%; }
 .galpics { width: 29%; margin: 3% 0 0 3%; display: inline-block;}
 .galpics img {width: 100%; border: 1px solid black;}
 .galcaption { text-align: center;}
+.i { font-style: oblique;};
 .invalid { box-shadow: 0 0 5px 1px red;}
 .invalid:focus {box-shadow: none;}
 .links_pic { background: #79a747; border: 1px solid black; border-radius: 25px; margin: 3% ; text-align:center; float: right; box-shadow: 12px 9px 13px #666; width: 30% }
