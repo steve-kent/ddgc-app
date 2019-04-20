@@ -1,10 +1,17 @@
 //List of all names used for autofill
 var namesList;
+var courseList;
 
 // Add the list of names passed in to namesList global variable
 function AddNames(names)
 {
     namesList = names;
+}
+
+// Add the list of courses passed in to courseList global variable
+function AddCourses(courses)
+{
+    courseList = courses;
 }
 
 //Add autofill JQuery UI functionality to .autoName class elements
@@ -39,6 +46,7 @@ function isLastLineValid()
     flag = true;
     var nameInput =  $('table#scoreHandis tr:last input[name="name[]"]');
     var scoreInput = $('table#scoreHandis tr:last input[name="score[]"]');
+    var course = $("#course");
     nameInput.removeClass("invalid");
     scoreInput.removeClass("invalid");
     if (scoreInput.val() < 1 || scoreInput.val() > 200 || isNaN(scoreInput.val()))
@@ -52,6 +60,12 @@ function isLastLineValid()
         nameInput.addClass("invalid");
         flag = false;
         nameInput.focus();
+    }
+    if (!courseList.includes(course.val()))
+    {
+        course.addClass("invalid");
+        flag = false;
+        course.focus();
     }
     return flag;
 }

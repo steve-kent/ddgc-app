@@ -32,7 +32,8 @@ $content = <<< EOT
 <div class="centerStuff">
 <form name="scoreRound" method="post" action="doScoring.php">
 <div id="scoreRoundHeading">Score a Handicap Round:<br>
-<br>Course: <select name="course" id="course" tabindex="1" accesskey="c"> 
+<br><span id='courseSelection'>Course: <select name="course" id="course" tabindex="1" accesskey="c"> 
+<option value=''></option>
 EOT;
 
 foreach ($courseList as $course)
@@ -41,7 +42,7 @@ foreach ($courseList as $course)
 }
 
 $content .= <<< EOT
-        </select><br><br>
+        </select></span><br><br>
     <span class='nowrap'>Date: <input type="date" id="roundDate" name="roundDate"
 EOT;
 // Set default date on the date picker to today
@@ -65,6 +66,9 @@ EOT;
 // Setup Autofill for name input box
 $content .= "<script>AddNames(";
 $content .= json_encode($nameList);
+$content .= ")</script><br>";
+$content .= "<script>AddCourses(";
+$content .= json_encode($courseList);
 $content .= ")</script><br>";
 $content .= "<script>AddAutoFill()</script>";
 
