@@ -1,6 +1,7 @@
 <?php
 require("page.php");
 require("../upload/db/DbTalker.php");
+require('staticStuff.php');
 
 // Create new page
 $page = new Page();
@@ -27,10 +28,11 @@ $page->headAdditions = $headAdditions;
 // Add content
 // Create Form for inputting scores
 $content = <<< EOT
-<div id="container">
-    <form name="scoreRound" method="post" action="doScoring.php">
-    Score a Handicap Round:<br>
-    Course: <select name="course" id="course" tabindex="1" accesskey="c"> 
+<div id="container">$manageUserHeader<div class="centerStuff"><div class="formContainer">
+<div class="centerStuff">
+<form name="scoreRound" method="post" action="doScoring.php">
+<div id="scoreRoundHeading">Score a Handicap Round:<br>
+<br>Course: <select name="course" id="course" tabindex="1" accesskey="c"> 
 EOT;
 
 foreach ($courseList as $course)
@@ -39,13 +41,13 @@ foreach ($courseList as $course)
 }
 
 $content .= <<< EOT
-        </select>
-    Date: <input type="date" id="roundDate" name="roundDate"
+        </select><br><br>
+    <span class='nowrap'>Date: <input type="date" id="roundDate" name="roundDate"
 EOT;
 // Set default date on the date picker to today
 $content .= 'value="';
 $content .= date("Y-m-d");
-$content .='"><br>';
+$content .='"></span></div><br>';
 
 $content .= <<< EOT
 <table id="scoreHandis" align=center autocomplete="off">
@@ -57,7 +59,7 @@ $content .= <<< EOT
     <input type="button" class="button" value="Add Player" onclick="add_row()">
     <input type="submit" name="submitRound" value="Score Round">
     </form>
-    </div>
+    </div></div></div></div>
 EOT;
 
 // Setup Autofill for name input box
