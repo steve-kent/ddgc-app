@@ -156,7 +156,7 @@ header img:focus {
 #longcaps tr:nth-child(odd) {background: #a3ca7a}
 
 #playerFormContainer {
-    text-align: center;
+    margin-left: 5%;
     display: inline-block;
     vertical-align: top;
 }
@@ -200,6 +200,7 @@ header img:focus {
 #mobile_header_breaks { display: none;}
 
 #playersButtons {text-align: center;}
+#playerInfo {text-align: left;}
 #playerForm {margin: 10px;}
 #playerForm input {margin: 5px;}
 
@@ -297,12 +298,17 @@ header img:focus {
 	#calendar_mobile { display: block; margin: 20px auto; text-align: center; width: 70%; float: none;}	
 	#courses_table { font-size: 75%;}
 	.galpics { width: 44%; }
-	#the_video { height: 300px; }
+    #the_video { height: 300px; }
+    #playerFormContainer { margin: 0;}
 			
 }
 @media (max-width:660px){
     .rounds { display: none}
     #playerListPanel { display: none}
+    #playerFormContainer {
+        display: block;
+        text-align: center;
+    }
 }
 
 @media (max-width:600px){

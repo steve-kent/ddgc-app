@@ -1,5 +1,6 @@
 <?php
 require("page.php");
+require('staticStuff.php');
 // Create new page
 $page = new Page();
 
@@ -22,6 +23,7 @@ crossorigin='anonymous'></script>
 // Add content
 $content = <<< EOT
 <div id="container">
+$manageUserHeader
 <form id="addPlayer" name="addPlayer" method="post" action="validateNewPlayer.php" onsubmit="return validateForm(this)">
 <p id="validNameOrNick" class="invalidMsg">You must enter a first and last name or nickname.</p>
 First Name: <input type="text" name="firstName" id="firstName" size="20" tabindex="1" accesskey="f" autofocus> <br> 

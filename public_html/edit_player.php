@@ -54,7 +54,7 @@ $content .= $ltm->GetTable();
 $content .= "</div>";
 
 // If there is a player found display their info
-$content .= "<div id='playerFormContainer'><div id='displayRound'><div id='playerInfo'><h3>View/Edit DDGC Player Info</h3><br>";
+$content .= "<div id='playerFormContainer'><div id='playerInfo'><h3>View/Edit DDGC Player Info</h3><br>";
 
 if($player)
 {
@@ -91,7 +91,7 @@ if($player)
     
     </form>";
 }
-$content .= "</div></div></div></div>";
+$content .= "</div></div></div>";
 
 $page->content = $content;
 
