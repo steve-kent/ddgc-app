@@ -37,7 +37,7 @@ p {	font-family: 'Comfortaa', cursive; margin: 10%; max-width: 500px;}
 
 #addPlauyerContainer {display: inline-block; text-align: left;}
 #addPlayer { margin: 10px;}
-#addPlayer input[type=text], input[type=number], input[type=radio], input[type=checkbox], input[type=date] { margin: 15px 5px 0 0;}
+#addPlayer input[type=text], #addPlayer input[type=number], #addPlayer input[type=radio], #addPlayer input[type=checkbox], #addPlayer input[type=date] { margin: 15px 5px 0 0;}
 #container {background-color: #EBF1DE; width: 90%; border: 1px solid #79a747; border-radius: 25px; margin: 20px auto; min-height: 400px; display: block;}
 #calendar_desktop { background: #79a747; border: 1px solid black; border-radius: 25px; margin: 3% ; text-align:center; display: inline-block; box-shadow: 12px 9px 13px #666; padding: 25px; width: 55%;}
 #calendar_desktop iframe {border: 3px solid black; box-shadow: 12px 9px 13px #333; width: 100%; height: 500px;}
@@ -112,6 +112,7 @@ box-shadow: 12px 9px 13px #666;
     display: inline-block;
     box-shadow: 12px 9px 13px #666; }
 
+#scoreHandis input {margin: 10px;}
 #shortcaps {text-align: center; display: inline-block; width: 35%; margin: 20px 2% 20px 5%;}
 #shortcaps th {border: 1px solid black; cursor: pointer;}
 #shortcaps td {border: 1px solid black; }
@@ -207,7 +208,7 @@ input[type=submit]:hover {
 .galcaption { text-align: center;}
 .i { font-style: oblique;};
 .invalid { box-shadow: 0 0 5px 1px red;}
-.invalid:focus {box-shadow: none;}
+.invalid:focus {box-shadow: 0 0 5px 1px red;}
 .links_pic { background: #79a747; border: 1px solid black; border-radius: 25px; margin: 3% ; text-align:center; float: right; box-shadow: 12px 9px 13px #666; width: 30% }
 .links_pic img {width:90%; margin: 15px 0px; box-shadow: 12px 9px 13px #333; border-radius: 15px; }
 .manageButtons {display: inline-block; margin: 10px auto;}
