@@ -350,12 +350,14 @@ input[type=submit]:hover {
 @media (max-width:400px){
     h1 { font: 1.2em/1 'Righteous', cursive; font-weight: bold; display: inline; padding: 0; margin: 0; text-align: left;}
     #scoreHandis input {margin: 10px 0;}
+    #addPlayerBtn {width: auto}
 }
 
 @media (max-width:345px){
 	.nav { height: 100px; display:block; float:none; margin: 0 11%;}
 	.nav li { margin-bottom: 15px; display: inline-block;}
 	header { height: 200px; display: block;}
-	#memberstable, #shortcaps, #longcaps {font: 0.6em/1 'Comfortaa', cursive;}
+    #memberstable, #shortcaps, #longcaps,#scoreHandis {font: 0.6em/1 'Comfortaa', cursive;}
+    #scoreHandis input {width: 100%;}
 }
 

@@ -68,7 +68,7 @@ $content .= <<< EOT
         <td>Raw Score: <input type="number" name="score[]" min="1" max="200" value="54" scoreField></td> 
     <br>   
     </table>
-    <input type="button" class="button" value="Add Player" onclick="add_row()">
+    <input type="button" class="button" id="addPlayerBtn" value="Add Player" onclick="add_row()">
     <input type="submit" name="submitRound" value="Score Round">
     </form>
     </div></div></div></div>
