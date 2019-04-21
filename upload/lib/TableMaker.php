@@ -45,7 +45,7 @@ class TableMaker
         $this->returnContent .= "<tr>";
         foreach($row as $colData)
         {
-            $colData = Validator::FormatOutput($colData);
+            $colData = FormatOutput($colData);
             $this->returnContent .= "<td>$colData</td>";
         }
         $this->returnContent .= "</tr>";
@@ -57,7 +57,7 @@ class TableMaker
         $this->returnContent .= "<thead><tr>";
         foreach($this->headers as $colData)
         {
-            $colData = Validator::FormatOutput($colData);
+            $colData = FormatOutput($colData);
             $this->returnContent .= "<th>$colData</th>";
         }
         $this->returnContent .= "</tr></thead>";

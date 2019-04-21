@@ -22,7 +22,7 @@ class LinkedTableMaker extends TableMaker
         $this->returnContent .= "<tr class='pointer' onclick=\"location.href='$this->rowLink$row[0]'\">";
         for($i = 1; $i < $columnCount; $i++)
         {
-            $colData = Validator::FormatOutput($row[$i]);
+            $colData = FormatOutput($row[$i]);
             $this->returnContent .= "<td>$row[$i]</td>";
         }
         $this->returnContent .= "</a></tr>";

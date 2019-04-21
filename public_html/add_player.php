@@ -4,13 +4,8 @@ require('staticStuff.php');
 require("../upload/lib/AuthHelper.php");
 
 //Start session and update timeout
-AuthHelper::my_session_start();
-if (!AuthHelper::IsAuthenticated())
-{
-    $_SESSION['loginError'] = "You must login to continue";
-    header("Location: login.php", true, 303);
-    exit();
-}
+my_session_start();
+DoAuthCheck();
 
 // Set description and title
 $desc = "Add a handicap player or club member";

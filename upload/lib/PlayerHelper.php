@@ -6,7 +6,7 @@ class PlayerHelper
     // Vaildiate the data and add the new player to the DB
     public function AddPlayer($player)
     {
-        if(!Validator::V_Date($player->expires))
+        if(!V_Date($player->expires))
         {
             return 0;
         }   
@@ -23,10 +23,6 @@ class PlayerHelper
     //Validate the data and update the player
     public function UpdatePlayer($player)
     {
-        if(!Validator::V_Date($player->expires))
-        {
-            return 0;
-        }   
         if($this->IsMember($player->expires) && !$player->memberNumber) 
         {
             $player->memberNumber = $this->GetNextMemberNumber();
