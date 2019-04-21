@@ -1,27 +1,21 @@
 <?php
 require("page.php");
-// Create new page
-$page = new Page();
 
 // Set description and title
-$page->desc = "DeBary Disc Golf Club Photo Gallery. Pictures from River City Nature Park.";
-$page->title = "DeBary Disc Golf Club | Photo Gallery";
+$desc = "DeBary Disc Golf Club Photo Gallery. Pictures from River City Nature Park.";
+$title = "DeBary Disc Golf Club | Photo Gallery";
+
+//Write header and heading
+WriteHead($title, $desc);
+WriteHeader();
 
 // Add content
-$page->content = <<< EOT
+?>
 <div id="container">
 <h3>Playing a round on the Alpha course</h3>
 <div id="the_video">
     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/k6Z3aCq4Bn4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
-
-
-    <!-- Old embedded video. Moving to youtube iframe
-    <video id="the_video" title="Playing a round on the Alpha course" controls="controls">
-    <source src="the_video.mp4#t=2" type="video/mp4"/>
-    This video is not supported by your browser.
-</video>
--->
 
 <div id="gallery">
 <div class="galpics"><a target="_blank" href="images/gallery/1.jpg"><img src="images/gallery/1.jpg" alt="18th basket"></a></div>
@@ -41,9 +35,10 @@ $page->content = <<< EOT
 
 
 </div>
-EOT;
 
-// Display the page
-$page->Display();
+<?php
+
+//Write footer
+AddFooter();
 
 ?>
