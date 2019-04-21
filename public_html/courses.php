@@ -49,7 +49,7 @@ WriteHeader();
 <?php
 
 //Write footer
-AddFooter()
+AddFooter();
 
 
 ?>

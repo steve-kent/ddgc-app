@@ -52,6 +52,6 @@ crossorigin='anonymous'></script>
 <?php
 
 //Write footer
-AddFooter()
+AddFooter();
 
 ?>

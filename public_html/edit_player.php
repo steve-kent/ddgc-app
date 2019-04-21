@@ -111,5 +111,5 @@ integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8='
 crossorigin='anonymous'></script><script src='js/addPlayer.js'></script><script src='js/playerSearch.js'></script>
 <?php
 //Write footer
-AddFooter()
+AddFooter();
 ?>
