@@ -4,23 +4,19 @@ require('staticStuff.php');
 require("../upload/lib/AuthHelper.php");
 
 //Start session and update timeout
-AuthHelper::my_session_start();
-
-// Create new page
-$page = new Page();
+my_session_start();
 
 // Set description and title
-$page->desc = "Login for DDGC";
-$page->title = "DeBary Disc Golf Club | Login";
+$desc = "Login for DDGC";
+$title = "DeBary Disc Golf Club | Login";
 
 //Turn off indexing 
-$page->shouldIndex = 0;
+$shouldIndex = 0;
 
-//Add js to header
-$page->headAdditions = "<script
-src='https://code.jquery.com/jquery-3.3.1.min.js'
-integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8='
-crossorigin='anonymous'></script><script src='js/login.js'></script>";
+//Write header and heading
+WriteHead($title, $desc, $shouldIndex);
+WriteHeader();
+
 
 //Check if there were login errors
 $error = "";
@@ -30,22 +26,28 @@ if (isset($_SESSION['loginError']))
     unset($_SESSION['loginError']);
 }
 
+//If user is already signed in tell them
 if(isset($_SESSION['validUser']))
 {
     $user = $_SESSION['validUser'];
-        // Add content
-    $content = "
+
+    // Add content
+    ?>
     <div id='container' >
     <h3 id='loginTitle'>You're already logged in as <span class='i'>$user<span></h3>
-    $manageUserHeader</div>";
+    <?=WriteManageUserHeader()?>
+    </div>
+    <?php
 }
+
+// If not signed in show login form
 else
 {
 // Add content
-$content = <<< EOT
+?>
     <div id="container" ><div class="centerStuff"><div class="formContainer">
     <div class="centerStuff"><h1 id="loginTitle">DDGC Login</h1>
-    $error
+    <?=$error?>
     </div>
     <form id="login" name="login" method="post" action="validateLogin.php" onsubmit="return validateForm(this)">
     <p id="validNameUser" class="invalidMsg">You must enter a username and password.</p>
@@ -53,10 +55,19 @@ $content = <<< EOT
     password: <input type="password" name="password" id="password" size="20" tabindex="2" accesskey="p"> <br> 
     <input type=submit name="login" value="Login">
     </form>
-    </div></div></div>
-EOT;
+    </div>
+</div></div>
+<?php
 }
-$page->content = $content;
-// Display the page
-$page->Display();
+?>
+<script
+src='https://code.jquery.com/jquery-3.3.1.min.js'
+integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8='
+crossorigin='anonymous'></script><script src='js/login.js'></script>
+
+<?php
+
+//Write footer
+AddFooter();
+
 ?>

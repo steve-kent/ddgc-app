@@ -1,14 +1,16 @@
 <?php
 require("page.php");
-// Create new page
-$page = new Page();
 
 // Set description and title
-$page->desc = "Links to other disc gold sites from DeBary Disc Golf Club and other local clubs";
-$page->title = "DeBary Disc Golf Club | Links";
+$desc = "Links to other disc gold sites from DeBary Disc Golf Club and other local clubs";
+$title = "DeBary Disc Golf Club | Links";
+
+//Write header and heading
+WriteHead($title, $desc);
+WriteHeader();
 
 // Add content
-$page->content = <<< EOT
+?>
 <div id="container">
 <table id="links_table">
 <caption>Links</caption>
@@ -32,9 +34,10 @@ $page->content = <<< EOT
     </div>
 <div style='clear:both;'></div>
 </div>
-EOT;
 
-// Display the page
-$page->Display();
+<?php
+
+//Write footer
+AddFooter();
 
 ?>
