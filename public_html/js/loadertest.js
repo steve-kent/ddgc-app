@@ -1,3 +1,4 @@
+/* MEMBERS TABLE LOADED WITH PHP
 $.get('memberssk.csv', function(data) {
 
 	// start the table	
@@ -74,6 +75,8 @@ $.get('memberssk.csv', function(data) {
 	$('#memberstable').append(html);
 	
 });
+
+*/
 
 $.get('../shortcapssk.csv', function(data) {
 
