@@ -31,14 +31,12 @@ if($roundId)
     header("Location: rounds.php?roundID=$roundId");
     exit();
 }
+
 // If we don't get a round back jsut go back tot he score round page.
 else
 {
     header("Location: score_round.php");
     exit();
 }
-
-
-
 
 ?>
