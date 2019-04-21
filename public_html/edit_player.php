@@ -39,11 +39,7 @@ $page = new Page();
 $page->desc = "View Members";
 $page->title = "DeBary Disc Golf Club | View/Edit Player Info";
 
-//Add Scripts
-$page->headAdditions = "<script
-src='https://code.jquery.com/jquery-3.3.1.min.js'
-integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8='
-crossorigin='anonymous'></script><script src='js/addPlayer.js'></script><script src='js/playerSearch.js'></script>";
+
 
 //Turn off indexing 
 $page->shouldIndex = 0;
@@ -107,5 +103,11 @@ $page->content = $content;
 
 // Display the page
 $page->Display();
+
+//Add Scripts
+$page->headAdditions = "<script
+src='https://code.jquery.com/jquery-3.3.1.min.js'
+integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8='
+crossorigin='anonymous'></script><script src='js/addPlayer.js'></script><script src='js/playerSearch.js'></script>";
 
 ?>
