@@ -348,7 +348,8 @@ input[type=submit]:hover {
 }
 
 @media (max-width:400px){
-	h1 { font: 1.2em/1 'Righteous', cursive; font-weight: bold; display: inline; padding: 0; margin: 0; text-align: left;}
+    h1 { font: 1.2em/1 'Righteous', cursive; font-weight: bold; display: inline; padding: 0; margin: 0; text-align: left;}
+    #scoreHandis input {margin: 10px 0;}
 }
 
 @media (max-width:345px){
