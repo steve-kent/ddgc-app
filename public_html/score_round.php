@@ -41,7 +41,7 @@ $page->headAdditions = $headAdditions;
 $content = <<< EOT
 <div id="container">$manageUserHeader<div class="centerStuff"><div class="formContainer">
 <div class="centerStuff">
-<form name="scoreRound" method="post" action="doScoring.php">
+<form name="scoreRound" method="post" action="doScoring.php" onsubmit="return confirm('Done entering scores?')">
 <div id="scoreRoundHeading">Score a Handicap Round:<br>
 <br><span id='courseSelection'>Course: <select name="course" id="course" tabindex="1" accesskey="c"> 
 <option value=''></option>

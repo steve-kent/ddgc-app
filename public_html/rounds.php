@@ -34,7 +34,7 @@ $content = "<div id=\"container\">";
 $roundsList = $hh->Get50Rounds(0);
 
 // Add List of rounds to a pane on the right side
-$content .= "<div id='roundList'>";
+$content .= "<div id='roundList' class='hideAt660'>";
 $ltm =  new LinkedTableMaker();
 $ltm->headers = ["Round Date", "Course"];
 $ltm->caption = "Recent Rounds<br><span class='smallcap'>Click to View Results</span>";

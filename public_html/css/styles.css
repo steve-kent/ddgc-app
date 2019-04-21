@@ -285,6 +285,8 @@ input[type=submit]:hover {
 	#members_nav {display:inline-block; text-align:center; vertical-align: top; margin: 20px 1%; }
     #memberstable, #shortcaps, #longcaps {width: 95%; display: block; margin: 3% auto;}
     #the_video { height: 400px; }
+    .tablemaker {font-size: .8rem;}
+    .tablemaker caption {font-size: 1rem;}
 }
 
 @media (max-width:753px){
@@ -307,6 +309,8 @@ input[type=submit]:hover {
         display: block;
         text-align: center;
     }
+    .hideAt660 { display: none !important; }
+    #displayRound { display: block;}
 }
 
 @media (max-width:600px){
