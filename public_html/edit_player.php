@@ -72,7 +72,6 @@ $playersListTable = $ltm->GetTable();
 // If vaild player was in paramater show it in the edit form
 if($player)
 {
-    //////////////////////////TOOD:   ADD VALIDATOR TO OUTPUT VARIABLES///////////////////////////
     ?>
     <div id='playersButtons'>
         <div id='editPlayerBtn' onClick='editPlayer()' class='button button30'>Edit Player</div>
@@ -80,24 +79,24 @@ if($player)
     <form id='addPlayer' name='addPlayer' method='post' action='validateEditPlayer.php' onsubmit='return validateForm(this)'>
     <input type='hidden' id='playerId' name='playerId' value='<?=$player['PlayerID']?>'>
     <p id='validNameOrNick' class='invalidMsg'>You must enter a first and last name or nickname.</p>
-    First Name: <input type='text' name='firstName' id='firstName' size='20' tabindex='1' accesskey='f' value='<?=$player['FirstName']?>' autofocus readonly> <br> 
-    Last Name: <input type='text' name='lastName' id='lastName' size='20' tabindex='2' accesskey='l'value='<?=$player['LastName']?>' readonly> <br> 
-    Nickname: <input type='text' name='nickName' id='nickName' size='20' tabindex='3' accesskey='n' value='<?=$player['NickName']?>' readonly> <br> 
-    Email: <input type='text' name='email' id='email' size='20' tabindex='4' accesskey='e' value='<?=$player['Email']?>' readonly> <br> 
+    First Name: <input type='text' name='firstName' id='firstName' size='20' tabindex='1' accesskey='f' value='<?=FormatOutput($player['FirstName'])?>' autofocus readonly> <br> 
+    Last Name: <input type='text' name='lastName' id='lastName' size='20' tabindex='2' accesskey='l'value='<?=FormatOutput($player['LastName'])?>' readonly> <br> 
+    Nickname: <input type='text' name='nickName' id='nickName' size='20' tabindex='3' accesskey='n' value='<?=FormatOutput($player['NickName'])?>' readonly> <br> 
+    Email: <input type='text' name='email' id='email' size='20' tabindex='4' accesskey='e' value='<?=FormatOutput($player['Email'])?>' readonly> <br> 
     <p id='validMemberOrNot' class='invalidMsg'>Select whether the player is a club member</p>
     <label for='memberRadio'>Club Member?</label>
     <input type='radio' class='disableClicks' name='memberRadio' id='isMember' value='isMember'
     <?=$ph->IsMember($player['Expires'])?' checked ':''?> readonly> Yes
     <input type='radio' class='disableClicks' name='memberRadio' id='notMember' value='notMember'
     <?=$ph->IsMember($player['Expires'])?'':' checked '?>> No <br>
-    Member #: <input readonly type='number' name='memberNumber' id='memberNumber' accesskey='m' value='<?=$player['MemberNumber']?>'><br>
+    Member #: <input readonly type='number' name='memberNumber' id='memberNumber' accesskey='m' value='<?=FormatOutput($player['MemberNumber'])?>'><br>
     Date: <input class='memberFields' readonly type='date' id='expireDate' name='expireDate'
-    value='<?=$player['Expires']?>'><br>
+    value='<?=FormatOutput($player['Expires'])?>'><br>
     
     
     Owed a shirt?: <input class='memberFields disableClicks' readonly type='checkbox' name='oweShirt' id='oweShirt' value='oweShirt'
     <?=$player['OweShirt']?' checked ':''?>><br>
-    PDGA#: <input class='memberFields' readonly type='number' name='pdga' id='pdga' accesskey='p' value='<?=$player['PDGA']?>'> <br> 
+    PDGA#: <input class='memberFields' readonly type='number' name='pdga' id='pdga' accesskey='p' value='<?=FormatOutput($player['PDGA'])?>'> <br> 
     <input type=submit id='saveChanges' name='saveChanges' value='Save Changes' disabled>
     
     </form>
