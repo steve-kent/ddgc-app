@@ -1,21 +1,13 @@
 <?php
+/********COULD SEPERATE CONCERNS ON THIS PAGE *****************/
 require("page.php");
 require("../upload/db/DbTalker.php");
 require('staticStuff.php');
 require("../upload/lib/AuthHelper.php");
 
 //Start session and update timeout
-AuthHelper::my_session_start();
-if (!AuthHelper::IsAuthenticated())
-{
-    $_SESSION['loginError'] = "You must login to continue";
-    header("Location: login.php", true, 303);
-    exit();
-}
-
-
-// Create new page
-$page = new Page();
+my_session_start();
+DoAuthCheck();
 
 //Get All Names List for Autofill
 $dbTalker = new DbTalker();
@@ -23,68 +15,63 @@ $nameList =  $dbTalker->GetNamesAndNicks();
 $courseList = $dbTalker->GetCourseNames();
 
 // Set description and title
-$page->desc = "Add Scores for a Handicap Round information for DeBary Disc Golf Club.";
-$page->title = "DeBary Disc Golf Club | Enter Handicap Round Scores";
+$desc = "Add Scores for a Handicap Round information for DeBary Disc Golf Club.";
+$title = "DeBary Disc Golf Club | Enter Handicap Round Scores";
 
-$headAdditions = <<< EOT
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src='js/scoreHandis.js'></script>
-EOT;
+//Turn off indexing 
+$shouldIndex = 0;
 
-
-$page->headAdditions = $headAdditions;
+//Write header and heading
+WriteHead($title, $desc, $shouldIndex);
+WriteHeader();
 
 // Add content
 // Create Form for inputting scores
-$content = <<< EOT
-<div id="container">$manageUserHeader<div class="centerStuff"><div class="formContainer">
-<div class="centerStuff">
-<form name="scoreRound" method="post" action="doScoring.php" onsubmit="return confirm('Done entering scores?')">
-<div id="scoreRoundHeading">Score a Handicap Round:<br>
-<br><span id='courseSelection'>Course: <select name="course" id="course" tabindex="1" accesskey="c"> 
-<option value=''></option>
-EOT;
+?>
+<div id="container">
+    <?=WriteManageUserHeader()?>
+    <div class="centerStuff">
+        <div class="formContainer">
+            <div class="centerStuff">
+                <form name="scoreRound" method="post" action="doScoring.php" onsubmit="return confirm('Done entering scores?')">
+                <div id="scoreRoundHeading">Score a Handicap Round:<br>
+                <br><span id='courseSelection'>Course: <select name="course" id="course" tabindex="1" accesskey="c">
+                    <option value=''></option>
+                    <?php
+                    foreach ($courseList as $course)
+                    {
+                        ?>
+                        <option value="<?=$course?>"><?=$course?></option>
+                        <?php
+                    }
+                    ?>
+                    </select>
+                </span><br><br>
+                <span class='nowrap'>
+                    Date: <input type="date" id="roundDate" name="roundDate" value="<?=date("Y-m-d")?>">
+                </span></div><br>
+                <table id="scoreHandis" autocomplete="off">
+                    <tr id="row1">
+                        <td>Name: <input type="text" name="name[]" class='autoName' size='15' autofocus></td> 
+                        <td>Raw Score: <input type="number" name="score[]" min="1" max="200" value="54" scoreField></td>
+                    </tr><br>
+                </table>
+                <input type="button" class="button" id="addPlayerBtn" value="Add Player" onclick="add_row()">
+                <input type="submit" name="submitRound" value="Score Round">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src='js/scoreHandis.js'></script>
+<script>AddNames(<?=json_encode($nameList)?>)</script><br>
+<script>AddCourses(<?=json_encode($courseList)?>)</script><br>
+<script>AddAutoFill()</script>";
 
-foreach ($courseList as $course)
-{
-    $content .= "<option value=\"$course\">$course</option>";
-}
+<?php
 
-$content .= <<< EOT
-        </select></span><br><br>
-    <span class='nowrap'>Date: <input type="date" id="roundDate" name="roundDate"
-EOT;
-// Set default date on the date picker to today
-$content .= 'value="';
-$content .= date("Y-m-d");
-$content .='"></span></div><br>';
-
-$content .= <<< EOT
-<table id="scoreHandis" align=center autocomplete="off">
-    <tr id="row1">
-        <td>Name: <input type="text" name="name[]" class='autoName' size='15' autofocus></td> 
-        <td>Raw Score: <input type="number" name="score[]" min="1" max="200" value="54" scoreField></td> 
-    <br>   
-    </table>
-    <input type="button" class="button" id="addPlayerBtn" value="Add Player" onclick="add_row()">
-    <input type="submit" name="submitRound" value="Score Round">
-    </form>
-    </div></div></div></div>
-EOT;
-
-// Setup Autofill for name input box
-$content .= "<script>AddNames(";
-$content .= json_encode($nameList);
-$content .= ")</script><br>";
-$content .= "<script>AddCourses(";
-$content .= json_encode($courseList);
-$content .= ")</script><br>";
-$content .= "<script>AddAutoFill()</script>";
-
-$page->content = $content;
-
-// Display the page
-$page->Display();
+//Write footer
+AddFooter();
 ?>

@@ -2,6 +2,7 @@
 require_once("../upload/lib/TableMaker.php");
 require_once('../upload/lib/LinkedTableMaker.php');
 require_once("../upload/lib/PlayerHelper.php");
+require_once("../upload/lib/HandicapHelper.php");
 
 // Creates html table of all members
 function ShowMembersTable()
@@ -35,4 +36,40 @@ function ShowPlayersTable()
     $ltm->data = $playerList;
     $ltm->rowLink = "edit_player.php?playerId=";
     echo $ltm->GetTable();
+}
+
+//Creates a linked table with the last 50 rounds
+function ShowRoundsList()
+{
+    $hh = new HandicapHelper();
+    //Get list of rounds
+    $roundsList = $hh->Get50Rounds(0);
+
+    $ltm =  new LinkedTableMaker();
+    $ltm->headers = ["Round Date", "Course"];
+    $ltm->caption = "Recent Rounds<br><span class='smallcap'>Click to View Results</span>";
+    $ltm->data = $roundsList;
+    $ltm->rowLink = "rounds.php?roundID=";
+    echo $ltm->GetTable();
+}
+
+function ShowRoundResults($roundId)
+{
+    $hh = new HandicapHelper();
+    $roundData = [];
+    //Get the round info from the DB and assign it if there is a roundID set
+    if($roundId)
+    {
+        $roundData = $hh->GetHandicapRound($roundId);
+    }
+    if(count($roundData))
+    {
+        $roundInfo = $hh->GetRoundCourseAndDate($roundId);
+        $caption = $roundInfo[1] ." on ". $roundInfo[0];
+        $tm = new TableMaker();
+        $tm->headers = ["Player","Raw Score", "Handicap", "Net Score"];
+        $tm->caption = $caption;
+        $tm->data = $roundData;
+        echo $tm->GetTable();
+    }
 }
