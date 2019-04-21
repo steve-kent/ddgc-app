@@ -1,5 +1,5 @@
 <?php
-require('TableMaker.php');
+require_once('TableMaker.php');
 
 class LinkedTableMaker extends TableMaker
 {
