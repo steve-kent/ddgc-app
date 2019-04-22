@@ -41,3 +41,16 @@ function my_session_start($timeout = 6048000)
 
     $_SESSION['timeout_idle'] = time() + $timeout;
 }
+
+function ShowHeaderButton()
+{
+    my_session_start();
+    if (IsAuthenticated())
+    {
+        echo "<a href='edit_player.php'>Manage</a>";
+    }
+    else
+    {
+        echo "<a href='login.php'>Login</a>";
+    }
+}

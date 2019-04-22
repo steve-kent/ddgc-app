@@ -1,10 +1,7 @@
 <?php
 require("page.php");
 require('staticStuff.php');
-require("../upload/lib/AuthHelper.php");
-
-//Start session and update timeout
-my_session_start();
+require_once("../upload/lib/AuthHelper.php");
 
 // Set description and title
 $desc = "Login for DDGC";
@@ -34,7 +31,6 @@ if(isset($_SESSION['validUser']))
     // Add content
     ?>
     <div id='container' >
-    <h3 id='loginTitle'>You're already logged in as <span class='i'><?=$user?><span></h3>
     <?=WriteManageUserHeader()?>
     </div>
     <?php

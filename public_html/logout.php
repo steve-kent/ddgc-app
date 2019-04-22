@@ -1,16 +1,13 @@
 <?php
 require("page.php");
-require("../upload/lib/AuthHelper.php");
-
-//Start session and update timeout
-my_session_start();
+require_once("../upload/lib/AuthHelper.php");
 
 // Set description and title
 $desc = "Log Out for DDGC";
 $title = "DeBary Disc Golf Club | Log Out";
 
 //Turn off indexing 
-$page->shouldIndex = 0;
+$shouldIndex = 0;
 
 //Write header and heading
 WriteHead($title, $desc, $shouldIndex);
@@ -32,5 +29,5 @@ You have been logged out.
 AddFooter();
 
 //Redirect to homepage after 2 seconds
-header( "refresh:2;url=index.php" );
+//header( "refresh:2;url=index.php" );
 ?>

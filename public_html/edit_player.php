@@ -4,10 +4,9 @@ require("../upload/lib/PlayerHelper.php");
 require('../upload/lib/LinkedTableMaker.php');
 require_once("../upload/lib/validator.php");
 require('staticStuff.php');
-require("../upload/lib/AuthHelper.php");
+require_once("../upload/lib/AuthHelper.php");
 
-//Start session and update timeout
-my_session_start();
+//Check if user is authenticated
 DoAuthCheck();
 
 $playerId = 0;
