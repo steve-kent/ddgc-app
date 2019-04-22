@@ -2,6 +2,11 @@
 require("../upload/models/Player.php");
 require("../upload/lib/PlayerHelper.php");
 require_once("../upload/lib/validator.php");
+require("../upload/lib/AuthHelper.php");
+
+//Start session and update timeout
+my_session_start();
+DoAuthCheck();
 
 $playerId = 0;
 // Make sure this is comming from the form
