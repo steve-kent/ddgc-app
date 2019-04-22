@@ -5,12 +5,10 @@ session_start();
 $user = $_POST['userName'];
 $password = $_POST['password'];
 
-$ah = new AuthHelper();
-
 // Make sure this is comming from the form
 if(isset($_POST['login']))
 {
-    if($ah->Authenticate($user, $password))
+    if(Authenticate($user, $password))
     {
         $_SESSION['validUser'] = $user;
         header("Location: edit_player.php");
