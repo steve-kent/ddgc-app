@@ -44,7 +44,10 @@ function my_session_start($timeout = 6048000)
 
 function ShowHeaderButton()
 {
-    my_session_start();
+    if (!isset($_SESSION)) 
+    {
+        my_session_start();
+    }
     if (IsAuthenticated())
     {
         echo "<a href='edit_player.php'>Manage</a>";
