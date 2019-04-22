@@ -21,7 +21,7 @@ Class HandicapHelper
         public function ScoreRound($courseName, $roundDate, $players, $scores)
         {
             $dbTalker = new DbTalker();
-            if(!Validator::V_Date($roundDate) || !Validator::V_Selection($courseName, $dbTalker->GetCourseNames()))
+            if(!V_Date($roundDate) || !V_Selection($courseName, $dbTalker->GetCourseNames()))
             {
                 echo "Course $courseName -- Date $roundDate";
                 echo "Invalid Course Name or Date Selection";
