@@ -33,6 +33,7 @@ function WriteHeader()
         <header>
             <a href="index.php"><img src="images/logo_200.png" alt="DeBary Disc Golf Club Logo" ></a>
             <div id="headerContent">
+            <div id="navLogin"><a href="login.php">Login</a></div>
             <div id="headerTitle"><h1>DeBary Disc <span class="nowrap">Golf Club</span></h1></div>
         <?php AddNav(); ?>
         </div>

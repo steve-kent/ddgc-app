@@ -80,6 +80,8 @@ p {	font-family: 'Comfortaa', cursive; margin: 10%; max-width: 500px;}
 #members_nav {display:inline-block; text-align:center; vertical-align: top; width:160px;}
 #mission p { margin: 10%; max-width: 500px;}
 #mobile_header_breaks { display: none;}
+#navLogin {align-self: flex-end;}
+#navLogin a {font-size: .8em;}
 #playersButtons {text-align: center;}
 #playerForm {margin: 10px;}
 #playerForm input { margin: 5px;}
@@ -221,10 +223,11 @@ input[type=submit]:hover {
 
 .nav { align-self: flex-end; justify-self: flex-end;}
 .nav ul { list-style:none; padding:0; list-style-position: inside; float: right;}
-.nav li {background-color: #adadad; color: #000000; display:inline; padding: 5px 10px; border: 2px solid #626262; border-radius: 25px; text-align: center; box-shadow: 12px 9px 13px #888;}
-.nav a {color: #000000; text-decoration:none; }
-.nav li:hover,	
-.nav li:focus {  
+.nav li, #navLogin {background-color: #adadad; color: #000000; display:inline; padding: 5px 10px; border: 2px solid #626262; border-radius: 25px; text-align: center; box-shadow: 12px 9px 13px #888;}
+.nav a, #navLogin a {color: #000000; text-decoration:none; }
+.nav li:hover,
+.nav li:focus
+, #navLogin:hover {  
   background: red; /* For browsers that do not support gradients */
   background: -webkit-radial-gradient(#ffffff, #adadad); /* Safari 5.1 to 6.0 */
   background: -o-radial-gradient(ffffff, #adadad); /* For Opera 11.6 to 12.0 */
