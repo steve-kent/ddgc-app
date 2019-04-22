@@ -30,12 +30,12 @@ function WriteHead($title = "DeBary Disc Golf Club", $desc = "DeBary Disc Golf C
 function WriteHeader()
 {
     ?>
-        <header><a href="index.php"><img src="images/logo_200.png" alt="DeBary Disc Golf Club Logo" ></a>
-	    <div id="mobile_header_breaks">
-	    <br><br><br>
-	    </div>
-	    <h1>DeBary Disc Golf Club</h1>
+        <header>
+            <a href="index.php"><img src="images/logo_200.png" alt="DeBary Disc Golf Club Logo" ></a>
+            <div id="headerContent">
+            <div id="headerTitle"><h1>DeBary Disc Golf Club</h1></div>
         <?php AddNav(); ?>
+        </div>
 	    </header>
     <?php
 }

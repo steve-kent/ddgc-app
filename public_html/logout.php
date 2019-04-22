@@ -6,8 +6,8 @@ require("../upload/lib/AuthHelper.php");
 my_session_start();
 
 // Set description and title
-$page->desc = "Log Out for DDGC";
-$page->title = "DeBary Disc Golf Club | Log Out";
+$desc = "Log Out for DDGC";
+$title = "DeBary Disc Golf Club | Log Out";
 
 //Turn off indexing 
 $page->shouldIndex = 0;

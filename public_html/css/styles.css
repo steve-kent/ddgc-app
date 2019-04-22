@@ -6,15 +6,17 @@ body { background-color:#FFFFFF; color: #000000; font: 18px/1.3 verdana; font-fa
 
 caption { font: 30px/1.3 'Comfortaa', cursive;  }
 
-footer {background-color: #EBF1DE; width: 90%; border: 1px solid #79a747; border-radius: 25px; margin: 20px auto; font: 0.6em/1.3 verdana; text-align:center; min-height:50px;}
+footer {background-color: #EBF1DE; width: 90%; max-width: 1400px; border: 1px solid #79a747; border-radius: 25px; 
+    margin: 20px auto; font: 0.6em/1.3 verdana; text-align:center; min-height:50px;}
 footer img {float:right; margin: 1%; }
 footer .nowrap { white-space: nowrap ; }
 footer p { margin:10px auto; text-align:center; }
-h1 { text-shadow: #9a9a9a 0.1em 0.1em 0.2em; margin: 35px 0 35px -150px;  display: inline-block;  font: 3em/1.2 'Righteous', cursive;}
+h1 { text-shadow: #9a9a9a 0.1em 0.1em 0.2em; font: 3em/1.2 'Righteous', cursive;}
 h2 { margin: 20px; }
 h3 { margin: 20px 0 0; text-align: center}
-header {background-color: #EBF1DE; width: 90%; border: 1px solid #79a747; border-radius: 25px; margin: 20px auto; height: 150px; text-align:center; position:relative;}
-header img {float:left; }
+header {background-color: #EBF1DE; width: 90%; max-width: 1400px; border: 1px solid #79a747; border-radius: 25px; 
+    margin: 20px auto; height: 150px; display: flex; min-width: 0}
+header img {justify-self: flex-start; }
 header img:hover,	
 header img:focus {  
   background: red; /* For browsers that do not support gradients */
@@ -38,7 +40,7 @@ p {	font-family: 'Comfortaa', cursive; margin: 10%; max-width: 500px;}
 #addPlauyerContainer {display: inline-block; text-align: left;}
 #addPlayer { margin: 10px;}
 #addPlayer input[type=text], #addPlayer input[type=number], #addPlayer input[type=radio], #addPlayer input[type=checkbox], #addPlayer input[type=date] { margin: 15px 5px 0 0;}
-#container {background-color: #EBF1DE; width: 90%; border: 1px solid #79a747; border-radius: 25px; margin: 20px auto; min-height: 400px; display: block;}
+#container {background-color: #EBF1DE; width: 90%; max-width: 1400px; border: 1px solid #79a747; border-radius: 25px; margin: 20px auto; min-height: 400px; display: block;}
 #calendar_desktop { background: #79a747; border: 1px solid black; border-radius: 25px; margin: 3% ; text-align:center; display: inline-block; box-shadow: 12px 9px 13px #666; padding: 25px; width: 55%;}
 #calendar_desktop iframe {border: 3px solid black; box-shadow: 12px 9px 13px #333; width: 100%; height: 500px;}
 #calendar_mobile { background: #79a747; border: 1px solid black; border-radius: 25px; margin: 20px; display: none; box-shadow: 12px 9px 13px #666; padding: 25px; float: right; }
@@ -51,6 +53,9 @@ p {	font-family: 'Comfortaa', cursive; margin: 10%; max-width: 500px;}
 #courses_table td { border: 1px solid black; padding: 2px;}
 #displayRound {display: inline-block; vertical-align: top; text-align: center; margin: auto;}
 #gallery { width: 100%; margin: 0 3% 3% 0;}
+#headerContent {display: flex; flex-direction: column; justify-content: space-between; width: 100%; min-width: 0;}
+#headerTitle {align-self: center; justify-self: center;} 
+#headerTitle h1 {margin: 0;}
 #links_table { margin: 40px 20px 0; display:inline-block; width: 55%; border: 1px solid black;
     -moz-box-shadow: 0 0 5px 5px #888;
     -webkit-box-shadow: 0 0 5px 5px#888;
@@ -214,9 +219,7 @@ input[type=submit]:hover {
 .links_pic img {width:90%; margin: 15px 0px; box-shadow: 12px 9px 13px #333; border-radius: 15px; }
 .manageButtons {display: inline-block; margin: 10px auto;}
 
-.nav { /*float: right; */ margin: 50px 20px 0px; display: inline-block;  position:absolute;
-    bottom:0;
-    right:0;}
+.nav { align-self: flex-end; justify-self: flex-end;}
 .nav ul { list-style:none; padding:0; list-style-position: inside; float: right;}
 .nav li {background-color: #adadad; color: #000000; display:inline; padding: 5px 10px; border: 2px solid #626262; border-radius: 25px; text-align: center; box-shadow: 12px 9px 13px #888;}
 .nav a {color: #000000; text-decoration:none; }
@@ -257,14 +260,14 @@ input[type=submit]:hover {
 
 
 @media (max-width:1290px){
-   h1 {margin: 20px 30px 0 -120px; }
-   .nav { float: right; margin: 10px 20px 0px;}
+   /*h1 {margin: 20px 30px 0 -120px; }
+   .nav { float: right; margin: 10px 20px 0px;}*/
    .rounds { display: none}
    
 
 }
 @media (max-width:1180px){
-	h1 {margin: 20px 30px 0 -70px; }
+	/*h1 {margin: 20px 30px 0 -70px; }*/
    #calendar_mobile { display: inline-block;}
    #calendar_mobile iframe {border: 3px solid black; box-shadow: 12px 9px 13px; width: 100%; height: 500px; display: block;}
    #calendar_desktop { display: none;}
@@ -290,7 +293,7 @@ input[type=submit]:hover {
 }
 
 @media (max-width:753px){
-	h1 { font: 2em/1 'Righteous', cursive; font-weight: bold; margin: 20px 0 0;}
+	h1 { font: 2em/1 'Righteous', cursive; font-weight: bold; /*margin: 20px 0 0;*/}
 	.nav {font: 0.8em/1 'Comfortaa', cursive;}
 	header { height: 110px; }
 	header img { height: 105px; }
@@ -336,31 +339,33 @@ input[type=submit]:hover {
 
 @media (max-width:502px){
 	body {font: 14px/1 'Comfortaa', cursive; }
-	.nav { float: none;
+	/*.nav { float: none;
 			display: block;
 			margin: 20px auto 0;}
-	.nav ul { float: none; }
-	h1 { font: 1.7em/1 'Righteous', cursive; font-weight: bold; display: inline; padding: 0; margin: 0; text-align: left;}
-	header { height: 130px; display: block;}
-	header img { display: inline;}
+    .nav ul { float: none; }*/
+    header {
+        height: 130px;}
+	h1 { font: 1.7em/1 'Righteous', cursive; /*font-weight: bold; display: inline; padding: 0; margin: 0; text-align: left;*/}
 	a {	text-decoration:none; display: inline;}
 	#mobile_header_breaks { display: inline;}
 	.button { font: normal normal bold 12px arial;}
     #calendar_mobile { width: 80% }
     #the_video { height: 250px; }
+    #headerContent {
+        justify-content: flex-end;}
 	
 }
 
 @media (max-width:400px){
-    h1 { font: 1.2em/1 'Righteous', cursive; font-weight: bold; display: inline; padding: 0; margin: 0; text-align: left;}
+    h1 { font: 1.2em/1 'Righteous', cursive;}
     #scoreHandis input {margin: 10px 0;}
     #addPlayerBtn {width: auto}
 }
 
 @media (max-width:345px){
-	.nav { height: 100px; display:block; float:none; margin: 0 11%;}
+	/*.nav { height: 100px; display:block; float:none; margin: 0 11%;}
 	.nav li { margin-bottom: 15px; display: inline-block;}
-	header { height: 200px; display: block;}
+	header { height: 200px; display: block;}*/
     #memberstable, #shortcaps, #longcaps,#scoreHandis {font: 0.6em/1 'Comfortaa', cursive;}
     #scoreHandis input {width: 100%;}
 }
