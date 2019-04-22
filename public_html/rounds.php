@@ -26,6 +26,7 @@ WriteHeader();
         <?=ShowRoundsList()?>
     </div>
     <div id='displayRound'>
+    <div class='showAt660 button manageButtons'><a href='recent_rounds.php'>More recent rounds</a></div>
         <?=ShowRoundResults($roundId)?>
     </div>
 </div>

@@ -242,6 +242,7 @@ input[type=submit]:hover {
 .pointer:hover {background: white !important;}
 .red { color: red;}
 .smallcap {font: 0.4em/125% 'Comfortaa', cursive; display: block;}
+.showAt660 {display: none;}
 .tablemaker { text-align: center; display: table;  margin: 20px auto; }
 .tablemaker th {border: 1px solid black;}
 .tablemaker td {border: 1px solid black; }
@@ -279,6 +280,7 @@ input[type=submit]:hover {
 	#memberstable, #shortcaps, #longcaps {width: 95%; display: block; margin: 10% auto;}
 	#memberstable table, #shortcaps table, #longcaps table {display: table; margin: 0 auto; text-align: center; width:auto;}
    .rounds { display: table-cell;}
+   .showAt660 {display: none;}
 }
 
 
@@ -314,6 +316,7 @@ input[type=submit]:hover {
     }
     .hideAt660 { display: none !important; }
     #displayRound { display: block;}
+    .showAt660 {display: inline-block;}
 }
 
 @media (max-width:600px){
@@ -333,7 +336,8 @@ input[type=submit]:hover {
 	.rounds { display: none}
 	#members_nav {display:block; text-align:center; margin: 20px auto; width:auto;}
 	caption { font: 20px/1.3 'Comfortaa', cursive;  }
-	#weather{ max-width: 300px;  margin: 20px auto;}
+    #weather{ max-width: 300px;  margin: 20px auto;}
+    
 	
 }
 
