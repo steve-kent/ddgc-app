@@ -27,7 +27,7 @@ if($roundId)
     exit();
 }
 
-// If we don't get a round back jsut go back tot he score round page.
+// If we don't get a round back just go back tot he score round page.
 else
 {
     header("Location: score_round.php");

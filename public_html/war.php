@@ -2,13 +2,13 @@
 require('page.php');
 require('../upload/lib/csv_tablemaker.php');
 
-// Create new page
-$page = new Page();
-
 // Set description and title
-$page->desc = "Course Layout for War on I4 Qualifiers at DeBary Disc Golf Club.";
-$page->title = "DeBary Disc Golf Club | War Qualifier Layout";
+$desc = "Course Layout for War on I4 Qualifiers at DeBary Disc Golf Club.";
+$title = "DeBary Disc Golf Club | War Qualifier Layout";
 
+//Write header and heading
+WriteHead($title, $desc);
+WriteHeader();
 
 //Generate 1st table content
 $courseA = new CSVTableMaker();
@@ -27,12 +27,18 @@ $courseB->caption = "Course B<br><div class='smallcap'>*notes: on/across road OB
 $courseB->fileName = "../upload/lib/war.csv";
 
 // Add content
-$pageContent = "<div class='warContainer'><h1 class='warHeading'>War Qualifier Layout</h1><br><h4>Water is Casual</h4>";
-$pageContent .= $courseA->GetTable();
-$pageContent .= $courseB->GetTable()."</div>";
+?>
+<div class='warContainer'>
+    <h1 class='warHeading'>War Qualifier Layout</h1><br>
+    <h4>Water is Casual</h4>
+    <?php
+    echo $courseA->GetTable();
+    echo $courseB->GetTable()
+    ?>
+</div>
 
-$page->content = $pageContent;
+<?php
 
-// Display the page
-$page->Display();
+//Write footer
+AddFooter();
 ?>
