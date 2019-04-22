@@ -34,7 +34,7 @@ if(isset($_SESSION['validUser']))
     // Add content
     ?>
     <div id='container' >
-    <h3 id='loginTitle'>You're already logged in as <span class='i'>$user<span></h3>
+    <h3 id='loginTitle'>You're already logged in as <span class='i'><?=$user?><span></h3>
     <?=WriteManageUserHeader()?>
     </div>
     <?php
