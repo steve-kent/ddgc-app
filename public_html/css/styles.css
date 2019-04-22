@@ -54,7 +54,7 @@ p {	font-family: 'Comfortaa', cursive; margin: 10%; max-width: 500px;}
 #displayRound {display: inline-block; vertical-align: top; text-align: center; margin: auto;}
 #gallery { width: 100%; margin: 0 3% 3% 0;}
 #headerContent {display: flex; flex-direction: column; justify-content: space-between; width: 100%; min-width: 0;}
-#headerTitle {align-self: center; justify-self: center;} 
+#headerTitle {align-self: center; margin: auto;} 
 #headerTitle h1 {margin: 0;}
 #links_table { margin: 40px 20px 0; display:inline-block; width: 55%; border: 1px solid black;
     -moz-box-shadow: 0 0 5px 5px #888;
