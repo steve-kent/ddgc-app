@@ -1,6 +1,6 @@
 <?php
 require("page.php");
-require("../upload/lib/AuthHelper.php");
+require_once("../upload/lib/AuthHelper.php");
 require("MembersTables.php");
 
 //Start session and update timeout

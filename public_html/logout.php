@@ -2,6 +2,9 @@
 require("page.php");
 require_once("../upload/lib/AuthHelper.php");
 
+//Start session and update timeout
+my_session_start();
+
 // Set description and title
 $desc = "Log Out for DDGC";
 $title = "DeBary Disc Golf Club | Log Out";
@@ -9,13 +12,13 @@ $title = "DeBary Disc Golf Club | Log Out";
 //Turn off indexing 
 $shouldIndex = 0;
 
-//Write header and heading
-WriteHead($title, $desc, $shouldIndex);
-WriteHeader();
-
 //Logout users and destory session
 unset($_SESSION['validUser']);
 session_destroy();
+
+//Write header and heading
+WriteHead($title, $desc, $shouldIndex);
+WriteHeader();
 
 // Add content
 ?>

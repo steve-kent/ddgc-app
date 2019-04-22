@@ -3,7 +3,7 @@
 require("page.php");
 require("../upload/db/DbTalker.php");
 require('staticStuff.php');
-require("../upload/lib/AuthHelper.php");
+require_once("../upload/lib/AuthHelper.php");
 
 //Start session and update timeout
 my_session_start();

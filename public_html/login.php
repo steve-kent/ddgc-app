@@ -3,6 +3,9 @@ require("page.php");
 require('staticStuff.php');
 require_once("../upload/lib/AuthHelper.php");
 
+//Start session and update timeout
+my_session_start();
+
 // Set description and title
 $desc = "Login for DDGC";
 $title = "DeBary Disc Golf Club | Login";

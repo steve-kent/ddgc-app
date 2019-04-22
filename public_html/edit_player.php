@@ -6,7 +6,8 @@ require_once("../upload/lib/validator.php");
 require('staticStuff.php');
 require_once("../upload/lib/AuthHelper.php");
 
-//Check if user is authenticated
+//Start session and update timeout
+my_session_start();
 DoAuthCheck();
 
 $playerId = 0;
