@@ -29,5 +29,5 @@ You have been logged out.
 AddFooter();
 
 //Redirect to homepage after 2 seconds
-//header( "refresh:2;url=index.php" );
+header( "refresh:2;url=index.php" );
 ?>
