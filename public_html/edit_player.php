@@ -79,10 +79,10 @@ if($player)
     <form id='addPlayer' name='addPlayer' method='post' action='validateEditPlayer.php' onsubmit='return validateForm(this)'>
     <input type='hidden' id='playerId' name='playerId' value='<?=$player['PlayerID']?>'>
     <p id='validNameOrNick' class='invalidMsg'>You must enter a first and last name or nickname.</p>
-    First Name: <input type='text' name='firstName' id='firstName' size='20' tabindex='1' accesskey='f' value='<?=FormatOutput($player['FirstName'])?>' autofocus readonly> <br> 
-    Last Name: <input type='text' name='lastName' id='lastName' size='20' tabindex='2' accesskey='l'value='<?=FormatOutput($player['LastName'])?>' readonly> <br> 
-    Nickname: <input type='text' name='nickName' id='nickName' size='20' tabindex='3' accesskey='n' value='<?=FormatOutput($player['NickName'])?>' readonly> <br> 
-    Email: <input type='text' name='email' id='email' size='20' tabindex='4' accesskey='e' value='<?=FormatOutput($player['Email'])?>' readonly> <br> 
+    First Name: <input type='text' name='firstName' id='firstName' size='18' tabindex='1' accesskey='f' value='<?=FormatOutput($player['FirstName'])?>' autofocus readonly> <br> 
+    Last Name: <input type='text' name='lastName' id='lastName' size='18' tabindex='2' accesskey='l'value='<?=FormatOutput($player['LastName'])?>' readonly> <br> 
+    Nickname: <input type='text' name='nickName' id='nickName' size='18' tabindex='3' accesskey='n' value='<?=FormatOutput($player['NickName'])?>' readonly> <br> 
+    Email: <input type='text' name='email' id='email' size='18' tabindex='4' accesskey='e' value='<?=FormatOutput($player['Email'])?>' readonly> <br> 
     <p id='validMemberOrNot' class='invalidMsg'>Select whether the player is a club member</p>
     <label for='memberRadio'>Club Member?</label>
     <input type='radio' class='disableClicks' name='memberRadio' id='isMember' value='isMember'
