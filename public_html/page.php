@@ -55,7 +55,7 @@ function AddNav()
     <div class="nav">
 	    	<ul>
             <?php
-                while (list($name, $url) = each($navButtons))
+                foreach($navButtons as $name => $url)//while (list($name, $url) = each($navButtons))
                 {
                     AddNavButton($name, $url);
                 }
