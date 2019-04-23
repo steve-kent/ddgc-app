@@ -389,8 +389,6 @@ class DbTalker
                   VALUES (?,?,?,?,?,?,?,?)";
         if ($stmt = $conn->prepare($query))
         {
-            echo "STMTTTTTTTTTTTT    ";
-                var_dump($player);
             $stmt->bind_param('isssssii', $player->memberNumber, $player->firstName, $player->lastName, $player->nickName, 
                                         $player->email, $player->expires, $player->oweShirt, $player->pdga);
             if($stmt->execute())
