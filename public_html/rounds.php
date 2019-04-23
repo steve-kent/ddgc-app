@@ -28,6 +28,34 @@ WriteHeader();
     <div id='displayRound'>
     <div class='showAt660 button manageButtons'><a href='recent_rounds.php'>More recent rounds</a></div>
         <?=ShowRoundResults($roundId)?>
+        <?php
+        // Show scorecards links
+        if($roundId)
+        {
+            $hh = new HandicapHelper();
+            $imgs = $hh->GetScorecards($roundId);
+            if($imgs)
+            {
+                ?>
+                <div id="scorecards">
+                    <h4>Scorecards</h4>
+                    <h6>Click to see full size</h6>
+
+                <?php
+                foreach($imgs as $img)
+                {
+                    ?>
+                    <div class="scorecard">
+                    <a href=<?=$img?>><img src="<?=$img?>" alt="Scorecard"></a>
+                    </div>
+                    <?php
+                }
+                ?>
+                </div>
+                <?php
+            }
+        }
+        ?>
     </div>
 </div>
 <?php

@@ -15,9 +15,10 @@ if(isset($_POST['submitRound']))
     $roundDate = $_POST['roundDate'];
     $players = $_POST['name'];
     $scores = $_POST['score'];
+    $files = $_FILES['files'];
 
     $hh = new HandicapHelper();
-    $roundId = $hh->ScoreRound($courseName, $roundDate, $players, $scores);
+    $roundId = $hh->ScoreRound($courseName, $roundDate, $players, $scores, $files);
 }
 
 //If the scoring was completed and we get the roundId, navigate to show the round.

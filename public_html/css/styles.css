@@ -244,6 +244,7 @@ input[type=submit]:hover {
 .pointer { cursor: pointer;}
 .pointer:hover {background: white !important;}
 .red { color: red;}
+.scorecard img {width: 350px; max-width: 90%; margin-bottom: 15px;}
 .smallcap {font: 0.4em/125% 'Comfortaa', cursive; display: block;}
 .showAt660 {display: none;}
 .tablemaker { text-align: center; display: table;  margin: 20px auto; }

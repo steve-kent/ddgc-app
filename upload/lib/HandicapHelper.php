@@ -18,7 +18,7 @@ Class HandicapHelper
         }
 
         // Submit scores for a new handicap round
-        public function ScoreRound($courseName, $roundDate, $players, $scores)
+        public function ScoreRound($courseName, $roundDate, $players, $scores, $files)
         {
             $dbTalker = new DbTalker();
             if(!V_Date($roundDate) || !V_Selection($courseName, $dbTalker->GetCourseNames()))
@@ -42,6 +42,7 @@ Class HandicapHelper
                     echo "FAILED to score round for $players[$i] $scores[$i]";
                 }
             }
+            $this->AddImages($files, $roundId);
             return $roundId;
         }
 
@@ -156,6 +157,48 @@ Class HandicapHelper
         $dbTalker = new DbTalker();
         return $dbTalker->Get50Rounds($offset);
 
+    }
+
+    //Add Images to the round
+    private function AddImages($files, $roundId)
+    {
+        echo "IN addimages";
+        if($roundId && $files)
+        {
+            for($i = 0; $i < count($files['name']); $i++)
+            {
+                $this->AddImageFile($files, $roundId, $i);
+            }
+        }
+    }
+
+    //Add uploaded files to DB
+    private function AddImageFile($files, $roundId, $i)
+    {
+        $target_dir = "../upload/scorecards/";
+        $ext = pathinfo($files['name'][$i], PATHINFO_EXTENSION);
+        $target_file = $target_dir . time() . $i . "." . $ext;
+        echo "In AddImageFile function";
+        if($files["size"][$i] > 5000000)
+        {
+            echo "File is too large";
+            return 0;
+        }
+
+        if(is_uploaded_file($files['tmp_name'][$i]))
+        {
+            if(move_uploaded_file($files['tmp_name'][$i], $target_file))
+            {
+                $dbTalker = new DbTalker();
+                $dbTalker->AddScorecare($roundId, $target_file);
+            }
+        }
+    }
+
+    public function GetScorecards($roundId)
+    {
+        $dbTalker = new DbTalker();
+        return $dbTalker->GetsSorecards($roundId);
     }
 }
 

@@ -33,7 +33,7 @@ WriteHeader();
     <div class="centerStuff">
         <div class="formContainer">
             <div class="centerStuff">
-                <form name="scoreRound" method="post" action="doScoring.php" onsubmit="return confirm('Done entering scores?')">
+                <form name="scoreRound" method="post" action="doScoring.php" enctype="multipart/form-data" onsubmit="return confirm('Done entering scores?')">
                 <div id="scoreRoundHeading">Score a Handicap Round:<br>
                 <br><span id='courseSelection'>Course: <select name="course" id="course" tabindex="1" accesskey="c">
                     <option value=''></option>
@@ -58,6 +58,11 @@ WriteHeader();
                     </tr><br>
                 </table>
                 <input type="button" class="button" id="addPlayerBtn" value="Add Player" onclick="add_row()">
+                <div>
+                    <input type="hidden" name="MAX_FILESIZE" value="5000000" />
+                    <label for="file">Add scorecard images: </label><br>
+                    <input type="file" id="files[]" name="files[]" accept="image/*" multiple/>
+                </div>
                 <input type="submit" name="submitRound" value="Score Round">
                 </form>
             </div>

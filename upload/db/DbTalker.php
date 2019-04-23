@@ -259,6 +259,51 @@ class DbTalker
         return $roundId;
     }
 
+        // Create new scorecard link to round in DB
+        public function AddScorecare($roundId, $fileName)
+        {
+            $scorecardId = 0;
+            $conn =  $this->Connect();
+            $query = "INSERT INTO scorecards (RoundID, ImgName)
+                      VALUES (?,?)";
+            if ($stmt = $conn->prepare($query))
+            {
+                $stmt->bind_param('is', $roundId, $fileName);
+                if($stmt->execute())
+                {
+                    $scorecardId = $stmt->affected_rows > 0 ? $conn->insert_id : 0;
+                }
+            }
+            $stmt->free_result();
+            $conn->close();
+            return $scorecardId;
+        }
+
+            // Returns the last 5 scores for the player and course passed in
+    public function GetsSorecards($roundId)
+    {
+        $scorecards = [];
+        $conn =  $this->Connect();
+        $query = "SELECT ImgName 
+                FROM scorecards
+                WHERE RoundID = ?";
+        if ($stmt = $conn->prepare($query))
+        {
+            $stmt->bind_param('i', $roundId);
+            if ($result = $stmt->execute())
+            {
+                $stmt->bind_result($scorecardImg);
+                while($stmt->fetch())
+                {
+                    array_push($scorecards, $scorecardImg);
+                }
+            }
+            $stmt->free_result();
+        }
+        $conn->close();
+        return $scorecards;   
+    }
+
     // Add a new entry in the score table
     public function AddScore($roundId, $playerId, $rawScore, $handicap, $netScore)
     {
