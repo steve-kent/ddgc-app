@@ -8,7 +8,7 @@ class PlayerHelper
     // Vaildiate the data and add the new player to the DB
     public function AddPlayer($player)
     {
-        if(!V_Date($player->expires))
+        if($player->expires && !V_Date($player->expires))
         {
             return 0;
         }   
