@@ -1,6 +1,8 @@
 <?php
-require_once("../upload/db/DbTalker.php");
-require_once("../upload/lib/validator.php");
+if (!defined('ROOT_PATH'))
+define('ROOT_PATH', dirname(__DIR__) . '/');
+require_once(ROOT_PATH . "../upload/db/DbTalker.php");
+require_once(ROOT_PATH . "../upload/lib/validator.php");
 
 Class HandicapHelper
 {
@@ -94,21 +96,21 @@ Class HandicapHelper
         }
 
         // Returns the playerId by name or nickname
-        private function GetPlayerId($playerName)
+        public function GetPlayerId($playerName)
         {
+            $playerId = 0;
             $dbTalker = new DbTalker();
             $firstLast = explode(' ', $playerName, 2);
             if($firstLast[0] && $firstLast[1])
             {
-                if($playerId = $dbTalker->GetPlayerByFullName($firstLast[0], $firstLast[1])['PlayerID'])
-                {
-                    return $playerId;
-                }
+                $playerId = $dbTalker->GetPlayerByFullName($firstLast[0], $firstLast[1])['PlayerID'] ?: 0;
             }
-            else
+
+            if(!$playerId)
             {
-                return $dbTalker->GetPlayerByNickname($playerName)['PlayerID'] ?: 0;
+                $playerId = $dbTalker->GetPlayerByNickname($playerName)['PlayerID'] ?: 0;
             }
+            return $playerId;
         }
 
         // Get handicap round data to display
