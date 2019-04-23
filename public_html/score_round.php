@@ -54,6 +54,7 @@ WriteHeader();
                     <tr id="row1">
                         <td>Name: <input type="text" name="name[]" class='autoName' size='15' autofocus></td> 
                         <td>Raw Score: <input type="number" name="score[]" min="1" max="200" value="54" scoreField></td>
+                        <td><input type='button' value='DELETE' onclick=delete_row('row1')></td>
                     </tr><br>
                 </table>
                 <input type="button" class="button" id="addPlayerBtn" value="Add Player" onclick="add_row()">

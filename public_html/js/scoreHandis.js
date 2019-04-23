@@ -1,11 +1,17 @@
-//List of all names used for autofill
+//Array of available names
 var namesList;
+
+//Full list of names
+var fullNameList;
+
+//Array of all courses
 var courseList;
 
 // Add the list of names passed in to namesList global variable
 function AddNames(names)
 {
-    namesList = names;
+    fullNameList = names;
+    namesList = fullNameList.slice();
 }
 
 // Add the list of courses passed in to courseList global variable
@@ -37,7 +43,14 @@ function add_row()
 // Delete the row passed in from the page
 function delete_row(rowno)
 {
- $('#'+rowno).remove();
+    //make sure we're not deleting the only row
+    if($("#scoreHandis tr").length > 1)
+    {
+        addNameToList($('#'+rowno + ' input[name="name[]"]').val());
+        $('#'+rowno).remove();
+    }
+
+    
 }
 
 //Check if the last row has a vaild name and score
@@ -55,7 +68,7 @@ function isLastLineValid()
         flag = false;
         scoreInput.focus();
     }
-    if (!namesList.includes(nameInput.val()))
+    if (!fullNameList.includes(nameInput.val()))
     {
         nameInput.addClass("invalid");
         flag = false;
@@ -67,5 +80,22 @@ function isLastLineValid()
         flag = false;
         course.focus();
     }
+    if(flag)
+    {
+        removeNameFromList(nameInput.val());
+        $(nameInput).prop("readonly", true);
+    }
     return flag;
+}
+
+// Removes the name from the list of names to select
+function removeNameFromList(name)
+{
+    namesList.splice($.inArray(name,namesList) ,1 );
+}
+
+//Adds name to the list of names
+function addNameToList(name)
+{
+    namesList.push(name);
 }
