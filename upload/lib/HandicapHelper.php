@@ -38,10 +38,13 @@ Class HandicapHelper
             for($i = 0; $i < count($players); $i++)
             {
                 $playerId = $this->GetPlayerId($players[$i]);
-                $scoreId = $this->AddScore($course, $playerId, $roundId, intval($scores[$i]));
-                if(!$scoreId)
+                if(is_numeric($scores[$i]))
                 {
-                    echo "FAILED to score round for $players[$i] $scores[$i]";
+                    $scoreId = $this->AddScore($course, $playerId, $roundId, intval($scores[$i]));
+                    if(!$scoreId)
+                    {
+                        echo "FAILED to score round for $players[$i] $scores[$i]";
+                    }
                 }
             }
             $this->AddImages($files, $roundId);
@@ -164,7 +167,6 @@ Class HandicapHelper
     //Add Images to the round
     private function AddImages($files, $roundId)
     {
-        echo "IN addimages";
         if($roundId && $files)
         {
             for($i = 0; $i < count($files['name']); $i++)
@@ -203,5 +205,4 @@ Class HandicapHelper
         return $dbTalker->GetsSorecards($roundId);
     }
 }
-
 ?>
