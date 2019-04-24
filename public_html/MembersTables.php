@@ -87,6 +87,7 @@ function ShowRoundsList()
     echo $ltm->GetTable();
 }
 
+//Creates a table with the results from the $roundId passed in
 function ShowRoundResults($roundId)
 {
     $hh = new HandicapHelper();
