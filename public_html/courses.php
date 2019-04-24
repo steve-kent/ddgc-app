@@ -8,6 +8,8 @@ $title = "DeBary Disc Golf Club | Courses";
 //Write header and heading
 WriteHead($title, $desc);
 WriteHeader();
+
+//add content
 ?>
 <div id="container">
 	<div id="courses_left">

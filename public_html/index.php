@@ -12,6 +12,7 @@ WriteHeader();
 // Add content
 ?>
 <div id="container">
+
     <div class="pictures" >
         <img src="images/home.jpg" alt="4 Palm Trees" >
     </div>
