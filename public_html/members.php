@@ -14,21 +14,25 @@ WriteHeader();
 // Add content
 ?>
 <div id="container">
+<div class="button"><a href="rounds.php">View Recent Rounds</a></div>
 <div id="members_nav">
         <div class="button"><a href="join.php">Join the club</a></div>
         <div class="button" id="memberslist_button">Members List</div>
         <div class="button" id="shortcaps_button">Short Pad Handicaps</div>
         <div class="button" id="longcaps_button">Long Pad Handicaps</div>
 </div>
-    
 <div class="playing">
 <img src="images/playing.jpg" alt="Player throwing a disc" >
 </div>
 <div id="memberstable">
-<?=ShowMembersTable()?>
+        <?=ShowMembersTable()?>
 </div>
-<div id="shortcaps"></div>
-<div id="longcaps"></div>
+<div id="shortcaps">
+<?=ShowShortPadsTable()?>
+</div>
+<div id="longcaps">
+<?=ShowLongPadsTable()?>
+</div>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -76,7 +76,7 @@ $.get('memberssk.csv', function(data) {
 	
 });
 
-*/
+
 
 $.get('../shortcapssk.csv', function(data) {
 
@@ -154,6 +154,7 @@ $.get('../shortcapssk.csv', function(data) {
 	$('#shortcaps').append(html);
 	
 });
+
 
 $.get('../longcapssk.csv', function(data) {
 
@@ -242,7 +243,7 @@ if (isNaN(parseFloat(num)))
 		}
 }
 
-
+*/
 // Hide and unide divs with buttons
 $(document).ready(function(){
 	$("#memberstable").show();

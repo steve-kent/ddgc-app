@@ -21,6 +21,40 @@ function ShowMembersTable()
     echo $tm->GetTable();
 }
 
+// Creates html table of Long pad handicaps
+function ShowLongPadsTable()
+{
+    // Get table info
+    $hh = new HandicapHelper();
+    $handiData =  $hh->GetHandicapTableInfo(2);
+
+    //Create "Members" Table
+    $tm = new TableMaker();
+    $tm->headers = ["Name", "Rd1", "Rd2", "Rd3", "Rd4", "Rd5", "Total", "100% Avg", "80% Avg", "Adj"];
+    $tm->caption =     "Long Pads<span class='smallcap'><br>Click column name to sort</span>";
+    $tm->tagId = "lp";
+    $tm->additionalClasses = "tablesorter";
+    $tm->data = $handiData;
+    echo $tm->GetTable();
+}
+
+// Creates html table of Short pad handicaps
+function ShowShortPadsTable()
+{
+    // Get table info
+    $hh = new HandicapHelper();
+    $handiData =  $hh->GetHandicapTableInfo(1);
+
+    //Create "Members" Table
+    $tm = new TableMaker();
+    $tm->headers = ["Name", "Rd1", "Rd2", "Rd3", "Rd4", "Rd5", "Total", "100% Avg", "80% Avg", "Adj"];
+    $tm->caption =     "Long Pads<span class='smallcap'><br>Click column name to sort</span>";
+    $tm->tagId = "sp";
+    $tm->additionalClasses = "tablesorter";
+    $tm->data = $handiData;
+    echo $tm->GetTable();
+}
+
 //Creates html table with list of all players as links
 function ShowPlayersTable()
 {

@@ -3,6 +3,7 @@ if (!defined('ROOT_PATH'))
 define('ROOT_PATH', dirname(__DIR__) . '/');
 require_once(ROOT_PATH . "../upload/db/DbTalker.php");
 require_once(ROOT_PATH . "../upload/lib/validator.php");
+require_once(ROOT_PATH . "../upload/lib/PlayerHelper.php");
 
 Class HandicapHelper
 {
@@ -94,7 +95,7 @@ Class HandicapHelper
             }
             else
             {
-                return "Establishing";
+                return "Est";
             }
         }
 
@@ -199,10 +200,41 @@ Class HandicapHelper
         }
     }
 
+    //Returns array of scorecards links
     public function GetScorecards($roundId)
     {
         $dbTalker = new DbTalker();
         return $dbTalker->GetsSorecards($roundId);
+    }
+
+    //Returns 2 deminisional array with handicap info
+    public function GetHandicapTableInfo($courseId)
+    {
+        $tableData = [];
+        $ph = new PlayerHelper();        
+        $dbTalker = new DbTalker();
+
+        $playerIdAndNames = $ph->GetPlayerListAndId();
+        foreach($playerIdAndNames as $player)
+        {
+            $row = [];
+            if($scores = $dbTalker->GetLast5Scores($player[0], $courseId))
+            {
+                array_push($row, $player[1]);
+                for($i = 0; $i < 5; $i++)
+                {
+                    array_push($row, array_key_exists($i, $scores) ? $scores[$i] : "");
+                }
+                $total = array_sum($scores) / count($scores);
+                array_push($row, round($total, 2));
+                array_push($row, round(54 - $total, 2));
+                array_push($row, round((54 - $total) * 0.8, 2));
+                array_push($row, round((54 - $total) * 0.8));
+
+                array_push($tableData, $row);
+            } 
+        }
+        return $tableData;
     }
 }
 ?>
