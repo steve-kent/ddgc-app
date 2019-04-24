@@ -192,12 +192,16 @@ Class HandicapHelper
 
         if(is_uploaded_file($files['tmp_name'][$i]))
         {
+            echo "is uploaded file<br>";
             if(move_uploaded_file($files['tmp_name'][$i], $target_file))
             {
+                echo "is file Moved??<br>";
                 $dbTalker = new DbTalker();
                 $dbTalker->AddScorecare($roundId, $target_file);
             }
         }
+
+        echo $files['error'];
     }
 
     //Returns array of scorecards links
