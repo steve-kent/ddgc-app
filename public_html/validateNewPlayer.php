@@ -47,8 +47,8 @@ if($playerId)
 // If we don't get a player back just go back to he add player page.
 else
 {
-    //header("Location: add_player.php");
-    //exit();
+    header("Location: add_player.php");
+    exit();
 }
 
 ?>
