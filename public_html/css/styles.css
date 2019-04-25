@@ -214,6 +214,7 @@ input[type=submit]:hover {
 .galpics { width: 29%; margin: 3% 0 0 3%; display: inline-block;}
 .galpics img {width: 100%; border: 1px solid black;}
 .galcaption { text-align: center;}
+.halfSize {width: 50%; display: inline-block;}
 .i { font-style: oblique;};
 .invalid { box-shadow: 0 0 5px 1px red;}
 .invalid:focus {box-shadow: 0 0 5px 1px red;}
@@ -263,6 +264,11 @@ input[type=submit]:hover {
 
 .warHeading {margin: 0;}
 
+@media (max-width:1325px){
+    #sp, #lp {
+        font-size: .8em;
+    }
+}
 
 @media (max-width:1290px){
    /*h1 {margin: 20px 30px 0 -120px; }
@@ -361,6 +367,10 @@ input[type=submit]:hover {
     #the_video { height: 250px; }
     #headerContent {
         justify-content: flex-end;}
+
+        #sp, #lp {
+            font-size: .6em;
+        }
 	
 }
 
@@ -368,13 +378,14 @@ input[type=submit]:hover {
     h1 { font: 1.2em/1 'Righteous', cursive;}
     #scoreHandis input {margin: 10px 0;}
     #addPlayerBtn {width: auto}
+    #memberstable, #shortcaps, #longcaps,#scoreHandis {font: 0.6em/1 'Comfortaa', cursive;}
 }
 
 @media (max-width:345px){
 	/*.nav { height: 100px; display:block; float:none; margin: 0 11%;}
 	.nav li { margin-bottom: 15px; display: inline-block;}
 	header { height: 200px; display: block;}*/
-    #memberstable, #shortcaps, #longcaps,#scoreHandis {font: 0.6em/1 'Comfortaa', cursive;}
+    
     #scoreHandis input {width: 100%;}
 }
 
