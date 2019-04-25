@@ -14,7 +14,7 @@ WriteHeader();
 // Add content
 ?>
 <div id="container">
-<div class="button"><a href="rounds.php">View Recent Rounds</a></div>
+<div class="centerStuff"><div class="button halfSize"><a href="rounds.php">View Handicap Results</a></div></div>
 <div id="members_nav">
         <div class="button"><a href="join.php">Join the club</a></div>
         <div class="button" id="memberslist_button">Members List</div>
