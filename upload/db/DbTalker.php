@@ -472,6 +472,35 @@ class DbTalker
         return $players;
     }
 
+        // returns array with round date and course name
+        public function GetHandicapsDataByCourseId($courseID)
+        {
+            $handicapsData = [];
+            $conn =  $this->Connect();
+            $query = "select p.firstName, p.lastName, p.nickName, SUBSTRING_INDEX(GROUP_CONCAT(s.rawscore ORDER BY r.roundId DESC),',',5) lastScores
+            from scores as s, players as p, rounds as r
+            where r.courseId = ?
+            AND p.playerId = s.playerId
+            AND r.roundId = s.roundId
+            group by s.playerid";
+            if ($stmt = $conn->prepare($query))
+            {
+                $stmt->bind_param('i', $courseID);
+                if ($result = $stmt->execute())
+                {
+                    $stmt->bind_result($firstName, $lastName, $nickName, $scores);
+                    while($stmt->fetch())
+                    {
+                        $playerData = [$firstName, $lastName, $nickName, $scores];
+                        array_push($handicapsData, $playerData);
+                    }
+                }
+                $stmt->free_result();
+            }
+            $conn->close();
+            return $handicapsData; 
+        }
+
 
 }
 ?>

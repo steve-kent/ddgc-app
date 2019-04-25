@@ -215,7 +215,33 @@ Class HandicapHelper
     public function GetHandicapTableInfo($courseId)
     {
         $tableData = [];
-        $ph = new PlayerHelper();        
+        $dbTalker = new DbTalker();
+
+
+        $rawData = $dbTalker->GetHandicapsDataByCourseId($courseId);
+        foreach($rawData as $player)
+        {
+            $row = [];
+            $name = !empty(trim($player[0]." ".$player[1])) ? $player[0]." ".$player[1] : $player[2];
+            array_push($row, $name); 
+            $scores = explode (",", $player[3]); 
+            for($i = 0; $i < 5; $i++)
+                {
+                    array_push($row, array_key_exists($i, $scores) ? $scores[$i] : "");
+                }
+                $total = array_sum($scores) / count($scores);
+                array_push($row, round($total, 2));
+                array_push($row, round(54 - $total, 2));
+                array_push($row, round((54 - $total) * 0.8, 2));
+                array_push($row, round((54 - $total) * 0.8));
+
+                array_push($tableData, $row);
+            } 
+        
+        return $tableData;
+        
+
+       /* $ph = new PlayerHelper();        
         $dbTalker = new DbTalker();
 
         $playerIdAndNames = $ph->GetPlayerListAndId();
@@ -236,9 +262,11 @@ Class HandicapHelper
                 array_push($row, round((54 - $total) * 0.8));
 
                 array_push($tableData, $row);
+                var_dump($row);
             } 
         }
         return $tableData;
+        */
     }
 }
 ?>
