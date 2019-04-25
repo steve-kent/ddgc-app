@@ -26,8 +26,7 @@ function ShowLongPadsTable()
 {
     // Get table info
     $hh = new HandicapHelper();
-    $handiData =  $hh->GetHandicapTableInfo(2);
-
+    $handiData =  $hh->GetHandicapTableInfo(1);
     //Create "Members" Table
     $tm = new TableMaker();
     $tm->headers = ["Name", "Rd1", "Rd2", "Rd3", "Rd4", "Rd5", "Total", "100% Avg", "80% Avg", "Adj"];
@@ -43,8 +42,7 @@ function ShowShortPadsTable()
 {
     // Get table info
     $hh = new HandicapHelper();
-    $handiData =  $hh->GetHandicapTableInfo(1);
-
+    $handiData =  $hh->GetHandicapTableInfo(2);
     //Create "Members" Table
     $tm = new TableMaker();
     $tm->headers = ["Name", "Rd1", "Rd2", "Rd3", "Rd4", "Rd5", "Total", "100% Avg", "80% Avg", "Adj"];
