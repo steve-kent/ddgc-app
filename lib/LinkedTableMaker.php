@@ -25,7 +25,7 @@ class LinkedTableMaker extends TableMaker
             $colData = FormatOutput($row[$i]);
             $this->returnContent .= "<td>$row[$i]</td>";
         }
-        $this->returnContent .= "</a></tr>";
+        $this->returnContent .= "</tr>";
     }
 }
 ?>
