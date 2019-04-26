@@ -250,12 +250,14 @@ $(document).ready(function(){
 	$("#longcaps").hide();
 	$("#shortcaps").hide();
 	$("#mt").tablesorter();
+	$("#sp").tablesorter();
+	$("#lp").tablesorter();
 	  
 $("#shortcaps_button").click(function(){
     $("#memberstable").hide();
 	$("#longcaps").hide();
 	$("#shortcaps").show();	
-	$("#sp").tablesorter();
+
 
 	
 	
@@ -265,14 +267,13 @@ $("#memberslist_button").click(function(){
     $("#memberstable").show();
 	$("#longcaps").hide();
 	$("#shortcaps").hide();	
-	$("#mt").tablesorter();
 });
 
 $("#longcaps_button").click(function(){
     $("#memberstable").hide();
 	$("#longcaps").show();
 	$("#shortcaps").hide();	
-	$("#lp").tablesorter();
+
 
 });
 });
@@ -282,7 +283,6 @@ function loadDefault()
 	$("#memberstable").show();
 	$("#longcaps").hide();
 	$("#shortcaps").hide();
-	$("#mt").tablesorter();
 }
 
 function getFileDate(url){
