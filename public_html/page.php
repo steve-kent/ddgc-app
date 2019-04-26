@@ -71,7 +71,7 @@ function AddNavButton($name, $url)
     echo "<li ";
     if (isCurrentUrl($url))
     {
-        echo "class=''current' ";
+        echo "class='current' ";
     }
     echo '><a href="'.$url.'">'.$name."</a></li>";
 }

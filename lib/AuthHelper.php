@@ -4,7 +4,7 @@ function Authenticate($user, $pass)
 {
     /***********************UDATE THIS FOR PRODUCTION *******************************/
     //require('../upload/priv/env_school.php');
-    require('../priv/prod.php');
+    require('../priv/dev.php');
 
     if ($user == $mgrUser && password_verify($pass, $mgrPassword)) {
             return 1;

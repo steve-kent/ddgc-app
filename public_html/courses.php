@@ -1,5 +1,8 @@
 <?php
 require("page.php");
+require_once("../lib/AuthHelper.php");
+//Start session and update timeout
+my_session_start();
 
 // Set description and title
 $desc = "Information about the courses at River City Nature Park. Home of DeBary Disc Gold Club.";

@@ -1,5 +1,9 @@
 <?php
 require("page.php");
+require_once("../lib/AuthHelper.php");
+//Start session and update timeout
+my_session_start();
+
 require("MembersTables.php");
 
 

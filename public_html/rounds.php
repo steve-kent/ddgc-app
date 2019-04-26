@@ -1,6 +1,9 @@
 <?php
 require("page.php");
-require("../lib/HandicapHelper.php");
+require_once("../lib/AuthHelper.php");
+//Start session and update timeout
+my_session_start();
+
 require("MembersTables.php");
 
 $roundId = 0;

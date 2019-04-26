@@ -1,5 +1,8 @@
 <?php
 require("page.php");
+require_once("../lib/AuthHelper.php");
+//Start session and update timeout
+my_session_start();
 
 // Set description and title
 $desc = "Links to other disc gold sites from DeBary Disc Golf Club and other local clubs";

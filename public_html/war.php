@@ -1,6 +1,10 @@
 <?php
 require('page.php');
-require('../upload/lib/csv_tablemaker.php');
+require_once("../lib/AuthHelper.php");
+//Start session and update timeout
+my_session_start();
+
+require('../lib/csv_tablemaker.php');
 
 // Set description and title
 $desc = "Course Layout for War on I4 Qualifiers at DeBary Disc Golf Club.";
