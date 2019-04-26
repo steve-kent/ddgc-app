@@ -1,14 +1,15 @@
 <?php
-require("page.php");
-require("../upload/lib/PlayerHelper.php");
-require('../upload/lib/LinkedTableMaker.php');
-require_once("../upload/lib/validator.php");
-require('staticStuff.php');
-require_once("../upload/lib/AuthHelper.php");
-
+require_once("../lib/AuthHelper.php");
 //Start session and update timeout
 my_session_start();
 DoAuthCheck();
+
+require("page.php");
+require("../lib/PlayerHelper.php");
+require('../lib/LinkedTableMaker.php');
+require_once("../lib/validator.php");
+require('staticStuff.php');
+
 
 $playerId = 0;
 $player = null;

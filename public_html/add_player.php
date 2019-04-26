@@ -1,11 +1,13 @@
 <?php
 require("page.php");
-require('staticStuff.php');
-require_once("../upload/lib/AuthHelper.php");
-
+require_once("../lib/AuthHelper.php");
 //Start session and update timeout
 my_session_start();
 DoAuthCheck();
+require('staticStuff.php');
+
+
+
 
 // Set description and title
 $desc = "Add a handicap player or club member";

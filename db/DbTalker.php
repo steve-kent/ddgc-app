@@ -11,7 +11,7 @@ class DbTalker
         //require('../upload/priv/env_school.php');
         if (!defined('ROOT_PATH'))
         define('ROOT_PATH', dirname(__DIR__) . '/');
-        require(ROOT_PATH . '../upload/priv/dev.php');
+        require(ROOT_PATH . 'priv/prod.php');
         $conn = new mysqli($dbServer, $dbUsername, $dbPassword, $dbName);
         if (mysqli_connect_errno())
         {

@@ -1,8 +1,8 @@
 <?php
-require_once("../upload/lib/TableMaker.php");
-require_once('../upload/lib/LinkedTableMaker.php');
-require_once("../upload/lib/PlayerHelper.php");
-require_once("../upload/lib/HandicapHelper.php");
+require_once("../lib/TableMaker.php");
+require_once('../lib/LinkedTableMaker.php');
+require_once("../lib/PlayerHelper.php");
+require_once("../lib/HandicapHelper.php");
 
 // Creates html table of all members
 function ShowMembersTable()

@@ -1,10 +1,9 @@
 <?php
-require("../upload/lib/HandicapHelper.php");
-require("../upload/lib/AuthHelper.php");
-
+require_once("../lib/AuthHelper.php");
 //Start session and update timeout
 my_session_start();
 DoAuthCheck();
+require("../lib/AuthHelper.php");
 
 $roundId = 0;
 

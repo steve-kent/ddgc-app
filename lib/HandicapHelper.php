@@ -1,9 +1,9 @@
 <?php
 if (!defined('ROOT_PATH'))
 define('ROOT_PATH', dirname(__DIR__) . '/');
-require_once(ROOT_PATH . "../upload/db/DbTalker.php");
-require_once(ROOT_PATH . "../upload/lib/validator.php");
-require_once(ROOT_PATH . "../upload/lib/PlayerHelper.php");
+require_once(ROOT_PATH . "db/DbTalker.php");
+require_once(ROOT_PATH . "lib/validator.php");
+require_once(ROOT_PATH . "lib/PlayerHelper.php");
 
 Class HandicapHelper
 {

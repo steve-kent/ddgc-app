@@ -1,7 +1,11 @@
 <?php
-require("../upload/lib/AuthHelper.php");
-require_once("../upload/lib/validator.php");
-session_start();
+require_once("../lib/AuthHelper.php");
+//Start session and update timeout
+my_session_start();
+DoAuthCheck();
+
+require_once("../lib/validator.php");
+
 $user = $_POST['userName'];
 $password = $_POST['password'];
 

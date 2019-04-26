@@ -1,13 +1,13 @@
 <?php
 /********COULD SEPERATE CONCERNS ON THIS PAGE *****************/
 require("page.php");
-require("../upload/db/DbTalker.php");
-require('staticStuff.php');
-require_once("../upload/lib/AuthHelper.php");
-
+require_once("../lib/AuthHelper.php");
 //Start session and update timeout
 my_session_start();
 DoAuthCheck();
+
+require("../db/DbTalker.php");
+require('staticStuff.php');
 
 //Get All Names List for Autofill
 $dbTalker = new DbTalker();

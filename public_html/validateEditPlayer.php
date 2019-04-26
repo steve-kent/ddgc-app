@@ -1,12 +1,13 @@
 <?php
-require("../upload/models/Player.php");
-require("../upload/lib/PlayerHelper.php");
-require_once("../upload/lib/validator.php");
-require("../upload/lib/AuthHelper.php");
-
+require_once("../lib/AuthHelper.php");
 //Start session and update timeout
 my_session_start();
 DoAuthCheck();
+
+require("../models/Player.php");
+require("../lib/PlayerHelper.php");
+require_once("../lib/validator.php");
+
 
 
 

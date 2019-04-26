@@ -1,6 +1,6 @@
 <?php
-require_once("../upload/lib/AuthHelper.php");
-// Creates the elements in the <head> of the page
+require_once("../lib/AuthHelper.php");
+
 function WriteHead($title = "DeBary Disc Golf Club", $desc = "DeBary Disc Golf Club", $shouldIndex = 1)
 {
     ?>

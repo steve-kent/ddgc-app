@@ -1,11 +1,12 @@
 <?php
 require("page.php");
-require_once("../upload/lib/AuthHelper.php");
-require("MembersTables.php");
-
+require_once("../lib/AuthHelper.php");
 //Start session and update timeout
 my_session_start();
 DoAuthCheck();
+
+require("MembersTables.php");
+
 
 // Set description and title
 $desc = "View Players";

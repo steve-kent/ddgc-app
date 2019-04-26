@@ -1,6 +1,6 @@
 <?php
 require("page.php");
-require("../upload/lib/HandicapHelper.php");
+require("../lib/HandicapHelper.php");
 require("MembersTables.php");
 
 $roundId = 0;
