@@ -2,7 +2,7 @@
 require_once("../lib/AuthHelper.php");
 //Start session and update timeout
 my_session_start();
-DoAuthCheck();
+
 
 require_once("../lib/validator.php");
 
