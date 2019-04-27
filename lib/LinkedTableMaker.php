@@ -9,7 +9,8 @@ class LinkedTableMaker extends TableMaker
     // Create the start of the HTML table
     protected function StartTable()
     {
-        $this->returnContent = "<table id='$this->tagId' class='$this->classes'>";
+        $this->tagId = $this->tagId == "" ? "" : "id='" . $this->tagId . "'";
+        $this->returnContent = "<table $this->tagId class='$this->classes'>";
         $this->returnContent .= "<caption>$this->caption</caption>";
     }
 
