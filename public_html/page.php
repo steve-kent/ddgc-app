@@ -14,7 +14,7 @@ function WriteHead($title = "DeBary Disc Golf Club", $desc = "DeBary Disc Golf C
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles1.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Righteous" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa&vert;Righteous" rel="stylesheet">
     <link rel="icon" href="images/logo_200.png">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113170186-1"></script>
     <script>
