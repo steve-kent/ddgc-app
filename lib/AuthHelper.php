@@ -6,7 +6,7 @@ function Authenticate($user, $pass)
     //require('../upload/priv/env_school.php');
     require('../priv/dev.php');
 
-    if ($user == $mgrUser && password_verify($pass, $mgrPassword)) {
+    if (strtolower($user) == strtolower($mgrUser) && password_verify($pass, $mgrPassword)) {
             return 1;
         } else {
             return 0;
@@ -30,6 +30,7 @@ function IsAuthenticated()
 function my_session_start($timeout = 6048000)
 {
     ini_set('session.gc_maxlifetime', $timeout);
+    session_set_cookie_params($timeout);
     session_start();
 
     if (isset($_SESSION['timeout_idle']) && $_SESSION['timeout_idle'] < time()) {
