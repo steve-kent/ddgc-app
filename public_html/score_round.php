@@ -1,13 +1,13 @@
 <?php
 /********COULD SEPERATE CONCERNS ON THIS PAGE *****************/
-require("page.php");
+require_once("page.php");
 require_once("../lib/AuthHelper.php");
 //Start session and update timeout
 my_session_start();
 DoAuthCheck();
 
-require("../db/DbTalker.php");
-require('staticStuff.php');
+require_once("../db/DbTalker.php");
+require_once('staticStuff.php');
 
 //Get All Names List for Autofill
 $dbTalker = new DbTalker();
@@ -33,7 +33,7 @@ WriteHeader();
     <div class="centerStuff">
         <div class="formContainer">
             <div class="centerStuff">
-                <form name="scoreRound" method="post" action="doScoring.php" enctype="multipart/form-data" onsubmit="return confirm('Done entering scores?')">
+                <form name="scoreRound" method="post" autocomplete="off" action="doScoring.php" enctype="multipart/form-data" onsubmit="return confirm('Done entering scores?')">
                 <div id="scoreRoundHeading">Score a Handicap Round:<br>
                 <br><span id='courseSelection'>Course: <select name="course" id="course" tabindex="1" accesskey="c">
                     <option value=''></option>
@@ -50,17 +50,17 @@ WriteHeader();
                 <span class='nowrap'>
                     Date: <input type="date" id="roundDate" name="roundDate" value="<?=date("Y-m-d")?>">
                 </span></div><br>
-                <table id="scoreHandis" autocomplete="off">
+                <table id="scoreHandis" >
                     <tr id="row1">
                         <td>Name: <input type="text" name="name[]" class='autoName' size='15' autofocus></td> 
-                        <td>Raw Score: <input type="number" name="score[]" min="1" max="200" value="54" scoreField></td>
+                        <td>Raw Score: <input type="number" name="score[]" min="1" max="200" value="54"></td>
                         <td><input type='button' value='DELETE' onclick=delete_row('row1')></td>
-                    </tr><br>
+                    </tr>
                 </table>
                 <input type="button" class="button" id="addPlayerBtn" value="Add Player" onclick="add_row()">
                 <div>
                     <input type="hidden" name="MAX_FILESIZE" value="5000000" />
-                    <label for="file">Add scorecard images: </label><br>
+                    <label for="files[]">Add scorecard images: </label><br>
                     <input type="file" id="files[]" name="files[]" accept="image/*" multiple/>
                 </div>
                 <input type="submit" name="submitRound" value="Score Round">

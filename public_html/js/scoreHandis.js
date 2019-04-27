@@ -68,7 +68,7 @@ function isLastLineValid()
         flag = false;
         scoreInput.focus();
     }
-    if (!fullNameList.includes(nameInput.val()))
+    if (!fullNameList.includes(nameInput.val()) || $.trim(nameInput.val()).length <= 0)
     {
         nameInput.addClass("invalid");
         flag = false;

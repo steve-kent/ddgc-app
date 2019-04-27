@@ -38,13 +38,16 @@ Class HandicapHelper
             }
             for($i = 0; $i < count($players); $i++)
             {
-                $playerId = $this->GetPlayerId($players[$i]);
-                if(is_numeric($scores[$i]))
+                if (!empty(trim($players[$i])))
                 {
-                    $scoreId = $this->AddScore($course, $playerId, $roundId, intval($scores[$i]));
-                    if(!$scoreId)
+                     $playerId = $this->GetPlayerId($players[$i]);
+                    if(is_numeric($scores[$i]))
                     {
-                        echo "FAILED to score round for $players[$i] $scores[$i]";
+                        $scoreId = $this->AddScore($course, $playerId, $roundId, intval($scores[$i]));
+                        if(!$scoreId)
+                        {
+                            echo "FAILED to score round for $players[$i] $scores[$i]";
+                        }
                     }
                 }
             }
@@ -168,7 +171,7 @@ Class HandicapHelper
     //Add Images to the round
     private function AddImages($files, $roundId)
     {
-        if($roundId && $files)
+        if($roundId && count($files) > 0 )
         {
             for($i = 0; $i < count($files['name']); $i++)
             {
@@ -180,10 +183,10 @@ Class HandicapHelper
     //Add uploaded files to DB
     private function AddImageFile($files, $roundId, $i)
     {
-        $target_dir = "../upload/scorecards/";
+        $target_dir = "../public_html/scorecards/";
         $ext = pathinfo($files['name'][$i], PATHINFO_EXTENSION);
-        $target_file = $target_dir . time() . $i . "." . $ext;
-        echo "In AddImageFile function";
+        $fileName = time() . $i . "." . $ext;
+        $target_file = $target_dir . $fileName;
         if($files["size"][$i] > 5000000)
         {
             echo "File is too large";
@@ -192,16 +195,14 @@ Class HandicapHelper
 
         if(is_uploaded_file($files['tmp_name'][$i]))
         {
-            echo "is uploaded file<br>";
             if(move_uploaded_file($files['tmp_name'][$i], $target_file))
             {
-                echo "is file Moved??<br>";
                 $dbTalker = new DbTalker();
-                $dbTalker->AddScorecare($roundId, $target_file);
+                $dbTalker->AddScorecare($roundId, "/scorecards/" . $fileName);
             }
         }
 
-        echo $files['error'];
+        
     }
 
     //Returns array of scorecards links

@@ -3,8 +3,8 @@ require_once("../lib/AuthHelper.php");
 //Start session and update timeout
 my_session_start();
 DoAuthCheck();
-require("../lib/AuthHelper.php");
 
+require_once("../lib/HandicapHelper.php");
 $roundId = 0;
 
 //If a new round was just scored, submit it and get the roundID

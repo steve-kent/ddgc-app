@@ -5,6 +5,9 @@ require_once("../lib/AuthHelper.php");
 //Start session and update timeout
 my_session_start();
 
+//Redirect to homepage after 2 seconds
+header( "refresh:2;url=index.php" );
+
 // Set description and title
 $desc = "Log Out for DDGC";
 $title = "DeBary Disc Golf Club | Log Out";
@@ -31,6 +34,5 @@ You have been logged out.
 //Write footer
 AddFooter();
 
-//Redirect to homepage after 2 seconds
-header( "refresh:2;url=index.php" );
+
 ?>
