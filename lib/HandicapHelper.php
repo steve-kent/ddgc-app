@@ -234,7 +234,7 @@ Class HandicapHelper
                 array_push($row, round($total, 2));
                 array_push($row, round(54 - $total, 2));
                 array_push($row, round((54 - $total) * 0.8, 2));
-                array_push($row, round((54 - $total) * 0.8));
+                array_push($row, round((54 - $total) * 0.8) + 0);  // Added + 0 to prevent some handis showing as "-0"
 
                 array_push($tableData, $row);
             } 
