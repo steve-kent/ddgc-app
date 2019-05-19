@@ -91,10 +91,10 @@ Class HandicapHelper
             $dbTalker = new DbTalker();
             $scores = $dbTalker->GetLast5Scores($playerId, $course['CourseID']);
             $coursePar = $course['CoursePar'];
-            if (count($scores) == 5)
+            if (count($scores) >= 3)
             {
                 //handicap formula
-                return round(($coursePar - (array_sum($scores) / 5)) * 0.8);
+                return round(($coursePar - (array_sum($scores) / count($scores))) * 0.8);
             }
             else
             {
