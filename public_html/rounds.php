@@ -30,8 +30,18 @@ WriteHeader();
     </div>
     <div id='displayRound'>
     <div class='showAt660 button manageButtons'><a href='recent_rounds.php'>More recent rounds</a></div>
-        <?=ShowRoundResults($roundId)?>
-        <?php
+    
+    <?php
+        if (IsAuthenticated())
+        {
+            ShowLinkedRoundResults($roundId);
+            // ADD ADD PLAYER BUTTON HERE**************************   
+        }
+        else
+        {
+            ShowRoundResults($roundId);
+        }        
+        
         // Show scorecards links
         if($roundId)
         {
