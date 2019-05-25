@@ -132,6 +132,18 @@ Class HandicapHelper
             }
         }
 
+        // Get handicap round data to display with scoreId to link
+        public function GetLinkedHandicapRound($roundId)
+        {
+            if($roundId > 0 && is_numeric($roundId))
+            {
+                $dbTalker = new DbTalker();
+                $roundData = $dbTalker->GetHandicapRoundWithScoreId($roundId);
+                $roundData = $this->UpdateEstablishing($roundData);
+                return $roundData;
+            }
+        }
+
         // returns array with round date and course name
         public function GetRoundCourseAndDate($roundId)
         {
