@@ -125,7 +125,7 @@ function ShowLinkedRoundResults($roundId)
         $ltm->headers = ["Player","Raw Score", "Handicap", "Net Score"];
         $ltm->caption = $caption;
         $ltm->data = $roundData;
-        $ltm->rowLink = "edit_score.php?scoreID=";
+        $ltm->rowLink = "edit_score.php?scoreId=";
         echo $ltm->GetTable();
     }
 }
