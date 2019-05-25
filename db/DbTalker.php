@@ -11,7 +11,7 @@ class DbTalker
         //require('../upload/priv/env_school.php');
         if (!defined('ROOT_PATH'))
         define('ROOT_PATH', dirname(__DIR__) . '/');
-        require(ROOT_PATH . 'priv/prod.php');
+        require(ROOT_PATH . 'priv/dev.php');
         $conn = new mysqli($dbServer, $dbUsername, $dbPassword, $dbName);
         if (mysqli_connect_errno())
         {
@@ -82,7 +82,7 @@ class DbTalker
                     Order By -s.NetScore DESC";
         if ($stmt = $conn->prepare($query))
         {
-            $stmt->bind_param('s', $roundId);
+            $stmt->bind_param('s', $roundId);   /// TODO: Should be i instead of s??
             if ($stmt->execute())
             {
                 $stmt->store_result();
@@ -90,6 +90,35 @@ class DbTalker
                 while ($stmt->fetch())
                 {
                     $score = [$first ." ". $last, $raw, $handi, $net];
+                    array_push($roundInfo, $score);
+                }
+            }
+        }       
+        $stmt->free_result();
+        $conn->close();
+        return $roundInfo;
+    }
+
+    //Returns handicap round info with score id for administration
+    public function GetHandicapRoundWithScoreId($roundId)
+    {
+        $roundInfo = [];
+        $conn =  $this->Connect();
+        $query = "SELECT s.scoreId, p.FirstName, p.LastName, s.RawScore, s.Handicap, s.NetScore
+                    FROM scores as s, players as p
+                    WHERE s.roundId = ?
+                    AND s.PlayerID = p.PlayerID
+                    Order By -s.NetScore DESC";
+        if ($stmt = $conn->prepare($query))
+        {
+            $stmt->bind_param('s', $roundId);   /// TODO: Should be i instead of s??
+            if ($stmt->execute())
+            {
+                $stmt->store_result();
+                $stmt->bind_result($scoreId, $first, $last, $raw, $handi, $net);
+                while ($stmt->fetch())
+                {
+                    $score = [$scoreId, $first ." ". $last, $raw, $handi, $net];
                     array_push($roundInfo, $score);
                 }
             }
@@ -471,36 +500,62 @@ class DbTalker
         $conn->close();
         return $players;
     }
-
-        // returns array with round date and course name
-        public function GetHandicapsDataByCourseId($courseID)
+    
+    // returns array with round date and course name
+    public function GetHandicapsDataByCourseId($courseID)
+    {
+        $handicapsData = [];
+        $conn =  $this->Connect();
+        $query = "select p.firstName, p.lastName, p.nickName, SUBSTRING_INDEX(GROUP_CONCAT(s.rawscore ORDER BY r.roundId DESC),',',5) lastScores
+        from scores as s, players as p, rounds as r
+        where r.courseId = ?
+        AND p.playerId = s.playerId
+        AND r.roundId = s.roundId
+        group by s.playerid";
+        if ($stmt = $conn->prepare($query))
         {
-            $handicapsData = [];
-            $conn =  $this->Connect();
-            $query = "select p.firstName, p.lastName, p.nickName, SUBSTRING_INDEX(GROUP_CONCAT(s.rawscore ORDER BY r.roundId DESC),',',5) lastScores
-            from scores as s, players as p, rounds as r
-            where r.courseId = ?
-            AND p.playerId = s.playerId
-            AND r.roundId = s.roundId
-            group by s.playerid";
-            if ($stmt = $conn->prepare($query))
+            $stmt->bind_param('i', $courseID);
+            if ($result = $stmt->execute())
             {
-                $stmt->bind_param('i', $courseID);
-                if ($result = $stmt->execute())
+                $stmt->bind_result($firstName, $lastName, $nickName, $scores);
+                while($stmt->fetch())
                 {
-                    $stmt->bind_result($firstName, $lastName, $nickName, $scores);
-                    while($stmt->fetch())
-                    {
-                        $playerData = [$firstName, $lastName, $nickName, $scores];
-                        array_push($handicapsData, $playerData);
-                    }
+                    $playerData = [$firstName, $lastName, $nickName, $scores];
+                    array_push($handicapsData, $playerData);
                 }
-                $stmt->free_result();
             }
-            $conn->close();
-            return $handicapsData; 
+            $stmt->free_result();
         }
-
+        $conn->close();
+        return $handicapsData; 
+    }
+    
+    // Get round info for single player's round
+    public function GetHandicapScore($scoreId)
+    {
+        $scoreInfo = [];
+        $conn =  $this->Connect();
+        $query = "SELECT p.FirstName, p.LastName, s.RawScore, s.Handicap, s.NetScore
+                FROM scores as s, players as p
+                WHERE s.ScoreId = ?
+                AND s.PlayerID = p.PlayerID";
+        if ($stmt = $conn->prepare($query))
+        {
+            $stmt->bind_param('i', $scoreId);
+            if ($stmt->execute())
+            {
+                $stmt->store_result();
+                $stmt->bind_result($first, $last, $raw, $handi, $net);
+                while ($stmt->fetch())
+                {
+                    $scoreInfo = [$first ." ". $last, $raw, $handi, $net];
+                }
+            }
+        }       
+        $stmt->free_result();
+        $conn->close();
+        return $scoreInfo; 
+    }
 
 }
 ?>
