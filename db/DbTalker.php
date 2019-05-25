@@ -531,7 +531,7 @@ class DbTalker
     }
     
     // Get round info for single player's round
-    public function GetHandicapScore($scoreId)
+    public function GetHandicapScoreInfo($scoreId)
     {
         $scoreInfo = [];
         $conn =  $this->Connect();
