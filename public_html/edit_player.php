@@ -13,7 +13,6 @@ require('staticStuff.php');
 
 $playerId = 0;
 $player = null;
-$content = "";
 $ph = new PlayerHelper();
 
 //set roundID if this is a get request for it
