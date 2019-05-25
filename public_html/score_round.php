@@ -69,8 +69,10 @@ WriteHeader();
         </div>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<?php
+    LoadjQueryUI()
+?>
 <script src='js/scoreHandis.js'></script>
 <script>AddNames(<?=json_encode($nameList)?>)</script><br>
 <script>AddCourses(<?=json_encode($courseList)?>)</script><br>
