@@ -218,7 +218,6 @@ Class HandicapHelper
         $tableData = [];
         $dbTalker = new DbTalker();
 
-
         $rawData = $dbTalker->GetHandicapsDataByCourseId($courseId);
         foreach($rawData as $player)
         {
@@ -240,6 +239,12 @@ Class HandicapHelper
             } 
         
         return $tableData;
+    }
+
+    function GetHandicapScoreInfo($scoreId)
+    {
+        $dbTalker = new DbTalker();
+        return $dbTalker->GetHandicapScoreInfo($scoreId);
     }
 }
 ?>
