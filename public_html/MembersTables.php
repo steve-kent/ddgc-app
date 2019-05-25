@@ -93,7 +93,7 @@ function ShowRoundResults($roundId)
     //Get the round info from the DB and assign it if there is a roundID set
     if($roundId)
     {
-        $roundData = $hh->GetLinkedHandicapRound($roundId);
+        $roundData = $hh->GetHandicapRound($roundId);
     }
     if(count($roundData))
     {
@@ -115,7 +115,7 @@ function ShowLinkedRoundResults($roundId)
     //Get the round info from the DB and assign it if there is a roundID set
     if($roundId)
     {
-        $roundData = $hh->GetHandicapRound($roundId);
+        $roundData = $hh->GetLinkedHandicapRound($roundId);
     }
     if(count($roundData))
     {
