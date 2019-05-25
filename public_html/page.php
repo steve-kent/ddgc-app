@@ -114,7 +114,21 @@ function LoadjQuery()
     integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8='
     crossorigin='anonymous'></script>
     <!--Load local copy if CDN is unavailable-->
-    <script>window.jQuery || document.write('<script src="/js/jquery-3.3.1.min.js">><\/script>')</script>
+    <script>window.jQuery || document.write('<script src="/js/jquery-3.3.1.min.js"><\/script>')</script>
+    <?php
+}
+
+function LoadjQueryUI()
+{
+    ?>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <!--Load local copy if CDN is unavailable-->
+    <script>window.jQuery || document.write('<script src="/js/jquery-1.12.4.js"><\/script>')</script>
+    
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!--Load local copy if CDN is unavailable-->
+    <script>window.jQuery.ui || document.write('<script src="/js/jquery-ui.js"><\/script>')</script>
+    
     <?php
 }
 ?>
