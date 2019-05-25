@@ -17,7 +17,7 @@ $hh = new HandicapHelper();
 //set roundID if this is a get request for it
 if(isset($_GET['scoreId']))
 {
-    $playerId = $_GET['scoreId'];
+    $scoreId = $_GET['scoreId'];
 }
 
 //Get the round info from the DB and assign it if there is a roundID set
@@ -51,15 +51,15 @@ WriteManageUserHeader();
 <?php
 
 // If vaild player was in paramater show it in the edit form
-if($score)
+if($scoreInfo)
 {
     ?>
     <form id='editPlayer' name='editPlayer' method='post' action='validateEditScore.php' onsubmit='return validateForm()'>
-    <input type='hidden' id='playerId' name='scoreId' value='<?=$player['scoreID']?>'>
-    Player: <input type='text' name='player' id='player' size='18' tabindex='1' accesskey='p' value='<?=FormatOutput($score[1])?>' readonly> <br> 
-    Raw Score: <input onkeyup="upadateNetScore()" type='number' name='rawScore' id='rawScore' accesskey='r' value='<?=FormatOutput($score[2])?>'> <br> 
-    Handicap: <input onkeyup="upadateNetScore()" type='number' name='handicap' id='handicap' accesskey='h' value='<?=FormatOutput($score[3])?>'> <br>
-    Net Score#: <input type='number' name='netScore' id='netScore' accesskey='n' value='<?=FormatOutput($score[4])?>' readonly> <br>  
+    <input type='hidden' id='scoreId' name='scoreId' value='<?=$scoreId?>'>
+    Player: <input type='text' name='player' id='player' size='18' tabindex='1' accesskey='p' value='<?=FormatOutput($scoreInfo[0])?>' readonly> <br> 
+    Raw Score: <input onchange="updateNetScore()" type='number' name='rawScore' id='rawScore' accesskey='r' value='<?=FormatOutput($scoreInfo[1])?>'> <br> 
+    Handicap: <input onchange="updateNetScore()" type='number' name='handicap' id='handicap' accesskey='h' value='<?=FormatOutput($scoreInfo[2])?>'> <br>
+    Net Score#: <input type='number' name='netScore' id='netScore' accesskey='n' value='<?=FormatOutput($scoreInfo[3])?>' readonly> <br>  
     <input type=submit id='saveChanges' name='saveChanges' value='Save Changes'>
     
     </form>
