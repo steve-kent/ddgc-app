@@ -2,7 +2,9 @@ function updateNetScore()
 {
     let raw = $("#rawScore").val();
     let handicap = $('#handicap').val();
-    $("#netScore").val() = raw + handicap;
+    $("#netScore").prop("readonly", false);
+    $("#netScore").val = raw + handicap;
+    $("#netScore").prop("readonly", true);    
 }
 
 function validateForm()
