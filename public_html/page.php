@@ -13,6 +13,7 @@ function WriteHead($title = "DeBary Disc Golf Club", $desc = "DeBary Disc Golf C
     <title><?=$title?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles1.css">
+    <!--SETUP local fallback--------------------------------------->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <link href="https://fonts.googleapis.com/css?family=Comfortaa%7CRighteous" rel="stylesheet">
     <link rel="icon" href="images/logo_200.png">
@@ -102,6 +103,18 @@ function AddFooter()
  </footer>
 </body>
 </html>
+    <?php
+}
+
+function LoadjQuery()
+{
+    ?>
+    <script
+    src='https://code.jquery.com/jquery-3.3.1.min.js'
+    integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8='
+    crossorigin='anonymous'></script>
+    <!--Load local copy if CDN is unavailable-->
+    <script>window.jQuery || document.write('<script src="/js/jquery-3.3.1.min.js">><\/script>')</script>
     <?php
 }
 ?>
