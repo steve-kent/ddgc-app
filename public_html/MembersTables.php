@@ -106,3 +106,26 @@ function ShowRoundResults($roundId)
         echo $tm->GetTable();
     }
 }
+
+//Creates a table with the results from the $roundId passed in
+function ShowLinkedRoundResults($roundId)
+{
+    $hh = new HandicapHelper();
+    $roundData = [];
+    //Get the round info from the DB and assign it if there is a roundID set
+    if($roundId)
+    {
+        $roundData = $hh->GetHandicapRound($roundId);
+    }
+    if(count($roundData))
+    {
+        $roundInfo = $hh->GetRoundCourseAndDate($roundId);
+        $caption = $roundInfo[1] ." on ". $roundInfo[0];
+        $ltm = new LinkedTableMaker();
+        $ltm->headers = ["Player","Raw Score", "Handicap", "Net Score"];
+        $ltm->caption = $caption;
+        $ltm->data = $roundData;
+        $ltm->rowLink = "edit_score.php?scoreID=";
+        echo $ltm->GetTable();
+    }
+}
