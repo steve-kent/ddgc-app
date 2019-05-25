@@ -1,18 +1,19 @@
 function updateNetScore()
 {
-    let raw = $("#rawScore").val();
-    let handicap = $('#handicap').val();
-    $("#netScore").prop("readonly", false);
-    $("#netScore").val = raw + handicap;
-    $("#netScore").prop("readonly", true);    
+    let raw = Number($("#rawScore").val());
+    let handicap = Number($('#handicap').val());
+    //$("#netScore").prop("readonly", false);
+    let netScore = raw + handicap;
+    $("#netScore").val(netScore);
+    //$("#netScore").prop("readonly", true);    
 }
 
 function validateForm()
 {
     let flag = true;
-    let raw = $("#rawScore").val();
-    let handicap = $('#handicap').val();
-    let net = $("#netScore").val();
+    let raw = Number($("#rawScore").val());
+    let handicap = Number($('#handicap').val());
+    let net = Number($("#netScore").val());
 
     // Make sure math is right and all are numbers
     flag = net == raw + handicap && !isNaN(raw) && !isNaN(handicap) && !isNaN(net);
@@ -20,6 +21,5 @@ function validateForm()
     {
         return confirm('Done entering scores?');
     }
-
     return flag;
 }
