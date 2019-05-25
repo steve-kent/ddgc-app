@@ -18,8 +18,8 @@ class LinkedTableMaker extends TableMaker
     // Write the row of the table that is passed in
     protected function WriteRow($row)
     {
-        //'$this->rowLink$row[0]'
         $columnCount = count($this->headers)+1;
+        // Use 0th index of $row array as link ID
         $this->returnContent .= "<tr class='pointer' onclick=\"location.href='$this->rowLink$row[0]'\">";
         for($i = 1; $i < $columnCount; $i++)
         {
