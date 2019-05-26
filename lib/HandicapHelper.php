@@ -157,12 +157,15 @@ Class HandicapHelper
         // Updates null handicap and net score in handicap data to say "Establishing"
         private function UpdateEstablishing($handicapArray)
         {
+            // Use this so that it works for linked or unlinked
+            $lastIndex = count($handicapArray[0]) - 1;
+            
             foreach($handicapArray as &$score) // make score s reference variable
             {
-                if(is_null($score[2]))
+                if(is_null($score[$lastIndex]))
                 {
-                    $score[2] = "Est";
-                    $score[3] = "Est";
+                    $score[$lastIndex - 1] = "Est";
+                    $score[$lastIndex] = "Est";
                 } 
             }
             return $handicapArray;
