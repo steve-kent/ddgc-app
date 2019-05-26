@@ -557,5 +557,50 @@ class DbTalker
         return $scoreInfo; 
     }
 
+    // Update the score to match the data passed in
+    public function UpdateScore($scoreId, $rawScore, $handicap, $netScore)
+    {
+        $roundId = 0;
+        $conn =  $this->Connect();
+        $query = "UPDATE scores 
+                  SET RawScore = ?, Handicap = ?, NetScore = ?
+                  WHERE ScoreID = ?";
+        if ($stmt = $conn->prepare($query))
+        {
+            $stmt->bind_param('iiii', $rawScore, $handicap, $netScore, $scoreId);
+            if($stmt->execute())
+            {
+                $roundId = $this->GetRoundIdByScoreId($scoreId);
+            }
+
+        }
+        $stmt->free_result();
+        $conn->close();
+        return $roundId;
+    }
+    
+    // Returns RoundId associated with ScoreId passed in
+    public function GetRoundIdByScoreId($scoreId)
+    {
+        $roundId = 0;
+        $conn =  $this->Connect();
+        $query = "SELECT RoundId 
+                    FROM scores
+                    WHERE ScoreId = ?";
+        if ($stmt = $conn->prepare($query))
+        {
+            $stmt->bind_param('i', $scoreId);
+            if ($stmt->execute())
+            {
+                $stmt->bind_result($theRound);
+                $stmt->fetch();  
+                $roundId = $theRound;              
+            }
+        }
+        $stmt->free_result();
+        $conn->close();
+        return $roundId;      
+    }
+
 }
 ?>

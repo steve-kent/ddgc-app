@@ -253,10 +253,25 @@ Class HandicapHelper
         return $tableData;
     }
 
-    function GetHandicapScoreInfo($scoreId)
+
+    public function GetHandicapScoreInfo($scoreId)
     {
         $dbTalker = new DbTalker();
         return $dbTalker->GetHandicapScoreInfo($scoreId);
+    }
+
+    // Updates round score of a player. returns the roundId that the score was associated with
+    public function UpdateScore($scoreId, $rawScore, $handicap, $netScore)
+    {
+        $dbTalker = new DbTalker();
+        return $dbTalker->UpdateScore($scoreId, $rawScore, $handicap, $netScore);
+    }
+    
+    // Returns RoundId associated with ScoreId passed in
+    public function GetRoundIdByScoreId($scoreId)
+    {
+        $dbTalker = new DbTalker();
+        return $dbTalker->GetRoundIdByScoreId($scoreId);
     }
 }
 ?>
