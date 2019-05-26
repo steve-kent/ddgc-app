@@ -19,7 +19,7 @@ function validateForm()
     flag = net == raw + handicap && !isNaN(raw) && !isNaN(handicap) && !isNaN(net);
     if(flag) 
     {
-        return confirm('Done entering scores?');
+        return confirm('Are you sure you want to update this score?');
     }
     return flag;
 }
