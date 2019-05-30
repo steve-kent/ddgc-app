@@ -13,7 +13,7 @@ Hole,Course,Tee,Pad,Pin,OB,,Hole,Course,Tee,Pad,Pin
 11,Alpha ,16,Long,C,,,11,Barwick,Temp A,,
 12,Alpha,17,Long,Red,,,12,Barwick,2,Concrete,B
 13,Alpha,18,Long,Yellow,,,13,Barwick,2,Concrete,Barwick 18
-14,Alpha ,18,Short,Yellow,,,14,Alpha ,1,Long,Yellow
+14,Alpha ,18,Short,Yellow,,,14,Alpha ,1,Long,Red
 15,Alpha,1,Long ,Red,,,15,Alpha ,2,Short,Red
 16,Alpha,1,Long ,Yellow,,,16,Alpha ,2,Short,Alpha 3 Yellow
 17,Alpha,2,Long,Red,,,17,Alpha ,4,Long,Red
