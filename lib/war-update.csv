@@ -1,20 +1,20 @@
 WATER CASUAL,,,,,,,,,,,
 Hole,Course,Tee,Pad,Pin,OB,,Hole,Course,Tee,Pad,Pin
-1,Alpha ,9,Long,Yellow,,,1,Alpha ,9,Long,Alpha 13 Red
-2,Alpha ,10,Short ,Yellow,,,2,Alpha ,Temp C,Long ,Red
-3,Alpha,11,Long,Red,,,3,Alpha ,Temp C,Short,Yellow
-4,Alpha ,11,Short,Red,,,4,Alpha ,14,Long,Red
-5,Barwick ,1,Short,B,,,5,Alpha ,14,Long ,Yellow
-6,Barwick ,1,Long,B,,,6,Alpha ,15,Long ,Yellow
-7,Barwick ,18,Concrete,C,,,7,Alpha ,17,Long,Yellow
-8,Barwick ,10,Long,B,,,8,Barwick,1,Short,Alpha 16 Yellow
-9,Barwick,2,Concrete,B,,,9,Barwick,11,Concrete,A
-10,Barwick,Temp A,,,,,10,Barwick ,15,Long,B
-11,Alpha ,16,Long,C,,,11,Barwick,Temp A,,
-12,Alpha,17,Long,Red,,,12,Barwick,2,Concrete,B
-13,Alpha,18,Long,Yellow,,,13,Barwick,2,Concrete,Barwick 18
-14,Alpha ,18,Short,Yellow,,,14,Alpha ,1,Long,Red
-15,Alpha,1,Long ,Red,,,15,Alpha ,2,Short,Red
-16,Alpha,1,Long ,Yellow,,,16,Alpha ,2,Short,Alpha 3 Yellow
-17,Alpha,2,Long,Red,,,17,Alpha ,4,Long,Red
-18,Alpha,2,Short,Red,,,18,Alpha ,5,Long,Yellow
+1,Alpha ,9,Long,Yellow,,,1,Alpha ,1,Long,Yellow
+2,Alpha ,10,Short ,Yellow,,,2,Alpha ,2,Short,Red
+3,Alpha,11,Long,Red,,,3,Alpha ,2,Short,Alpha 3 Yellow
+4,Alpha ,11,Short,Red,,,4,Alpha ,4,Long,Red
+5,Barwick ,1,Short,B,,,5,Alpha ,5,Long ,Yellow
+6,Barwick ,1,Long,B,,,6,Alpha ,Temp 6,Long ,Yellow
+7,Barwick ,18,Concrete,C,,,7,Alpha ,11,Long,Red
+8,Barwick ,10,Long,B,,,8,Alpha ,11,Short,Red
+9,Barwick,11,Concrete,A,,,9,Barwick,1,Short,Alpha 16 Yellow
+10,Barwick,Temp 16,Flags,Alpha 15 Yellow,,,10,Barwick ,2,Concrete,B
+11,Alpha ,16,Long,C,,,11,Barwick,2,Concrete,Barwick 18
+12,Alpha,17,Long,Red,,,12,Barwick,10,Long,Barwick 13
+13,Alpha,18,Long,Yellow,,,13,Barwick,14,Concrete,A
+14,Alpha ,18,Short,Yellow,,,14,Barwick,15,Long,B
+15,Alpha,1,Long ,Yellow,,,15,Barkwick,Temp 16,Flags,Yellow
+16,Alpha,2,Long ,Red,,,16,Alpha ,16,Long,Yellow
+17,Alpha,2,Short,Red,,,17,Alpha ,17,Long,Yellow
+18,Alpha,5,Long,Red,,,18,Alpha ,18,Long,Alpha 9 Yellow
