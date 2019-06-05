@@ -19,8 +19,11 @@ WriteHeader();
     <div class="pictures" >
         <img src="images/home.jpg" alt="4 Palm Trees" >
     </div>
-    <div id="cc_button" class="button">
-        <a href="war.php">War 2019 Qualifiers Layout</a>
+    <div class="button30 button margin10">
+        <a href="war.php">War 2019 Qualifier Layouts</a>
+    </div>
+    <div class="button30 button margin10">
+        <a href="raffle.php">Pattie Fundraiser Raffle</a>
     </div>
     <p>The DeBary Disc Golf Club is a not-for-profit organization whose mission is to foster, promote, and improve the sport of disc golf. 
 As well as represent the City of DeBary through charitable events and conservation of natural habitats. Finally, to fellowship among 

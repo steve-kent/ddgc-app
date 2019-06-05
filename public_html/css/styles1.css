@@ -221,7 +221,7 @@ input[type=submit]:hover {
 .links_pic { background: #79a747; border: 1px solid black; border-radius: 25px; margin: 3% ; text-align:center; float: right; box-shadow: 12px 9px 13px #666; width: 30% }
 .links_pic img {width:90%; margin: 15px 0px; box-shadow: 12px 9px 13px #333; border-radius: 15px; }
 .manageButtons {display: inline-block; margin: 10px auto;}
-
+.margin10 {margin: 10px;}
 .nav { align-self: flex-end; justify-self: flex-end;}
 .nav ul { list-style:none; padding:0; list-style-position: inside; float: right;}
 .nav li, #navLogin {background-color: #adadad; color: #000000; display:inline; padding: 5px 10px; border: 2px solid #626262; border-radius: 25px; text-align: center; box-shadow: 12px 9px 13px #888;}
@@ -244,7 +244,23 @@ input[type=submit]:hover {
 .playing img {width:90%; margin: 15px 0px; box-shadow: 12px 9px 13px #333; border-radius: 15px; }
 .pointer { cursor: pointer;}
 .pointer:hover {background: white !important;}
+.polaroid {
+    margin: 20px 10px;
+    display: inline-block;
+    width: 40%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+.polaroid img {width: 100%}
+  
+.polaroidCaption {
+    text-align: center;
+    padding: 10px 20px;
+    background: #a3ca7a;
+  }
 .red { color: red;}
+.rafflePics { text-align: center; width: 100%;}
 .scorecard img {width: 350px; max-width: 90%; margin-bottom: 15px;}
 .smallcap {font: 0.4em/125% 'Comfortaa', cursive; display: block;}
 .showAt660 {display: none;}
@@ -263,6 +279,8 @@ input[type=submit]:hover {
     text-align: center; }
 
 .warHeading {margin: 0;}
+
+
 
 @media (max-width:1325px){
     #sp, #lp {
@@ -371,7 +389,7 @@ input[type=submit]:hover {
         #sp, #lp {
             font-size: .6em;
         }
-	
+	.polaroid { width: 90%;}
 }
 
 @media (max-width:400px){
