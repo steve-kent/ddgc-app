@@ -29,7 +29,17 @@ $items = array
 ?>
 <div id="container">
     <h3>Raffle items for Pattie Fundraiser</h3>
-
+    <div class="centerStuff">
+        <div class="paypalStuff">
+            <div class="w-41 margin10">
+                $1 for 1 ticket<br/>
+                $5 for 6 tickets
+            </div>
+             <div class="w-41 margin10">
+               <div class="button"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=pay%40debarydiscgolf.org&item_name=Fundraiser++for+Pattie&currency_code=USD&source=url">Buy tickets online</a></div>
+            </div>
+        </div>
+    </div>
     <div class="rafflePics">
         
             <?php
