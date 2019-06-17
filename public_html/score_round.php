@@ -76,7 +76,7 @@ WriteHeader();
 <script src='js/scoreHandis.js'></script>
 <script>AddNames(<?=json_encode($nameList)?>)</script><br>
 <script>AddCourses(<?=json_encode($courseList)?>)</script><br>
-<script>AddAutoFill()</script>";
+<script>AddAutoFill()</script>
 
 <?php
 
