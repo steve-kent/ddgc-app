@@ -91,6 +91,7 @@ p {	font-family: 'Comfortaa', cursive; margin: 10%; max-width: 500px;}
     vertical-align: top;
 }
 #playerInfo {text-align: left;}
+#playerInfo input {margin: 5px;}
 
 #playersList { background: #79a747;
 border: 1px solid black;

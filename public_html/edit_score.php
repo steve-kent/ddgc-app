@@ -53,6 +53,9 @@ WriteManageUserHeader();
 // If vaild player was in paramater show it in the edit form
 if($scoreInfo)
 {
+
+    ////////CHANGE THIS!!
+    ////// https://stackoverflow.com/questions/3080146/post-data-to-a-url-in-php
     ?>
     <form id='editPlayer' name='editPlayer' method='post' action='validateEditScore.php' onsubmit='return validateForm()'>
     <input type='hidden' id='scoreId' name='scoreId' value='<?=$scoreId?>'>
@@ -61,9 +64,13 @@ if($scoreInfo)
     Handicap: <input onchange="updateNetScore()" type='number' name='handicap' id='handicap' accesskey='h' value='<?=FormatOutput($scoreInfo[2])?>'> <br>
     Net Score#: <input type='number' name='netScore' id='netScore' accesskey='n' value='<?=FormatOutput($scoreInfo[3])?>' readonly> <br>  
     <input type=submit id='saveChanges' name='saveChanges' value='Save Changes'>
-    
+    </form>
+    <form id='deletePlayerScore' name='deletePlayerScore' method='post' action='validateEditScore.php' onsubmit='return confirmDelete()'>
+        <input type='hidden' id='scoreId' name='scoreId' value='<?=$scoreId?>'>
+        <input type=submit id='deleteScore' name='deleteScore' value='Delete Score'>
     </form>
     <?php
+    
 }
 ?>
 </div></div></div>

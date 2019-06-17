@@ -28,6 +28,12 @@ if(isset($_POST['saveChanges']))
         $roundId = $hh->UpdateScore($scoreId, $rawScore, $handicap, $netScore);
     }
 }
+else if (isset($_POST['deleteScore']))
+{
+    $scoreId = $_POST['scoreId'];
+    $hh = new HandicapHelper(); 
+    $roundId = $hh->DeteleScoreById($scoreId);
+}
 
 //If the edit was added and we get the roundId, navigate to show the round.
 if($roundId)

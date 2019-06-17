@@ -276,5 +276,20 @@ Class HandicapHelper
         $dbTalker = new DbTalker();
         return $dbTalker->GetRoundIdByScoreId($scoreId);
     }
+
+    // Returns roundId of the round the score was in if delete is successful
+    public function DeteleScoreById($scoreId)
+    {
+        $roundId = $this->GetRoundIdByScoreId($scoreId);
+        $dbTalker = new DbTalker();
+        if($dbTalker->DeleteScoreById($scoreId))
+        { 
+            return $roundId;
+        }
+        else
+        {
+            return 0;
+        }
+    }
 }
 ?>

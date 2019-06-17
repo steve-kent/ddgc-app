@@ -11,7 +11,7 @@ class DbTalker
         //require('../upload/priv/env_school.php');
         if (!defined('ROOT_PATH'))
         define('ROOT_PATH', dirname(__DIR__) . '/');
-        require(ROOT_PATH . 'priv/prod.php');
+        require(ROOT_PATH . 'priv/dev.php');
         $conn = new mysqli($dbServer, $dbUsername, $dbPassword, $dbName);
         if (mysqli_connect_errno())
         {
@@ -600,6 +600,27 @@ class DbTalker
         $stmt->free_result();
         $conn->close();
         return $roundId;      
+    }
+
+    // Returns 1 if the delete is successful
+    public function DeleteScoreById($scoreId)
+    {
+        $result = 0;
+        $conn =  $this->Connect();
+        $query = "Delete 
+                    FROM scores
+                    WHERE ScoreId = ?";
+        if ($stmt = $conn->prepare($query))
+        {
+            $stmt->bind_param('i', $scoreId);
+            if ($stmt->execute())
+            {
+                $result = 1;              
+            }
+        }
+        $stmt->close();
+        $conn->close();
+        return $result;      
     }
 
 }

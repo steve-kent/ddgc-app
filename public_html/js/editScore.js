@@ -23,3 +23,9 @@ function validateForm()
     }
     return flag;
 }
+
+function confirmDelete()
+{
+    var name = $("#player").val();
+    return confirm('Are you sure you want to delete this score for ' + name + '?');
+}
