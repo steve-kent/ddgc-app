@@ -21,8 +21,12 @@ $items = array
     array("OrangeBuzz.jpg", "10 year anniversary Buzz"),
     array("GreenDestroyer.jpg", "Grand Clam Commemorative Destroyer"),
     array("GrowlerCooler.jpg", "Growler Cooler with 2 pre-filled 64oz Growlers"),
+    array("Christmas.jpg", "Christmas discs: Tee Devil, Bullfrog, Thunderbird"),
+    array("ClaymoreSheriff.jpg", "Synergy Dyed Claymore and Sheriff"),
     array("Machetes.jpg", "First run Machetes"),
-    array("Christmas.jpg", "Christmas discs: Tee Devil, Bullfrog, Thunderbird")
+    array("McBeth.jpg", "Discraft Prototype McBeth driver"),
+    array("SignedPd2.jpg", "Pd2 signed by McBeth, Simon Lizzotte, and Eagle McMahon"),
+    array("Aviars.jpg", "2 Star Aviar3's")
     
 );
 // Add content
