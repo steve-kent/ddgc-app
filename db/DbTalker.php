@@ -623,6 +623,33 @@ class DbTalker
         return $result;      
     }
 
+    // Returns players Name and expiration of everyone owed a shirt
+    public function GetOwedShirts()
+    {
+        $owedShirtInfo = [];
+        $conn =  $this->Connect();
+        $query = "SELECT PlayerId, MemberNumber, FirstName, LastName, Expires 
+        FROM players 
+        WHERE OweShirt = 1 
+        ORDER BY Expires DESC";
+        if ($stmt = $conn->prepare($query))
+        {
+            if ($stmt->execute())
+            {
+                $stmt->store_result();
+                $stmt->bind_result($playerId, $memberNumber, $first, $last, $expires);
+                while ($stmt->fetch())
+                {
+                    $memberInfo = [$playerId, $memberNumber, $first ." ". $last, $expires];
+                    array_push($owedShirtInfo, $memberInfo);
+                }
+            }
+        }       
+        $stmt->free_result();
+        $conn->close();
+        return $owedShirtInfo; 
+    }
+
 
 
 }

@@ -102,6 +102,12 @@ if($player)
     </form>
     <?php
 }
+else
+{
+    ?>
+        <div class="button"><a href="owed_shirt.php">Who's Owed a Shirt?</a></div><br/>
+    <?php
+}
 ?>
 </div></div></div>
 

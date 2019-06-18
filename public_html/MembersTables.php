@@ -70,6 +70,22 @@ function ShowPlayersTable()
     echo $ltm->GetTable();
 }
 
+function ShowOwedShirtsTable()
+{
+        //Get an array of all player names and IDs
+        $ph = new PlayerHelper();
+        $playerList = $ph->GetOwedShirts();
+    
+        //Create the table with links
+        $ltm =  new LinkedTableMaker();
+        //$ltm->tagId = "playerList";
+        $ltm->headers = ["Member#", "Member Name", "Expires"];
+        $ltm->caption = "All Players<br><span class='smallcap'>Click on a player to view/edit</span><br><input type='text' id='playerSearch' onkeyup='playerSearch()' placeholder='Search for names..'>";
+        $ltm->data = $playerList;
+        $ltm->rowLink = "edit_player.php?playerId=";
+        echo $ltm->GetTable();
+}
+
 //Creates a linked table with the last 50 rounds
 function ShowRoundsList()
 {

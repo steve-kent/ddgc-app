@@ -106,5 +106,11 @@ class PlayerHelper
         return $dbTalker->GetPlayerById($playerId) ?: 0;
     }
 
+    //Returns a list of people who are owed shirts
+    public function GetOwedShirts()
+    {
+        $dbTalker = new DbTalker();
+        return $dbTalker->GetOwedShirts();        
+    }
 }
 ?>
