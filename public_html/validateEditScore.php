@@ -38,7 +38,7 @@ else if (isset($_POST['deleteScore']))
 //If the edit was added and we get the roundId, navigate to show the round.
 if($roundId)
 {
-    header("Location: rounds.php?roundId=$roundId");
+    header("Location: rounds.php?roundID=$roundId");
     exit();
 }
 // If we don't get a round back show error.
