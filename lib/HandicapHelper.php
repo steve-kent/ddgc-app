@@ -314,5 +314,6 @@ Class HandicapHelper
             return 0;
         }
     }
+
 }
 ?>
