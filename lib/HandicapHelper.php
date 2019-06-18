@@ -40,7 +40,7 @@ Class HandicapHelper
             {
                 if (!empty(trim($players[$i])))
                 {
-                     $playerId = $this->GetPlayerId($players[$i]);
+                    $playerId = $this->GetPlayerId($players[$i]);
                     if(is_numeric($scores[$i]))
                     {
                         $scoreId = $this->AddScore($course, $playerId, $roundId, intval($scores[$i]));
@@ -54,6 +54,8 @@ Class HandicapHelper
             $this->AddImages($files, $roundId);
             return $roundId;
         }
+
+
 
         // Add a new round of handicaps
         private function AddRound($courseId, $roundDate)
@@ -82,6 +84,27 @@ Class HandicapHelper
             $dbTalker = new DbTalker();
             return $dbTalker->AddScore($roundId, $playerId, $rawScore, $handicap, $netScore);
 
+        }
+
+        //Adds score for a player for the roundId passed in
+        public function InsertScore($courseName, $roundId, $player, $score)
+        {
+            $dbTalker = new DbTalker();
+            $course = $dbTalker->GetCourseByName($courseName);
+            if (!empty(trim($player)))
+            {
+                $playerId = $this->GetPlayerId($player);
+                if(is_numeric($score))
+                {
+                    $scoreId = $this->AddScore($course, $playerId, $roundId, intval($score));
+                    if(!$scoreId)
+                    {
+                        echo "FAILED to add score round for $player $score";
+                    }
+                }
+            }
+
+            return $roundId;
         }
 
         // return the player handicap or "Establishing" if player hasn't played 5 rounds
