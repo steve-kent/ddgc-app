@@ -250,7 +250,7 @@ class DbTalker
                 WHERE s.PlayerID = ?
                 AND r.CourseID = ?
                 AND s.RoundID = r.RoundId
-                ORDER BY r.RoundDate, s.RoundID DESC
+                ORDER BY r.RoundDate DESC, s.RoundID DESC
                 LIMIT 5";
         if ($stmt = $conn->prepare($query))
         {
