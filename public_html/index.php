@@ -20,7 +20,7 @@ WriteHeader();
         <img src="images/home.jpg" alt="4 Palm Trees" >
     </div>
     <div class="button30 button margin10">
-        <a href="war.php">War 2019 Qualifier Layouts</a>
+        <a href="war.php">War 2020 Qualifier Layouts</a>
     </div>
     <div class="button30 button margin10">
         <a href="raffle.php">Pattie Fundraiser Raffle</a>
