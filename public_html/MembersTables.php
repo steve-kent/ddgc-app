@@ -145,3 +145,20 @@ function ShowLinkedRoundResults($roundId)
         echo $ltm->GetTable();
     }
 }
+
+// Shows a table with all players and their email addresses
+function ShowAllPlayersAndEmails()
+{
+        //Get an array of all player names and IDs
+        $ph = new PlayerHelper();
+        $playerList = $ph->GetEmailAddresses();
+    
+        //Create the table with links
+        $ltm =  new LinkedTableMaker();
+        //$ltm->tagId = "playerList";
+        $ltm->headers = ["Member Name", "Email"];
+        $ltm->caption = "All Players<br><span class='smallcap'>Click on a player to view/edit</span><br><input type='text' id='playerSearch' onkeyup='playerSearch()' placeholder='Search for names..'>";
+        $ltm->data = $playerList;
+        $ltm->rowLink = "edit_player.php?playerId=";
+        echo $ltm->GetTable();
+}

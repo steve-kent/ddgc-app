@@ -33,7 +33,7 @@ WriteHeader();
 <?php
     LoadjQuery();
 ?>
-<script src='js/playerSearch.js'></script>";
+<script src='js/playerSearch.js'></script>
 
 <?php
 

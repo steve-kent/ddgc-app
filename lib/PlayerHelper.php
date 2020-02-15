@@ -112,5 +112,44 @@ class PlayerHelper
         $dbTalker = new DbTalker();
         return $dbTalker->GetOwedShirts();        
     }
+
+    // Returns all active members and their email address
+    public function GetEmailAddresses()
+    {
+        $dbTalker = new DbTalker();
+        return $dbTalker -> GetAllMembersAndEmails();
+    }
+
+    public function GetMembersWithoutEMails()
+    {
+        $playerList = '';
+        $dbTalker = new DbTalker();
+        $playerData = $dbTalker -> GetAllMembersAndEmails();
+        foreach ($playerData as $player)
+        {
+            if (empty($player[2]))
+            {
+                $playerList .= $player[1].', ';
+            }
+        }
+
+        return $playerList;
+    }
+
+    public function GetMembersEmails()
+    {
+        $playerList = '';
+        $dbTalker = new DbTalker();
+        $playerData = $dbTalker -> GetAllMembersAndEmails();
+        foreach ($playerData as $player)
+        {
+            if (!empty($player[2]))
+            {
+                $playerList .= $player[2].', ';
+            }
+        }
+
+        return $playerList;
+    }
 }
 ?>

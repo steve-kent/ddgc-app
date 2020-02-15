@@ -106,6 +106,7 @@ else
 {
     ?>
         <div class="button"><a href="owed_shirt.php">Who's Owed a Shirt?</a></div><br/>
+        <div class="button"><a href="member_emails.php">Member Email Addresses</a></div><br/>
     <?php
 }
 ?>

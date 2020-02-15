@@ -650,6 +650,35 @@ class DbTalker
         return $owedShirtInfo; 
     }
 
+    // Returns all active members and their emails addresses
+    public function GetAllMembersAndEmails()
+    {
+        $returnData = [];
+        $conn =  $this->Connect();
+        $query = "SELECT PlayerId, FirstName, LastName, Email
+        FROM players 
+        WHERE MemberNumber > 0 
+        AND Expires >= CURDATE()
+        ORDER BY Email DESC, MemberNumber";
+        if ($stmt = $conn->prepare($query))
+        {
+            if ($stmt->execute())
+            {
+                $stmt->store_result();
+                $stmt->bind_result($playerId, $first, $last, $email);
+                while ($stmt->fetch())
+                {
+                    $memberInfo = [$playerId, $first ." ". $last, $email];
+                    array_push($returnData, $memberInfo);
+                }
+            }
+        }       
+        $stmt->free_result();
+        $conn->close();
+        return $returnData; 
+
+        
+    }
 
 
 }
