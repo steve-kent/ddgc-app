@@ -45,7 +45,6 @@ p {	font-family: 'Comfortaa', cursive; margin: 10%; max-width: 500px;}
 #calendar_desktop iframe {border: 3px solid black; box-shadow: 12px 9px 13px #333; width: 100%; height: 500px;}
 #calendar_mobile { background: #79a747; border: 1px solid black; border-radius: 25px; margin: 20px; display: none; box-shadow: 12px 9px 13px #666; padding: 25px; float: right; }
 #calendar_mobile iframe { border: 3px solid black; box-shadow: 12px 9px 13px #333; width: 100%; height: 500px; display: none; }
-#cc_button { max-width: 30%;}
 #courses_left {  display: inline-block; width: 43%; margin: 3%;}
 #courses_right {  display: inline-block; width: 43%; margin: 3%; vertical-align: top;  text-align: center;}
 #courses_right .button {width: 50%; margin: 20px auto 40px; display: inline-block; max-width: 200px;}
@@ -66,20 +65,9 @@ p {	font-family: 'Comfortaa', cursive; margin: 10%; max-width: 500px;}
 #links_table td { border: 1px solid black; padding: 1%;}
 #login input { margin: 5px;}
 #loginTitle {margin: 10px 5px;}
-#longcaps {text-align: center; display: inline-block; width: 35%; margin: 20px 2% 20px 5%;}
-#longcaps th {border: 1px solid black; cursor: pointer;}
-#longcaps td {border: 1px solid black; }
-#longcaps table td {border: 1px solid black; }
-#longcaps tr:nth-child(odd) {background: #a3ca7a}
 #manageNav {text-align: center;}
-#memberstable {text-align: center; display: inline-block; width: 35%; margin: 20px 2% 20px 10%;}
-#memberstable th {border: 1px solid black; cursor: pointer;}
-#memberstable td {border: 1px solid black; }
-#memberstable table td {border: 1px solid black; }
-#memberstable tr:nth-child(odd) {background: #a3ca7a}
 #members_nav {display:inline-block; text-align:center; vertical-align: top; width:160px;}
 #mission p { margin: 10%; max-width: 500px;}
-#mobile_header_breaks { display: none;}
 #navLogin {align-self: flex-end;}
 #navLogin a {font-size: .8em;}
 #playersButtons {text-align: center;}
@@ -122,16 +110,6 @@ box-shadow: 12px 9px 13px #666;
 
 #scoreHandis input {margin: 10px;}
 #scoreRoundHeading {margin: 10px;}
-#shortcaps {text-align: center; display: inline-block; width: 35%; margin: 20px 2% 20px 5%;}
-#shortcaps th {border: 1px solid black; cursor: pointer;}
-#shortcaps td {border: 1px solid black; }
-#shortcaps table td {border: 1px solid black; }
-#shortcaps tr:nth-child(odd) {background: #a3ca7a}
-
-#the_table { display: inline-block; margin: 20px;}
-#the_table .xl29, #the_table .xl30 { color: red; }
-#the_table table {border: 1px solid black; }
-#the_table td { border: 1px solid black; padding: 1%;}
 
 #the_video { width: 80%; height: 500px; margin: 10px auto; border: 5px inset ;  box-shadow: 0 35px 20px #777;}
 #under_form {margin: 0 10% 20px;}
@@ -142,8 +120,6 @@ box-shadow: 12px 9px 13px #666;
 
 #weather{ max-width: 300px;  margin: 75px auto 40px; display:block; box-shadow: 12px 9px 13px #333;}
 #weather iframe {display: block;  width: 100%; border: none;}
-#home_stuff { display: flex;}
-#home_stuff h2 { text-align: center; }
 
 
 
@@ -195,7 +171,6 @@ input[type=submit]:hover {
 }
 
 .button30 {max-width: 30%; display: inline-block; margin: auto;}
-.centerContent {text-align: center;}
 .centerStuff { text-align: center;}
 .csv_tablemaker { text-align: center; display: table;  margin: 20px auto; }
 .csv_tablemaker th {border: 1px solid black;}
@@ -216,11 +191,15 @@ input[type=submit]:hover {
 .galpics img {width: 100%; border: 1px solid black;}
 .galcaption { text-align: center;}
 .halfSize {width: 50%; display: inline-block;}
-.i { font-style: oblique;};
+.members-table {text-align: center; display: inline-block; width: 35%; margin: 20px 2% 20px 5%;}
+.members-table th {border: 1px solid black; cursor: pointer;}
+.members-table table td {border: 1px solid black; }
+.members-table tr:nth-child(odd) {background: #a3ca7a}
+.i { font-style: oblique;}
+.image-container { background: #79a747; border: 1px solid black; border-radius: 25px; margin: 3% ; text-align:center; float: right; box-shadow: 12px 9px 13px #666; width: 30% }
+.image-container img {width:90%; margin: 15px 0px; box-shadow: 12px 9px 13px #333; border-radius: 15px; }
 .invalid { box-shadow: 0 0 5px 1px red;}
 .invalid:focus {box-shadow: 0 0 5px 1px red;}
-.links_pic { background: #79a747; border: 1px solid black; border-radius: 25px; margin: 3% ; text-align:center; float: right; box-shadow: 12px 9px 13px #666; width: 30% }
-.links_pic img {width:90%; margin: 15px 0px; box-shadow: 12px 9px 13px #333; border-radius: 15px; }
 .manageButtons {display: inline-block; margin: 10px auto;}
 .margin10 {margin: 10px;}
 .nav { align-self: flex-end; justify-self: flex-end;}
@@ -330,13 +309,7 @@ input[type=submit]:hover {
     }
 }
 
-@media (max-width:1290px){
-   /*h1 {margin: 20px 30px 0 -120px; }
-   .nav { float: right; margin: 10px 20px 0px;}*/
-   .rounds { display: none}
-   
 
-}
 @media (max-width:1180px){
 	/*h1 {margin: 20px 30px 0 -70px; }*/
    #calendar_mobile { display: inline-block;}
@@ -349,8 +322,6 @@ input[type=submit]:hover {
    #members_nav {display:inline-block; text-align:center; vertical-align: top; margin: 20px; width:50%;}
 	#memberstable, #shortcaps, #longcaps {width: 95%; display: block; margin: 10% auto;}
 	#memberstable table, #shortcaps table, #longcaps table {display: table; margin: 0 auto; text-align: center; width:auto;}
-   .rounds { display: table-cell;}
-   .showAt660 {display: none;}
 }
 
 
@@ -378,7 +349,6 @@ input[type=submit]:hover {
 			
 }
 @media (max-width:660px){
-    .rounds { display: none}
     #playerListPanel { display: none}
     #playerFormContainer {
         display: block;
@@ -403,7 +373,6 @@ input[type=submit]:hover {
 	.playing {display: none;}
 	#memberstable, #shortcaps, #longcaps {width: 95%; display: block; margin: 3% auto;}
 	#memberstable table, #shortcaps table, #longcaps table {display: table; margin: 3% auto; text-align: center; width:auto;}
-	.rounds { display: none}
 	#members_nav {display:block; text-align:center; margin: 20px auto; width:auto;}
 	caption { font: 20px/1.3 'Comfortaa', cursive;  }
     #weather{ max-width: 300px;  margin: 20px auto;}
@@ -413,15 +382,10 @@ input[type=submit]:hover {
 
 @media (max-width:502px){
 	body {font: 14px/1 'Comfortaa', cursive; }
-	/*.nav { float: none;
-			display: block;
-			margin: 20px auto 0;}
-    .nav ul { float: none; }*/
     header {
         height: 130px;}
 	h1 { font: 1.7em/1 'Righteous', cursive; /*font-weight: bold; display: inline; padding: 0; margin: 0; text-align: left;*/}
 	a {	text-decoration:none; display: inline;}
-	#mobile_header_breaks { display: inline;}
 	.button { font: normal normal bold 12px arial;}
     #calendar_mobile { width: 80% }
     #the_video { height: 250px; }
@@ -439,13 +403,5 @@ input[type=submit]:hover {
     #scoreHandis input {margin: 10px 0;}
     #addPlayerBtn {width: auto}
     #memberstable, #shortcaps, #longcaps,#scoreHandis {font: 0.6em/1 'Comfortaa', cursive;}
-}
-
-@media (max-width:345px){
-	/*.nav { height: 100px; display:block; float:none; margin: 0 11%;}
-	.nav li { margin-bottom: 15px; display: inline-block;}
-	header { height: 200px; display: block;}*/
-    
-    #scoreHandis input {width: 100%;}
 }
 

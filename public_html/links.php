@@ -32,7 +32,7 @@ WriteHeader();
     
 
 </table>
-<div class="links_pic" >
+<div class="image-container" >
         <img src="images/links.jpg" alt="Links from chains on a disc golf basket" >
     </div>
 <div style='clear:both;'></div>

@@ -28,13 +28,13 @@ WriteHeader();
 <div class="playing">
 <img src="images/playing.jpg" alt="Player throwing a disc" >
 </div>
-<div id="memberstable">
+<div id="memberstable" class="members-table">
         <?=ShowMembersTable()?>
 </div>
-<div id="shortcaps">
+<div id="shortcaps" class="members-table">
 <?=ShowShortPadsTable()?>
 </div>
-<div id="longcaps">
+<div id="longcaps" class="members-table">
 <?=ShowLongPadsTable()?>
 </div>
 </div>
