@@ -1,6 +1,7 @@
 <?php
 require("page.php");
 require_once("../lib/AuthHelper.php");
+require_once("components/card.php");
 //Start session and update timeout
 my_session_start();
 
@@ -12,19 +13,27 @@ $title = "DeBary Disc Golf Club | Calendar";
 WriteHead($title, $desc);
 WriteHeader();
 
+$weeklyEvents = array();
+
+$handicaps = array("Handicaps", "When: Saturdays - Last Entry 3pm\nCost: $10 standard all in. $5 If you haven't established a handicap. Add an additional $1 for PDGA rated round.");
+$doubles = array("Doubles", "When: Mondays - Last entry 3:30pm\nCost: $10\nRandom draw except 1st Monday of the month is bring your own partner.");
+
+array_push($weeklyEvents, $handicaps, $doubles);
+
 // Add content
 ?>
-<div id="container" style="display:table;">
-    <div class="disc_pic">
-        <img src="images/disc.jpg" alt="Disc stuck in the ground">
+<div id="container">
+    <div class="centerStuff">
+        <h2>Weekly Club Events</h2>
+        <h5 class="m-0">All Members and Non-Members are Welcome</h5>
+        <div class="card-group">
+            <?php foreach ($weeklyEvents as $event) : ?>
+            <div class="col-full-2">
+                <?php createCard($event[0], $event[1]) ?>
+            </div>
+            <?php endforeach; ?>
+        </div>
     </div>
-    <div id="calendar_mobile">
-        <iframe src="https://calendar.google.com/calendar/embed?mode=AGENDA&amp;height=500&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=brianroberts2526%40yahoo.com&amp;color=%236B3304&amp;ctz=America%2FNew_York"></iframe>
-    </div>
-    <div id="calendar_desktop">
-        <iframe src="https://calendar.google.com/calendar/embed?height=500&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=brianroberts2526%40yahoo.com&amp;color=%236B3304&amp;ctz=America%2FNew_York"></iframe>
-    </div>
-
 </div>
 
 <?php
