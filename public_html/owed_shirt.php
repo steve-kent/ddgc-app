@@ -24,7 +24,7 @@ WriteHeader();
 <div id="container">
 <?=WriteManageUserHeader()?> 
     <div class='centerStuff'>
-        <div id='playersList'>
+        <div class='members-table-container'>
             <?=ShowOwedShirtsTable()?>
         </div>
     </div>

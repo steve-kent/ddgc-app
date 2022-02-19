@@ -115,6 +115,10 @@ input[readonly] {
 #addPlayer input[type="date"] {
   margin: 0 5px 15px 0;
 }
+
+#addEvent input {
+    margin: 5px;
+}
 #container {
   background-color: #ebf1de;
   width: 90%;
@@ -391,6 +395,16 @@ input[type="submit"] {
   color: #ffffff;
   text-decoration: none;
 }
+input[type="submit"]
+{
+  display: inline-block;
+}
+.button-secondary {
+  background: #adadad;
+  text-shadow: none;
+  color: #000;
+  box-shadow: 12px 9px 13px #666;
+}
 .button a {
   color: #ffffff;
   display: block;
@@ -447,10 +461,14 @@ input[type="submit"]:hover {
   flex-wrap: wrap;
   column-gap: 20px;
 }
-
 .card-text {
     text-align: left;
     margin: 1em;
+}
+.card-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 10px;
 }
 .centerStuff {
   text-align: center;
@@ -609,6 +627,15 @@ input[type="submit"]:hover {
 .margin10 {
   margin: 10px;
 }
+.members-table-container {
+  background: #79a747;
+  border: 1px solid black;
+  border-radius: 25px;
+  display: inline-block;
+  box-shadow: 12px 9px 13px #666;
+  margin: 2%;
+  padding: 2%;
+}
 .nav {
   align-self: flex-end;
   justify-self: flex-end;
@@ -740,6 +767,9 @@ input[type="submit"]:hover {
   font: 0.4em/125% "Comfortaa", cursive;
   display: block;
 }
+.small-text {
+  font-size: 0.7em;
+}
 .showAt660 {
   display: none;
 }
@@ -759,6 +789,10 @@ input[type="submit"]:hover {
 }
 .tablemaker tr:nth-child(odd) {
   background: #a3ca7a;
+}
+.w-30 {
+  width: 30%;
+  display: inline-block;
 }
 .w-41 {
   width: 41%;
@@ -908,7 +942,7 @@ input[type="submit"]:hover {
   }
 }
 
-@media (max-width: 753px) {
+@media (max-width: 766px) {
   h1 {
     font: 2em/1 "Righteous", cursive;
     font-weight: bold; /*margin: 20px 0 0;*/
@@ -937,6 +971,9 @@ input[type="submit"]:hover {
   }
   #courses_table {
     font-size: 75%;
+  }  
+  #playerListPanel {
+    display: none;
   }
   .galpics {
     width: 44%;
@@ -946,6 +983,8 @@ input[type="submit"]:hover {
   }
   #playerFormContainer {
     margin: 0;
+    display: block;
+    text-align: center;
   }
 
   .col-full-2 {
@@ -953,9 +992,6 @@ input[type="submit"]:hover {
   }
 }
 @media (max-width: 660px) {
-  #playerListPanel {
-    display: none;
-  }
   #playerFormContainer {
     display: block;
     text-align: center;

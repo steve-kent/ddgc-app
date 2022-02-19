@@ -44,7 +44,7 @@ $allEmails = $ph->GetMembersEmails();
         </div>
         <input id="emailsInput" type="text" value="<?php echo htmlspecialchars($allEmails); ?>">
         <hr>
-        <div id='playersList'>
+        <div class='members-table-container'>
             <?= ShowAllPlayersAndEmails() ?>
         </div>
     </div>

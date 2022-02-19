@@ -36,7 +36,7 @@ WriteHeader();
             <label for="memberRadio">Club Member?</label>
             <input type="radio" name="memberRadio" id="isMember" value="isMember"> Yes 
             <input type="radio" name="memberRadio" id="notMember" value="notMember"> No <br>
-            Date: <input class="memberFields" readonly type="date" id="expireDate" name="expireDate" value="<?php echo date('Y-m-d', strtotime('+1 year')); ?>"><br>
+            Membership Exp: <input class="memberFields" readonly type="date" id="expireDate" name="expireDate" value="<?php echo date('Y-m-d', strtotime('+1 year')); ?>"><br>
             Owed a shirt?: <input class="memberFields disableClicks" id='oweShirt' readonly type="checkbox" name="oweShirt" value="oweShirt"><br>
             PDGA#: <input class="memberFields" readonly type="number" name="pdga" id="pdga" accesskey="p"> <br>
             <input type=submit name="addPlayer" value="Add Player">

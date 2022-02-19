@@ -78,9 +78,9 @@ function ShowOwedShirtsTable()
     
         //Create the table with links
         $ltm =  new LinkedTableMaker();
-        //$ltm->tagId = "playerList";
-        $ltm->headers = ["Member#", "Member Name", "Expires"];
-        $ltm->caption = "All Players<br><span class='smallcap'>Click on a player to view/edit</span><br><input type='text' id='playerSearch' onkeyup='playerSearch()' placeholder='Search for names..'>";
+        $ltm->tagId = "playerList";
+        $ltm->headers = ["Member Name", "Member#", "Expires"];
+        $ltm->caption = "Members owed a shirt<br><span class='smallcap'>Click on a player to view/edit</span><br><input type='text' id='playerSearch' onkeyup='playerSearch()' placeholder='Search for names..'>";
         $ltm->data = $playerList;
         $ltm->rowLink = "edit_player.php?playerId=";
         echo $ltm->GetTable();
@@ -155,10 +155,21 @@ function ShowAllPlayersAndEmails()
     
         //Create the table with links
         $ltm =  new LinkedTableMaker();
-        //$ltm->tagId = "playerList";
+        $ltm->tagId = "playerList";
         $ltm->headers = ["Member Name", "Email"];
-        $ltm->caption = "All Players<br><span class='smallcap'>Click on a player to view/edit</span><br><input type='text' id='playerSearch' onkeyup='playerSearch()' placeholder='Search for names..'>";
+        $ltm->caption = "Current Members<br><span class='smallcap'>Click on a player to view/edit</span><br><input type='text' id='playerSearch' onkeyup='playerSearch()' placeholder='Search for names..'>";
         $ltm->data = $playerList;
         $ltm->rowLink = "edit_player.php?playerId=";
         echo $ltm->GetTable();
+}
+
+function ShowExpiringMembers($expiringMembers)
+{
+    $tm = new TableMaker();
+    $tm->headers = ["Member#", "Name", "Expires", "Email"];
+    $tm->caption =     "Expiring Members";
+    $tm->tagId = "sp";
+    $tm->additionalClasses = "tablesorter";
+    $tm->data = $expiringMembers;
+    echo $tm->GetTable();
 }

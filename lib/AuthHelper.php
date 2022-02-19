@@ -58,3 +58,21 @@ function ShowHeaderButton()
         echo "<a href='login.php'>Admin Login</a>";
     }
 }
+
+function ShowEditCardFooter($editLink)
+{
+    if (!isset($_SESSION)) 
+    {
+        my_session_start();
+    }
+    if (IsAuthenticated())
+    {
+        ?>
+    <hr>
+    <div class="card-footer">
+        <div class="button button-secondary"><a href="<?=$editLink?>">Edit/Delete</a></div>
+    </div>
+    <?php
+    }
+}
+?>
