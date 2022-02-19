@@ -44,10 +44,10 @@ WriteHeader();
 // TODO: Create a list of emails instead of just removing the element.
 if ($expiringMembers)
 {
-    foreach($expiringMembers as &$member)
-    {
-    //    unset($member[3]);
-    }
+    // foreach($expiringMembers as &$member)
+    // {
+    //   unset($member[3]);
+    // }
     ShowExpiringMembers($expiringMembers);
 }
 ?>
