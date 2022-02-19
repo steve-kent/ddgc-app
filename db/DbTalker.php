@@ -787,7 +787,7 @@ class DbTalker
         $conn =  $this->Connect();
         $query = "SELECT *
             FROM announcements
-            ORDER BY AnnouncementUpdated DESC";
+            ORDER BY AnnouncementUpdated DESC, AnnouncementID DESC";
         if ($stmt = $conn->prepare($query)) {
             if ($stmt->execute()) {
                 $result = $stmt->get_result();
