@@ -10,6 +10,7 @@ require_once('staticStuff.php');
 require_once("../lib/PlayerHelper.php");
 
 $expiringMembers = null;
+$expireDate = null;
 $ph = new PlayerHelper();
 
 //set roundID if this is a get request for it
@@ -18,6 +19,9 @@ if (isset($_GET['expiringMonth'])) {
 
     $expiringMembers = $ph->GetExpiringMembers($expireDate);
 }
+
+$expireDate = $expireDate == null ? date("Y-m") : $expireDate;
+
 
 // Set description and title
 $desc = "Expiring Members";
@@ -37,7 +41,7 @@ WriteHeader();
 <div class='centerStuff'>
     <h2>Get Expiring Members</h2>
 <form id="expiringMembers" name="expiringMembers" method="get" action="expiring_members.php">
-    <label for="expiringMonth">Select Month</label><input type="month" name="expiringMonth" required value="<?php echo date("Y-m") ?>">
+    <label for="expiringMonth">Select Month</label><input type="month" name="expiringMonth" required value="<?= $expireDate ?>">
     <input type=submit id="getExpiringMembers" value="Submit">
 </form>
 <?php
