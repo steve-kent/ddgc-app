@@ -11,7 +11,7 @@ class DbTalker
         //require('../upload/priv/env_school.php');
         if (!defined('ROOT_PATH'))
             define('ROOT_PATH', dirname(__DIR__) . '/');
-        require(ROOT_PATH . 'priv/prod.php');
+        require(ROOT_PATH . 'priv/dev.php');
         $conn = new mysqli($dbServer, $dbUsername, $dbPassword, $dbName);
         if (mysqli_connect_errno()) {
             echo $conn->error;
@@ -709,7 +709,7 @@ class DbTalker
         $curTime = date("Y-m-d");
         $conn =  $this->Connect();
         $query = "INSERT INTO events (EventName, EventInformation, LastUpdated, EventTypeID, EventDate, EventLink)
-                  VALUES (?,?,?,?,?)";
+                  VALUES (?,?,?,?,?,?)";
         if ($stmt = $conn->prepare($query)) {
             $stmt->bind_param('ssssss', $eventName, $eventInfo, $curTime, $UPCOMING_EVENT_TYPE_ID, $eventDate, $eventLink);
             if ($stmt->execute()) {
@@ -861,7 +861,6 @@ class DbTalker
         // Update an announcement
         public function UpdateAnnouncement($announcementId, $announcementTitle, $announcementInformation, $announcementLink)
         {
-            echo("IN the place");
             $result = 0;
             $curTime = date("Y-m-d");
             $conn =  $this->Connect();
@@ -876,7 +875,6 @@ class DbTalker
             }
             $stmt->free_result();
             $conn->close();
-            echo('Result....' . $result);
             return $result;
         }
 }
