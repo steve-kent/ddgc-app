@@ -426,6 +426,15 @@ class DbTalker
             if ($stmt->execute()) {
                 $playerId = $player->playerId;
             }
+            else
+            {
+                error_log("ERRPOR on execute!!!");
+                error_log($stmt->error);
+            }
+        }
+        else
+        {
+            error_log("Error in PREPARE");
         }
         $stmt->free_result();
         $conn->close();
