@@ -52,7 +52,7 @@ WriteHeader();
 ?>
 
 <script src="js/jquery.tablesorter.js"></script>
-<script src="js/loadertest.js"></script>
+<script src="js/loadertest2.js"></script>
 
 <?php
 
