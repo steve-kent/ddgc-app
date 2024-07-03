@@ -53,6 +53,38 @@ function ShowShortPadsTable()
     echo $tm->GetTable();
 }
 
+// Creates html table of 2024 War Qualifier handicaps
+function ShowWarLayoutTable()
+{
+    // Get table info
+    $hh = new HandicapHelper();
+    $handiData =  $hh->GetHandicapTableInfo(3);
+    //Create "Members" Table
+    $tm = new TableMaker();
+    $tm->headers = ["Name", "Rd1", "Rd2", "Rd3", "Rd4", "Rd5", "Total", "100% Avg", "80% Avg", "Adj"];
+    $tm->caption =     "2024 War<span class='smallcap'><br>Click column name to sort</span>";
+    $tm->tagId = "wq";
+    $tm->additionalClasses = "tablesorter";
+    $tm->data = $handiData;
+    echo $tm->GetTable();
+}
+
+// Creates html table of Friday Night Shorties handicaps
+function ShowFridayNightShortiesTable()
+{
+    // Get table info
+    $hh = new HandicapHelper();
+    $handiData =  $hh->GetHandicapTableInfo(4);
+    //Create "Members" Table
+    $tm = new TableMaker();
+    $tm->headers = ["Name", "Rd1", "Rd2", "Rd3", "Rd4", "Rd5", "Total", "100% Avg", "80% Avg", "Adj"];
+    $tm->caption =     "Friday Night Shorties<span class='smallcap'><br>Click column name to sort</span>";
+    $tm->tagId = "fns";
+    $tm->additionalClasses = "tablesorter";
+    $tm->data = $handiData;
+    echo $tm->GetTable();
+}
+
 //Creates html table with list of all players as links
 function ShowPlayersTable()
 {

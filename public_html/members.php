@@ -24,6 +24,8 @@ WriteHeader();
         <div class="button" id="memberslist_button">Members List</div>
         <div class="button" id="shortcaps_button">Short Pad Handicaps</div>
         <div class="button" id="longcaps_button">Long Pad Handicaps</div>
+        <div class="button" id="warcaps_button">War Qual Handicaps</div>
+        <div class="button" id="fnscaps_button">Friday Night Shorties</div>
 </div>
 <div class="playing">
 <img src="images/playing.jpg" alt="Player throwing a disc" >
@@ -36,6 +38,12 @@ WriteHeader();
 </div>
 <div id="longcaps" class="members-table">
 <?=ShowLongPadsTable()?>
+</div>
+<div id="warcaps" class="members-table">
+<?=ShowWarLayoutTable()?>
+</div>
+<div id="fnscaps" class="members-table">
+<?=ShowFridayNightShortiesTable()?>
 </div>
 </div>
 

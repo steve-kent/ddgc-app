@@ -1,7 +1,5 @@
 <?php
 
-
-
 class DbTalker
 {
     // Make DB connection with credentials in include file.
@@ -136,6 +134,26 @@ class DbTalker
         $conn->close();
 
         return $courseList;
+    }
+
+    //Returns course by course name
+    public function GetCourseById($courseId)
+    {
+        $course = [];
+        $conn =  $this->Connect();
+        $query = "SELECT * 
+                        FROM courses
+                        WHERE CourseId = ?";
+        if ($stmt = $conn->prepare($query)) {
+            $stmt->bind_param('i', $courseId);
+            if ($stmt->execute()) {
+                $result = $stmt->get_result();
+                $course = $result->fetch_assoc();
+            }
+        }
+        $stmt->free_result();
+        $conn->close();
+        return $course;
     }
 
     //Returns course by course name
@@ -425,15 +443,11 @@ class DbTalker
             );
             if ($stmt->execute()) {
                 $playerId = $player->playerId;
-            }
-            else
-            {
+            } else {
                 error_log("ERRPOR on execute!!!");
                 error_log($stmt->error);
             }
-        }
-        else
-        {
+        } else {
             error_log("Error in PREPARE");
         }
         $stmt->free_result();
@@ -828,62 +842,62 @@ class DbTalker
         return $eventId;
     }
 
-        // Returns Announcement by AnnouncementID
-        public function GetAnnouncementById($announcementId)
-        {
-            $announcement = [];
-            $conn =  $this->Connect();
-            $query = "SELECT * 
+    // Returns Announcement by AnnouncementID
+    public function GetAnnouncementById($announcementId)
+    {
+        $announcement = [];
+        $conn =  $this->Connect();
+        $query = "SELECT * 
                             FROM announcements
                             WHERE AnnouncementID = ?";
-            if ($stmt = $conn->prepare($query)) {
-                $stmt->bind_param('i', $announcementId);
-                if ($stmt->execute()) {
-                    $result = $stmt->get_result();
-                    $announcement = $result->fetch_assoc();
-                }
+        if ($stmt = $conn->prepare($query)) {
+            $stmt->bind_param('i', $announcementId);
+            if ($stmt->execute()) {
+                $result = $stmt->get_result();
+                $announcement = $result->fetch_assoc();
             }
-            $stmt->free_result();
-            $conn->close();
-            return $announcement;
         }
-    
-        // Returns 1 if the delete is successful
-        public function DeleteAnnouncementById($announcementId)
-        {
-            $result = 0;
-            $conn =  $this->Connect();
-            $query = "Delete 
+        $stmt->free_result();
+        $conn->close();
+        return $announcement;
+    }
+
+    // Returns 1 if the delete is successful
+    public function DeleteAnnouncementById($announcementId)
+    {
+        $result = 0;
+        $conn =  $this->Connect();
+        $query = "Delete 
                         FROM announcements
                         WHERE AnnouncementID = ?";
-            if ($stmt = $conn->prepare($query)) {
-                $stmt->bind_param('i', $announcementId);
-                if ($stmt->execute()) {
-                    $result = 1;
-                }
+        if ($stmt = $conn->prepare($query)) {
+            $stmt->bind_param('i', $announcementId);
+            if ($stmt->execute()) {
+                $result = 1;
             }
-            $stmt->close();
-            $conn->close();
-            return $result;
         }
-    
-        // Update an announcement
-        public function UpdateAnnouncement($announcementId, $announcementTitle, $announcementInformation, $announcementLink)
-        {
-            $result = 0;
-            $curTime = date("Y-m-d");
-            $conn =  $this->Connect();
-            $query = "UPDATE announcements 
+        $stmt->close();
+        $conn->close();
+        return $result;
+    }
+
+    // Update an announcement
+    public function UpdateAnnouncement($announcementId, $announcementTitle, $announcementInformation, $announcementLink)
+    {
+        $result = 0;
+        $curTime = date("Y-m-d");
+        $conn =  $this->Connect();
+        $query = "UPDATE announcements 
                           SET AnnouncementTitle = ?, AnnouncementInformation = ?, AnnouncementLink = ?, AnnouncementUpdated = ?
                           WHERE AnnouncementId = ?";
-            if ($stmt = $conn->prepare($query)) {
-                $stmt->bind_param('ssssi', $announcementTitle, $announcementInformation, $announcementLink, $curTime, $announcementId);
-                if ($stmt->execute()) {
-                    $result = 1;
-                }
+        if ($stmt = $conn->prepare($query)) {
+            $stmt->bind_param('ssssi', $announcementTitle, $announcementInformation, $announcementLink, $curTime, $announcementId);
+            if ($stmt->execute()) {
+                $result = 1;
             }
-            $stmt->free_result();
-            $conn->close();
-            return $result;
         }
+        $stmt->free_result();
+        $conn->close();
+        return $result;
+    }
 }

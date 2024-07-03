@@ -855,7 +855,9 @@ input[type="submit"]:hover {
 
 @media (max-width: 1325px) {
   #sp,
-  #lp {
+  #lp,
+  #wq,
+  #fns {
     font-size: 0.8em;
   }
 }
@@ -898,7 +900,9 @@ input[type="submit"]:hover {
   }
   #memberstable,
   #shortcaps,
-  #longcaps {
+  #longcaps,
+  #warcaps,
+  #fnscaps {
     width: 95%;
     display: block;
     margin: 10% auto;
@@ -1108,7 +1112,9 @@ input[type="submit"]:hover {
   }
 
   #sp,
-  #lp {
+  #lp,
+  #wq,
+  #fns  {
     font-size: 0.6em;
   }
   .polaroid {

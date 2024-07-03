@@ -3,31 +3,55 @@ $(document).ready(function(){
 	$("#memberstable").show();
 	$("#longcaps").hide();
 	$("#shortcaps").hide();
+	$("#warcaps").hide();
+	$("#fnscaps").hide();
 	$("#mt").tablesorter();
 	$("#sp").tablesorter();
 	$("#lp").tablesorter();
+	$("#wq").tablesorter();
+	$("#fns").tablesorter();
 	  
 $("#shortcaps_button").click(function(){
     $("#memberstable").hide();
 	$("#longcaps").hide();
 	$("#shortcaps").show();	
+	$("#warcaps").hide();	
+	$("#fnscaps").hide();	
+});
 
+$("#warcaps_button").click(function(){
+    $("#memberstable").hide();
+	$("#longcaps").hide();
+	$("#shortcaps").hide();	
+	
+	$("#fnscaps").hide();
+	$("#warcaps").show();	
+});
 
+$("#fnscaps_button").click(function(){
+    $("#memberstable").hide();
+	$("#longcaps").hide();
+	$("#shortcaps").hide();	
 	
-	
+	$("#fnscaps").show();
+	$("#warcaps").hide();	
 });
 
 $("#memberslist_button").click(function(){
     $("#memberstable").show();
 	$("#longcaps").hide();
 	$("#shortcaps").hide();	
+	$("#warcaps").hide();
+	
+	$("#fnscaps").hide();
 });
 
 $("#longcaps_button").click(function(){
     $("#memberstable").hide();
 	$("#longcaps").show();
 	$("#shortcaps").hide();	
-
+	$("#warcaps").hide();	
+	$("#fnscaps").hide();
 
 });
 });
@@ -37,6 +61,8 @@ function loadDefault()
 	$("#memberstable").show();
 	$("#longcaps").hide();
 	$("#shortcaps").hide();
+	$("#warcaps").hide();	
+	$("#fnscaps").hide();
 }
 
 function getFileDate(url){
